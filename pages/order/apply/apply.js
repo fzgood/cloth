@@ -1,4 +1,3 @@
-// pages/order/detail/detail.js
 Page({
 
   /**

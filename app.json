@@ -3,7 +3,7 @@
     "pages/index/index",
     "pages/user/index/index",
     "pages/order/list/list",
-    "pages/order/detail/detail",
+    "pages/order/apply/apply",
     "pages/user/address/list/list",
     "pages/user/address/edit/edit"
   ],

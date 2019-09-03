@@ -1,4 +1,4 @@
-<view class="order-item" catchtap='bindJumpPage' data-page="/pages/order/detail/detail">
+<view class="order-item" catchtap='bindJumpPage' data-page="/pages/order/apply/apply">
   <view class="flex flex-item-center order-item__hd">
     <view class="order-item__id flex-item">hfjkh891273hkjashf</view>
     <view class="ml20 order-item__status">交易成功</view>

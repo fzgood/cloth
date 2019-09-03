@@ -8,7 +8,7 @@
  */
 const pages = {
   '/pages/order/list/list': [0, 1],
-  '/pages/order/detail/detail': [0, 1],
+  '/pages/order/apply/apply': [0, 1],
   '/pages/user/address/list/list': [0, 1]
 }
 export default pages;
