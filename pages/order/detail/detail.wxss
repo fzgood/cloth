@@ -1,0 +1,97 @@
+@import "../../../styles/order.wxss";
+.order-apply{
+  height: 100vh;
+  background-color:#ededed;
+}
+.order-apply__scroll{
+  height: 100%;
+  position: relative;
+}
+
+.order-apply__scroll::before{
+  content:'';
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height: 300rpx;
+  background-color:var(--mainColor);
+}
+
+/*内容区*/
+.order-apply__wrap{
+  position: relative; 
+}
+
+/*地址*/
+.order-apply__user{
+  padding:20rpx;
+  background-color:#fff;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.order-apply__user--select{
+  color:#999;
+  font-size: 24rpx;
+}
+.order-apply__user--address{
+  color:#666;
+  font-size: 24rpx;
+}
+
+/*支付信息*/
+.order-apply__info{
+  padding:20rpx;
+  background-color:#fff;
+  border-radius: 5px;
+}
+.order-apply__group{
+  margin-bottom:15rpx;
+  padding-bottom:15rpx;
+  border-bottom:1px solid var(--borderColor);
+}
+.order-apply__group:last-child{
+  margin-bottom:0rpx;
+  padding-bottom:0rpx;
+  border-bottom:0;
+}
+.order-apply__group--name{
+  margin-right: 20rpx;
+  line-height: 1.4em;
+}
+.order-apply__group--value textarea{
+  height: 4.2em;
+  line-height: 1.4em;
+}
+.order-apply__group--upload{
+  width:140rpx;
+}
+.order-apply__type{
+  display: inline-block;
+  vertical-align: middle;
+  padding:10rpx 20rpx;
+  color:var(--mainColor);
+  font-size: 24rpx;
+  background-color: #fff;
+  border-radius: 25px;
+  border:1px solid var(--mainColor);
+}
+.order-apply__type--active{
+  color:#fff;
+  background-color:var(--mainColor);
+}
+/*底部*/
+.order-apply__ft view{
+  padding:20rpx;
+}
+.order-apply__fee{
+  color:#464646;
+  background-color:#f4f4f4;
+}
+.order-apply__fee text{
+  color:var(--secondColor);
+}
+.order-apply__jump{
+  color:#fff;
+  background-color:var(--secondColor);
+}

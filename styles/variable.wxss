@@ -1,4 +1,5 @@
 page:root{
   --mainColor: #272370;
+  --secondColor: #ff4747;
   --borderColor: #eee;
 }

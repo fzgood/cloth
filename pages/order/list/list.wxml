@@ -7,7 +7,9 @@
       <swiper-item>
         <scroll-view style="height:{{swiperHeight}}px" scroll-y>
           <view class="order-wrap">
-            <c-order></c-order>
+            <view wx:for="{{10}}" wx:key="{{index}}" class="mb20">
+              <c-order></c-order>
+            </view>
           </view>
         </scroll-view>
       </swiper-item>

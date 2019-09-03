@@ -16,7 +16,7 @@
 }
 
 .order-item__status{
-  color:var(--mainColor);
+  color:var(--secondColor);
 }
 
 .order-item__info{
