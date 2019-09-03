@@ -1,0 +1,4 @@
+page:root{
+  --mainColor: #272370;
+  --borderColor: #eee;
+}

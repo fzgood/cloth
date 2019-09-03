@@ -1,0 +1,11 @@
+page{
+  height: 100vh;
+  background-color:#efeff1;
+}
+.order{
+  height: 100%;
+}
+
+.order-wrap{
+  padding:20rpx;
+}

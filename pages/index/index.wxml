@@ -1,0 +1,1 @@
+<view class="item" bindtap="bindJumpPage" data-page="/pages/order/list/list" >订单列表</view>

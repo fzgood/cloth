@@ -1,0 +1,33 @@
+/* components/c-goods/c-goods.wxss */
+.c-goods__thumbnail{
+  width:140rpx;
+}
+.c-goods__right{
+  width: 140rpx;
+  text-align: right;
+}
+.c-goods__title{
+  font-size: 24rpx;
+  max-height: 2.8em;
+  line-height: 1.4em;
+  overflow: hidden;
+}
+.c-goods__intro{
+  color:#999;
+  font-size: 24rpx;
+}
+.c-goods__fee{
+  font-size: 24rpx;
+}
+.c-goods__fee::before{
+  content:'￥';
+  font-size: 20rpx;
+}
+.c-goods__number{
+  color:#666;
+  font-size: 24rpx;
+}
+.c-goods__number::before{
+  content:'x';
+  font-size: 20rpx;
+}

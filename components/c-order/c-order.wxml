@@ -1,0 +1,13 @@
+<view class="order-item">
+  <view class="flex flex-item-center order-item__hd">
+    <view class="order-item__id flex-item">hfjkh891273hkjashf</view>
+    <view class="ml20 order-item__status">交易成功</view>
+  </view>
+  <c-goods></c-goods>
+  <view class="mt20 text-right order-item__info">共1件商品，合计￥<text class="order-item__fee">9999.00</text></view>
+  <view class="mt20 flex flex-justify-end order-item__operation">
+    <view class="ml20">
+      <button class=" bg-white clearButton order-item__operation--btn order-item__operation--apply" hover-class="order-item__operation--apply--hover">支付</button>
+    </view>
+  </view>
+</view>

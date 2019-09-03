@@ -1,0 +1,16 @@
+<view class="flex flex-column order">
+  <view class="order-hd">
+    <c-tab tabs="{{tabs}}" bind:toggleTab="bindToggleTab"></c-tab>
+  </view>
+  <view class="flex-item" id="order-box">
+    <swiper style="height:{{swiperHeight}}px">
+      <swiper-item>
+        <scroll-view style="height:{{swiperHeight}}px" scroll-y>
+          <view class="order-wrap">
+            <c-order></c-order>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

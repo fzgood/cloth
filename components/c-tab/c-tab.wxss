@@ -1,0 +1,25 @@
+.c-tab{
+  background-color:var(--mainColor);
+}
+.c-tab__item{
+  padding:20rpx;
+  color:#ccc;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+.c-tab__item::after{
+  content:'';
+  margin: 20rpx auto 0 auto;
+  display: block;
+  width:2.2em;
+  height: 8rpx;
+  border-radius: 8px;
+  background-color:transparent;
+  transition: all 0.5s ease;
+}
+.c-tab__item--active{
+  color:#fff;
+}
+.c-tab__item--active::after{
+  background-color:#fff;
+}
