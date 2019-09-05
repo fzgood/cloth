@@ -1,1 +1,16 @@
-/* pages/user/address/edit/edit.wxss */
+.address-group{
+  margin-bottom:15rpx;
+  padding-bottom:15rpx;
+  border-bottom:1px solid var(--borderColor);
+}
+.address-group:last-child{
+  margin-bottom:0;
+  padding-bottom:0;
+  border-bottom:0;
+}
+
+.address-group__name{
+  margin-right: 20rpx;
+  width:4em;
+  color:#666;
+}

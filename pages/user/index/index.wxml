@@ -1,5 +1,57 @@
 <view class="user">
-  <view class="user-hd">
-    <view class=""></view>
+  <view class="pd30 user-hd">
+    <view class="flex flex-item-center user-box">
+      <view class="user-box__avatar mr20">
+        <c-avatar></c-avatar>
+      </view>
+      <view class="flex-item user-info ">
+        <view class=" user-name text-wrap">铁憨憨</view>
+        <view class="mt10 user-intro text-wrap">收拾家鸽还是随随便便</view>
+      </view>
+      <view class="user-edit iconfont icon-write" catchtap="bindJumpPage" data-page="/pages/user/edit/edit"></view>
+    </view>
+    <view class="flex flex-item-center user-statistics text-center">
+      <view class="flex-item user-statistics__item">
+        <view class="user-statistics__item--number">6</view>
+        <view class="user-statistics__item--name">喜欢的内容</view>
+      </view>
+      <view class="flex-item user-statistics__item">
+        <view class="user-statistics__item--number">6</view>
+        <view class="user-statistics__item--name">购买的商品</view>
+      </view>
+      <view class="flex-item user-statistics__item">
+        <view class="user-statistics__item--number">6</view>
+        <view class="user-statistics__item--name">浏览记录</view>
+      </view>
+    </view>
+  </view>
+  <view class="mt30 pd20 bg-white flex flex-item-center user-order text-center">
+    <view class="flex-item user-order__item">
+      <view class="user-order__item--icon iconfont icon-form_light"></view>
+      <view class="user-order__item--name">待付款</view>
+    </view>
+    <view class="flex-item user-order__item">
+      <view class="user-order__item--icon iconfont icon-form_light"></view>
+      <view class="user-order__item--name">待付款</view>
+    </view>
+    <view class="flex-item user-order__item">
+      <view class="user-order__item--icon iconfont icon-form_light"></view>
+      <view class="user-order__item--name">待付款</view>
+    </view>
+    <view class="flex-item user-order__item">
+      <view class="user-order__item--icon iconfont icon-form_light"></view>
+      <view class="user-order__item--name">待付款</view>
+    </view>
+    <view class="flex-item user-order__item">
+      <view class="user-order__item--icon iconfont icon-form_light"></view>
+      <view class="user-order__item--name">待付款</view>
+    </view>
+  </view>
+  <view class="mt30 bg-white user-menu">
+    <view class="flex flex-item-center user-menu__item pd20" wx:for="{{6}}" wx:key="{{index}}">
+      <view class="mr20 user-menu__item--icon iconfont icon-locationfill"></view>
+      <view class="flex-item user-menu__item--name">地址管理</view>
+      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
+    </view>
   </view>
 </view>

@@ -1,0 +1,39 @@
+<view class="flex flex-column carts">
+  <view class="flex-item" id="carts-box">
+    <scroll-view scroll-y style="height:{{scrollHeight}}px;">
+      <view class="carts-wrap">
+        <view class="flex flex-item-center carts-item" wx:for="{{10}}" wx:key="{{index}}">
+          <view class="carts-item__select carts-item__select--active iconfont icon-check"></view>
+          <view class="ml20 mr20 carts-item__thumbnail">
+            <view class="goods-thumbnail">
+              <image mode="aspectFill" src="https://alienware.dell-brand.com/fy200130/images/ALW15M-4501B.jpg"></image>
+            </view>
+          </view>
+          <view class="flex-item carts-item__box">
+            <view class="flex flex-item-center">
+              <view class="flex-item carts-item__title text-wrap">新ALIENWARE 外星人15.6英寸游戏本</view>
+              <view class="ml20 iconfont icon-delete_light"></view>
+            </view>
+            <view class="mt10 carts-item__intro">帅气 方便携带 不卡</view>
+            <view class="mt10 flex flex-item-center">
+              <view class="flex-item carts-item__fee">￥1333</view>
+              <view class="ml20 ">
+                <c-number number="{{index}}"></c-number>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="flex flex-item-center carts-ft">
+    <view class="carts-all">
+      <text class="carts-all__round carts-all__round--active iconfont icon-check"></text>
+      <text class="ml10 carts-all__text">全选</text>
+    </view>
+    <view class="flex-item carts-fee text-right">
+      总计：￥2666.00
+    </view>
+    <button class="ml20 clearButton carts-apply round">结算</button>
+  </view>
+</view>

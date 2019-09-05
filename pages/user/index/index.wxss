@@ -1,1 +1,76 @@
-/* pages/user/index/index.wxss */
+.user-hd{
+  background-color:var(--mainColor);
+}
+.user-box__avatar{
+  width:120rpx;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.user-info{
+  width:0;
+}
+.user-name{
+  color:#fff;
+  font-size: 32rpx;
+}
+.user-intro{
+  color:#eee;
+  font-size: 28rpx;
+}
+.user-edit{
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color:var(--mainColor);
+  font-size: 36rpx;
+  background-color:#fff;
+  border-radius: 50%;
+}
+
+/*统计*/
+.user-statistics{
+  margin-top:20rpx;
+  padding-top:20rpx;
+  border-top:1px solid #5551ae;
+}
+.user-statistics__item{
+  color:#fff;
+}
+.user-statistics__item--number{
+  font-size: 48rpx;
+  font-weight: bold;
+}
+.user-statistics__item--name{
+  font-size: 24rpx;
+}
+/*订单项*/
+.user-order__item--icon{
+  font-size: 64rpx;
+}
+.user-order__item--name{
+  color:#464646;
+  font-size: 24rpx;
+}
+.user-menu__item{
+  position: relative;
+}
+.user-menu__item::after{
+  content:'';
+  position: absolute;
+  bottom:0;
+  right:0;
+  width:calc( 100% - 20rpx );
+  height:1px;
+  background-color:var(--borderColor);
+}
+.user-menu__item--icon{
+  font-size: 36rpx;
+}
+.user-menu__item--name{
+  color:#464646;
+}
+.user-menu__item--arrow{
+  color:#ccc;
+  font-size: 36rpx;
+}

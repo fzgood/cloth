@@ -1,0 +1,48 @@
+scroll-view{
+  height: 100%;
+}
+.user-edit{
+  height: 100vh;
+}
+.user-edit__avatar{
+  position: relative;
+  margin:0 auto;
+  width:120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-edit__avatar::after{
+  content:'更换';
+  position: absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  text-align: center;
+  padding:5rpx 0;
+  color:#fff;
+  font-size: 20rpx;
+  background-color:rgba( 0, 0, 0, 0.5);
+}
+
+.user-edit__group{
+  position: relative;
+  padding:20rpx;
+}
+.user-edit__group::after{
+  content:'';
+  position: absolute;
+  bottom:0;
+  right:0;
+  height: 1px;
+  width: calc( 100% - 20rpx );
+  background-color:var(--borderColor);
+}
+.user-edit__group--name{
+  margin-right: 20rpx;
+  width:4em;
+  line-height: 1.4em;
+}
+.user-edit__group--in textarea{
+  height: 5.6em;
+  line-height: 1.4em;
+}

@@ -5,13 +5,18 @@
     "pages/order/list/list",
     "pages/order/apply/apply",
     "pages/user/address/list/list",
-    "pages/user/address/edit/edit"
+    "pages/user/address/edit/edit",
+    "pages/carts/carts",
+    "pages/user/edit/edit"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#272370",
     "navigationBarTitleText": "霸王轮",
     "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "c-avatar": "/components/c-avatar/c-avatar"
   },
   "sitemapLocation": "sitemap.json"
 }

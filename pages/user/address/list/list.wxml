@@ -1,2 +1,31 @@
-<!--pages/user/address/list/list.wxml-->
-<text>pages/user/address/list/list.wxml</text>
+<view class="flex flex-column address">
+  <view id="address-box" class="flex-item">
+    <scroll-view scroll-y style="height:{{scrollHeight}}px">
+      <view class="address-wrap">
+        <view class="flex flex-item-center address-item" wx:for="{{10}}" wx:key="{{index}}">
+          <view class="flex-item address-item__box">
+            <view class="address-item__text">广东省深圳市福田区莲花山公园</view>
+            <view class="flex flex-itme-center mt10">
+              <view class="address-item__name">铁憨憨</view>
+              <view class="ml20 address-item__phone">13246765751</view>
+            </view>
+          </view>
+          <button 
+            class="ml10 clearButton address-item__button address-item__button--update iconfont icon-writefill" 
+            hover-class='address-item__button--hover'>
+          </button>
+          <button 
+            class="ml10 clearButton address-item__button address-item__button--delete iconfont icon-delete_light" 
+            hover-class='address-item__button--delete--hover'>
+          </button>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="address-ft">
+    <button 
+      class="clearButton mainButton--sx round address-btn" 
+      catchtap="bindJumpPage" 
+      data-page="/pages/user/address/edit/edit">添加新的地址</button>
+  </view>
+</view>

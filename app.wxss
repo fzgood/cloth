@@ -1,15 +1,15 @@
-@import "./styles/theme";
 @import "./styles/iconfont";
+.iconfont{
+  font-size: 28rpx;
+}
+@import "./styles/theme";
 
-page, view, textarea,cover-view {
+page, view, textarea,cover-view,button {
   box-sizing: border-box;
 }
 page{
   width:100vw;
   font-size: 28rpx;
   overflow-x: hidden;
-  background-color:#fff;
-}
-.iconfont{
-  font-size: 28rpx;
+  background-color:#efeff1;
 }

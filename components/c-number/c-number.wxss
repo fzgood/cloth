@@ -1,0 +1,24 @@
+.c-number{
+  color:#666;
+  font-size: 24rpx;
+  border:1px solid var(--borderColor);
+  background-color:#fff;
+  border-radius: 5px;
+}
+.c-number__text{
+  width:2.5em;
+  text-align: center;
+  overflow-x: auto;
+}
+.c-number__operation{
+  padding:5rpx;
+  width: 1.5em;
+  font-size: 28rpx;
+  text-align: center;
+}
+.c-number__operation:first-child{
+  border-right: 1px solid var(--borderColor);
+}
+.c-number__operation:last-child{
+  border-left: 1px solid var(--borderColor);
+}

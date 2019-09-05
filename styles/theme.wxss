@@ -102,25 +102,25 @@ image, video{
   display: block;
   padding:0;
   line-height: 1.4;
-  font-size: 32rpx;
+  font-size: 28rpx;
 }
 .clearButton::after{
   display: none;
 }
 .mainButton,
-.mainButton--sx,{
-  height:80rpx;
-  line-height: 80rpx;
+.mainButton--sx{
+  height:70rpx;
+  line-height: 70rpx;
   text-align: center;
   color:var(--mainColor);
-  font-size: 32rpx;
+  font-size: 28rpx;
   border:1px solid var(--mainColor);
 }
 .mainButton--default{
-  height:80rpx;
-  line-height: 80rpx;
+  height:70rpx;
+  line-height: 70rpx;
   text-align: center;
-  font-size: 32rpx;
+  font-size: 28rpx;
 }
 .mainButton--sx{
   color:#fff;
@@ -132,6 +132,9 @@ image, video{
 }
 .mainButton--sx.button-hover{
   opacity:0.9;
+}
+.round{
+  border-radius: 25px;
 }
 
 /*块居中*/
@@ -179,8 +182,14 @@ textarea{
 
 /*白色背景*/
 .bg-white{background-color:#fff;}
-
+.bg-mainColor{background-color: var(--mainColor);}
 /*文字定位*/
 .text-left{text-align: left;}
 .text-center{text-align: center;}
 .text-right{text-align: right;}
+
+/*文本placeholder样式*/
+.placeholder{
+  color:#808080;
+  font-size: 28rpx;
+}

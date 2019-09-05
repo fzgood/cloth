@@ -1,2 +1,4 @@
 <view class="item" bindtap="bindJumpPage" data-page="/pages/order/list/list" >订单列表</view>
 <view class="item" bindtap="bindJumpPage" data-page="/pages/user/address/list/list" >地址列表</view>
+<view class="item" bindtap="bindJumpPage" data-page="/pages/carts/carts" >购物车</view>
+<view class="item" bindtap="bindJumpPage" data-page="/pages/user/index/index" >会员中心</view>

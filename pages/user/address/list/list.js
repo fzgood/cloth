@@ -1,11 +1,11 @@
-// pages/user/address/list/list.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    scrollHeight: 0
   },
 
   /**
@@ -19,7 +19,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.createSelectorQuery().select('#address-box').fields({
+      size: true,
+    }, res => {
+      this.setData({
+        scrollHeight: res.height
+      })
+    }).exec()
   },
 
   /**
@@ -62,5 +68,9 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  bindJumpPage(e){
+    const page = e.currentTarget.dataset.page;
+    app.jumpPage(page);
   }
 })

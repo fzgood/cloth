@@ -1,1 +1,53 @@
-/* pages/user/address/list/list.wxss */
+
+.address{
+  height: 100vh;
+}
+.address-wrap{
+  padding:20rpx;
+}
+.address-item{
+  margin-bottom:20rpx;
+  padding:20rpx;
+  background-color:#fff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow:0px 2px 4px #dedede;
+}
+.address-item:last-child{
+  margin-bottom:0;
+}
+.address-item__name{
+  color:#666;
+  font-size: 24rpx;
+}
+.address-item__phone{
+  color:#999;
+  font-size: 24rpx;
+}
+.address-item__button{
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  border-radius: 50%;
+  background-color:#fff;
+  color:var(--mainColor);
+  border:1px solid var(--mainColor)
+}
+.address-item__button--delete{
+  color:var(--secondColor);
+  background-color:#fff;
+  border-color: var(--secondColor)
+}
+.address-item__button--hover{
+  color:#fff;
+  background-color: var(--mainColor);
+}
+.address-item__button--delete--hover{
+  color:#fff;
+  background-color:var(--secondColor);
+}
+.address-ft{
+  padding:20rpx;
+  background-color:#fff;
+}

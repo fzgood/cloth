@@ -4,6 +4,11 @@ import jumpPage from './utils/router.js';
 import { RESPONSE_CODE } from './config/config.js';
 import feedback from './utils/feedback.js';
 
+import GlobalConfig from './config/upload'
+const globalConfig = new GlobalConfig()
+globalConfig.init()
+
+
 Promise.prototype.finally = callback => {
   return this.then(
     value => this.constructor.resolve(callback()).then(() => value),
@@ -15,6 +20,7 @@ App({
   globalData: {
     userInfo: null,
     RESPONSE_CODE,
+    config: globalConfig
   },
   onLaunch: function () {
   },
