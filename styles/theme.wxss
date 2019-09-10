@@ -95,7 +95,12 @@ image, video{
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
+.many-wrap{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
 
 /*按钮*/
 .clearButton{
@@ -109,26 +114,26 @@ image, video{
 }
 .mainButton,
 .mainButton--sx{
-  height:70rpx;
-  line-height: 70rpx;
+  height:80rpx;
+  line-height: 80rpx;
   text-align: center;
-  color:var(--mainColor);
+  color:var(--secondColor);
   font-size: 28rpx;
-  border:1px solid var(--mainColor);
+  border:1px solid var(--secondColor);
 }
 .mainButton--default{
-  height:70rpx;
-  line-height: 70rpx;
+  height:80rpx;
+  line-height: 80rpx;
   text-align: center;
   font-size: 28rpx;
 }
 .mainButton--sx{
   color:#fff;
-  background-color:var(--mainColor);
+  background-color:var(--secondColor);
 }
 .mainButton.button-hover{
   color:#fff;
-  background-color:var(--mainColor);
+  background-color:var(--secondColor);
 }
 .mainButton--sx.button-hover{
   opacity:0.9;
@@ -180,8 +185,9 @@ textarea{
   color:#808080;
 }
 
-/*白色背景*/
+/*背景*/
 .bg-white{background-color:#fff;}
+.bg-black{background-color:#000;}
 .bg-mainColor{background-color: var(--mainColor);}
 /*文字定位*/
 .text-left{text-align: left;}
@@ -192,4 +198,9 @@ textarea{
 .placeholder{
   color:#808080;
   font-size: 28rpx;
+}
+/*行内块*/
+.inline-block{
+  display: inline-block;
+  vertical-align: middle;
 }

@@ -1,4 +1,4 @@
-<view class="order-item" catchtap='bindJumpPage' data-page="/pages/order/apply/apply">
+<view class="order-item" catchtap='bindJumpPage' data-page="/pages/order/detail/detail">
   <view class="flex flex-item-center order-item__hd">
     <view class="order-item__id flex-item">hfjkh891273hkjashf</view>
     <view class="ml20 order-item__status">交易成功</view>
@@ -7,7 +7,7 @@
   <view class="mt20 text-right order-item__info">共1件商品，合计￥<text class="order-item__fee">9999.00</text></view>
   <view class="mt20 flex flex-justify-end order-item__operation">
     <view class="ml20">
-      <button class=" bg-white clearButton order-item__operation--btn order-item__operation--apply" hover-class="order-item__operation--apply--hover">支付</button>
+      <button class=" bg-white clearButton order-item__operation--btn order-item__operation--apply" hover-class="order-item__operation--apply--hover" catchtap='bindJumpPage' data-page="/pages/order/apply/apply">支付</button>
     </view>
   </view>
 </view>

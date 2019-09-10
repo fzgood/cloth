@@ -1,0 +1,63 @@
+.order-detail__hd{
+  color:#fff;
+  background-color:var(--mainColor);
+}
+.order-detail__status--icon{
+  line-height: 1;
+  font-size: 48rpx;
+}
+.order-detail__status--text{
+  font-size: 32rpx;
+}
+.order-detail__hd--date{
+  font-size: 24rpx;
+}
+.order-detail__user--name,
+.order-detail__user--phone{
+  color:#0e0e0e;
+}
+.order-detail__user--address{
+  color:#6a6a6a;
+  font-size: 24rpx;
+}
+.order-detail__section--title{
+  color:#0e0e0e;
+  font-size: 32rpx;
+}
+.order-goods__item{
+  margin-bottom:20rpx;
+}
+.order-goods__item:last-child{
+  margin-bottom:0;
+}
+.order-detail__group{
+  margin-bottom:10rpx;
+}
+.order-detail__group--name{
+  color:#5a5a5a;
+}
+.order-detail__fee{
+  color:var(--secondColor);
+}
+.order-section__ft{
+  margin-top:20rpx;
+  padding-top:20rpx;
+  text-align: right;
+  font-size: 32rpx;
+  border-top:1px solid var(--borderColor);
+}
+.order-detail__button{
+  padding:10rpx 20rpx;
+  font-size: 24rpx;
+  color:#606060;
+  background-color: #fff;
+  border:1px solid var(--borderColor);
+}
+.order-detail__button--apply{
+  color:var(--mainColor);
+  border-color:var(--mainColor);
+}
+.order-detail__button--apply--hover{
+  color:#fff;
+  background-color:var(--mainColor);
+}

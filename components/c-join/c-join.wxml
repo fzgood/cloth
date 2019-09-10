@@ -1,0 +1,26 @@
+<view class="c-join" wx:if="{{showMask}}">
+  <view class="c-join__mask"></view>
+  <view class="c-join__box c-product flex flex-column {{showBox?'c-product--in':''}}">
+    <view class="c-product__close iconfont icon-close_light" catchtap='hide'></view>
+    <view class="flex flex-item-end c-product-hd">
+      <view class="c-product-thumbnail mr20">
+        <view class="goods-thumbnail">
+          <image mode="aspectFill" src="https://alienware.dell-brand.com/fy200130/images/ALW15M-4501B.jpg"></image>
+        </view>
+      </view>
+      <view class="c-product-hd__box mt10">
+        <view class="c-product-fee">499.00</view>
+        <view class="c-product-id">编号:5188756464</view>
+      </view>
+    </view>
+    <view class="flex-item c-product-bd ">
+      <view class="mt30 flex flex-item-center  c-product-section">
+        <view class="flex-item c-product-section__title">数量</view>
+        <c-number size="lg"></c-number>
+      </view>
+    </view>
+    <view class="c-product-ft">
+      <button class="clearButton mainButton--sx round c-product-confirm">{{buttonText}}</button>
+    </view>
+  </view>
+</view>

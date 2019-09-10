@@ -7,16 +7,51 @@
     "pages/user/address/list/list",
     "pages/user/address/edit/edit",
     "pages/carts/carts",
-    "pages/user/edit/edit"
+    "pages/user/edit/edit",
+    "pages/order/detail/detail",
+    "pages/product/list/list",
+    "pages/product/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#272370",
-    "navigationBarTitleText": "霸王轮",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "霸王轮商城",
     "navigationBarTextStyle": "white"
   },
   "usingComponents": {
-    "c-avatar": "/components/c-avatar/c-avatar"
+    "c-avatar": "/components/c-avatar/c-avatar",
+    "c-load": "/components/c-load/c-load"
+  },
+  "tabBar": {
+    "color": "#fff",
+    "selectedColor": "#eda000",
+    "backgroundColor": "#000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home-active.png"
+      },
+      {
+        "pagePath": "pages/carts/carts",
+        "text": "购物车",
+        "iconPath": "/images/cart.png",
+        "selectedIconPath": "/images/cart-active.png"
+      },
+      {
+        "pagePath": "pages/order/list/list",
+        "text": "订单中心",
+        "iconPath": "/images/calendar.png",
+        "selectedIconPath": "/images/calendar-active.png"
+      },
+      {
+        "pagePath": "pages/user/index/index",
+        "text": "个人中心",
+        "iconPath": "/images/my.png",
+        "selectedIconPath": "/images/my-active.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

@@ -32,7 +32,7 @@
 .user-statistics{
   margin-top:20rpx;
   padding-top:20rpx;
-  border-top:1px solid #5551ae;
+  border-top:1px solid #333;
 }
 .user-statistics__item{
   color:#fff;
@@ -46,13 +46,15 @@
 }
 /*订单项*/
 .user-order__item--icon{
-  font-size: 64rpx;
+  color:#464646;
+  font-size: 54rpx;
 }
 .user-order__item--name{
-  color:#464646;
-  font-size: 24rpx;
+  color:#666;
+  font-size: 20rpx;
 }
 .user-menu__item{
+  padding:30rpx 20rpx;
   position: relative;
 }
 .user-menu__item::after{

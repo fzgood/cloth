@@ -1,4 +1,4 @@
-<view class="flex flex-item-center c-tab">
+<view class="flex flex-item-center c-tab ">
   <view class="flex-item c-tab__item {{index == tabIndex ?'c-tab__item--active':''}}" 
     wx:for="{{tabs}}" 
     wx:key="{{index}}"

@@ -1,6 +1,21 @@
 .carts{
   height: 100vh;
 }
+.carts-box{
+  position: relative;
+}
+.carts-box__bg{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 300rpx;
+  background-color:var(--mainColor);
+}
+.carts-number{
+  color:#fff;
+  font-size: 24rpx;
+}
 .carts-wrap{
   padding:20rpx;
 }

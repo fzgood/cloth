@@ -1,0 +1,38 @@
+<view class="product">
+  <view class="product-item" >
+    <view class="pd30 flex-col__12 product-title">霸王轮塑钢门窗滑轮</view>
+    <view class="flex flex-item-center flex-wrap pd30">
+      <view class="product-item__thumbnail mr30">
+        <view class="goods-thumbnail">
+          <image 
+            mode="aspectFill" 
+            src="https://alienware.dell-brand.com/fy200130/images/ALW15M-4501B.jpg"></image>
+        </view>
+      </view>
+      <view class="flex-item">
+        <view class="product-item__params">门滑轮 14#</view>
+        <view class="mt20 flex flex-item-center product-item__type">
+          <view class="mr20">
+            <image class="mr10" mode="widthFix" src="/images/icon1.png"></image>
+            <text class="inline-block">经三万次检测</text>
+          </view>
+          <view class="mr20">
+            <image class="mr10" mode="widthFix" src="/images/icon2.png"></image>
+            <text class="inline-block">国家发明专利</text>
+          </view>
+        </view>
+        <view class="mt10 product-item__min">最低购买100件</view>
+        <view class="mt20 flex flex-item-center product-item__info">
+          <view class="flex-item product-item__price ">￥26.00</view>
+          <button class="clearButton product-item__join" hover-class="product-item__join--hover" catchtap='bindOpen'>
+            加入订单
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="mt30 pd30 product-detail">
+    <image mode="widthFix" src="/images/detail.jpg"></image>
+  </view>
+  <c-join id="joinCart"></c-join>
+</view>

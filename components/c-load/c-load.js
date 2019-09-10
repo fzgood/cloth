@@ -1,23 +1,17 @@
-// components/c-avatar/c-avatar.js
+// components/c-load/c-load.js
 Component({
-  options: {
-    addGlobalClass: true
-  },
   /**
    * 组件的属性列表
    */
   properties: {
-    url:{
-      type: String,
-      value: ''
-    }
+
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-
+    initIng: false
   },
 
   /**
@@ -25,5 +19,10 @@ Component({
    */
   methods: {
 
+  },
+  ready(){
+    this.setData({
+      initIng: true
+    })
   }
 })

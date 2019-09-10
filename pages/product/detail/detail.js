@@ -1,13 +1,11 @@
-const app = getApp();
+// pages/product/detail/detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabs: ['全部订单','已付款','未付款','已退款'],
-    tabIndex: 0,
-    swiperHeight:0
+
   },
 
   /**
@@ -21,13 +19,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.createSelectorQuery().select('#order-box').fields({
-      size: true,
-    }, res=> {
-      this.setData({
-        swiperHeight: res.height
-      })
-    }).exec()
+    this.joinCart = this.selectComponent('#joinCart')
   },
 
   /**
@@ -71,14 +63,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  bindToggleTab(e){
-    this.setData({
-      tabIndex: e.detail
-    })
-  },
-  bindChange(e){
-    this.setData({
-      tabIndex: e.detail.current
-    })
+  bindOpen() {
+    this.joinCart.show();
   }
 })

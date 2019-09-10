@@ -4,12 +4,16 @@
 }
 @import "./styles/theme";
 
-page, view, textarea,cover-view,button {
+page, view, textarea,cover-view,button,image {
   box-sizing: border-box;
 }
 page{
   width:100vw;
   font-size: 28rpx;
   overflow-x: hidden;
-  background-color:#efeff1;
+  background-color:#f2f2f2;
+}
+
+image{
+  width: 100%;
 }

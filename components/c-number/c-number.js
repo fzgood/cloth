@@ -9,7 +9,11 @@ Component({
   properties: {
     number:{
       type: Number,
-      default: 1
+      value: 1
+    },
+    size:{
+      type:String,
+      value: 'md'
     }
   },
   ready(){

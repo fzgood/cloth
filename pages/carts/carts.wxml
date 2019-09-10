@@ -1,7 +1,9 @@
 <view class="flex flex-column carts">
-  <view class="flex-item" id="carts-box">
+  <view class="flex-item carts-box" id="carts-box">
+    <view class="carts-box__bg"></view>
     <scroll-view scroll-y style="height:{{scrollHeight}}px;">
       <view class="carts-wrap">
+        <view class="mb20 carts-number">已添加10件商品</view>
         <view class="flex flex-item-center carts-item" wx:for="{{10}}" wx:key="{{index}}">
           <view class="carts-item__select carts-item__select--active iconfont icon-check"></view>
           <view class="ml20 mr20 carts-item__thumbnail">

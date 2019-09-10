@@ -1,3 +1,4 @@
+// pages/product/list/list.js
 const app = getApp();
 Page({
 
@@ -5,29 +6,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabs: ['全部订单','已付款','未付款','已退款'],
-    tabIndex: 0,
-    swiperHeight:0
+    scrollHeight: 0,
+    types: ['高档','中档','低档'],
+    typesIndex: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.createSelectorQuery().select('#order-box').fields({
+    wx.createSelectorQuery().select('#product-box').fields({
       size: true,
-    }, res=> {
+    }, res => {
       this.setData({
-        swiperHeight: res.height
+        scrollHeight: res.height
       })
     }).exec()
+    this.joinCart = this.selectComponent('#joinCart')
   },
 
   /**
@@ -71,14 +72,11 @@ Page({
   onShareAppMessage: function () {
 
   },
-  bindToggleTab(e){
-    this.setData({
-      tabIndex: e.detail
-    })
+  bindJumpPage(e){
+    const page = e.currentTarget.dataset.page;
+    app.jumpPage(page);
   },
-  bindChange(e){
-    this.setData({
-      tabIndex: e.detail.current
-    })
+  bindOpen(){
+    this.joinCart.show();
   }
 })

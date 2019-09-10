@@ -1,5 +1,5 @@
 <view class="user">
-  <view class="pd30 user-hd">
+  <view class="pd30 user-hd ">
     <view class="flex flex-item-center user-box">
       <view class="user-box__avatar mr20">
         <c-avatar></c-avatar>
@@ -27,30 +27,55 @@
   </view>
   <view class="mt30 pd20 bg-white flex flex-item-center user-order text-center">
     <view class="flex-item user-order__item">
-      <view class="user-order__item--icon iconfont icon-form_light"></view>
+      <view class="user-order__item--icon iconfont icon-calendar"></view>
+      <view class="user-order__item--name">全部订单</view>
+    </view>
+    <view class="flex-item user-order__item">
+      <view class="user-order__item--icon iconfont icon-pay"></view>
       <view class="user-order__item--name">待付款</view>
     </view>
     <view class="flex-item user-order__item">
-      <view class="user-order__item--icon iconfont icon-form_light"></view>
-      <view class="user-order__item--name">待付款</view>
+      <view class="user-order__item--icon iconfont icon-goods"></view>
+      <view class="user-order__item--name">待发货</view>
     </view>
     <view class="flex-item user-order__item">
-      <view class="user-order__item--icon iconfont icon-form_light"></view>
-      <view class="user-order__item--name">待付款</view>
+      <view class="user-order__item--icon iconfont icon-deliver"></view>
+      <view class="user-order__item--name">待收货</view>
     </view>
     <view class="flex-item user-order__item">
-      <view class="user-order__item--icon iconfont icon-form_light"></view>
-      <view class="user-order__item--name">待付款</view>
-    </view>
-    <view class="flex-item user-order__item">
-      <view class="user-order__item--icon iconfont icon-form_light"></view>
-      <view class="user-order__item--name">待付款</view>
+      <view class="user-order__item--icon iconfont icon-service"></view>
+      <view class="user-order__item--name">售后</view>
     </view>
   </view>
   <view class="mt30 bg-white user-menu">
-    <view class="flex flex-item-center user-menu__item pd20" wx:for="{{6}}" wx:key="{{index}}">
-      <view class="mr20 user-menu__item--icon iconfont icon-locationfill"></view>
+    <view class="flex flex-item-center user-menu__item" catchtap='bindJumpPage' data-page="/pages/user/address/list/list">
+      <view class="mr20 user-menu__item--icon iconfont icon-location"></view>
       <view class="flex-item user-menu__item--name">地址管理</view>
+      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
+    </view>
+    <view class="flex flex-item-center user-menu__item">
+      <view class="mr20 user-menu__item--icon iconfont icon-edit"></view>
+      <view class="flex-item user-menu__item--name">产品订制</view>
+      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
+    </view>
+    <view class="flex flex-item-center user-menu__item">
+      <view class="mr20 user-menu__item--icon iconfont icon-cart_light"></view>
+      <view class="flex-item user-menu__item--name">购物车</view>
+      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
+    </view>
+    <view class="flex flex-item-center user-menu__item">
+      <view class="mr20 user-menu__item--icon iconfont icon-refund"></view>
+      <view class="flex-item user-menu__item--name">退货信息</view>
+      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
+    </view>
+    <view class="flex flex-item-center user-menu__item">
+      <view class="mr20 user-menu__item--icon iconfont icon-service"></view>
+      <view class="flex-item user-menu__item--name">联系客服</view>
+      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
+    </view>
+    <view class="flex flex-item-center user-menu__item">
+      <view class="mr20 user-menu__item--icon iconfont icon-info"></view>
+      <view class="flex-item user-menu__item--name">系统信息</view>
       <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
     </view>
   </view>

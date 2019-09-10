@@ -1,0 +1,14 @@
+<view class="c-load">
+  <view class="loader loading11">
+    <view class="line line1"></view>
+    <view class="line line2"></view>
+    <view class="line line3"></view>
+    <view class="line line4"></view>
+    <view class="line line5"></view>
+    <view class="line line6"></view>
+    <view class="line line7"></view>
+    <view class="line line8"></view>
+    <view class="line line9"></view>
+    <view class="line line10"></view>
+  </view>
+</view>

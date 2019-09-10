@@ -15,7 +15,7 @@
   left:0;
   width:100%;
   height: 300rpx;
-  background-color:var(--mainColor);
+  background-color:#000;
 }
 
 /*内容区*/
@@ -60,7 +60,7 @@
   line-height: 1.4em;
 }
 .order-apply__group--value textarea{
-  height: 4.2em;
+  height: 5.6em;
   line-height: 1.4em;
 }
 .order-apply__group--upload{

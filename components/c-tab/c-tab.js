@@ -10,6 +10,10 @@ Component({
     tabs:{
       type: Array,
       value: []
+    },
+    tabIndex:{
+      type:Number,
+      value: 0
     }
   },
 
@@ -17,7 +21,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    tabIndex: 0
   },
 
   /**
@@ -27,11 +30,7 @@ Component({
     bindToggleTab(e){
       const index = e.currentTarget.dataset.index;
       if(this.data.tabIndex != index){
-        this.setData({
-          tabIndex: e.currentTarget.dataset.index
-        }, ()=>{
-          this.triggerEvent('toggleTab', index)
-        })
+        this.triggerEvent('toggleTab', index)
       }
     }
   }
