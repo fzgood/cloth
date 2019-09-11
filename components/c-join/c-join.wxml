@@ -1,5 +1,5 @@
 <view class="c-join" wx:if="{{showMask}}">
-  <view class="c-join__mask"></view>
+  <view class="c-join__mask" catchtap='hide'></view>
   <view class="c-join__box c-product flex flex-column {{showBox?'c-product--in':''}}">
     <view class="c-product__close iconfont icon-close_light" catchtap='hide'></view>
     <view class="flex flex-item-end c-product-hd">

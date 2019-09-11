@@ -70,15 +70,15 @@
   display: inline-block;
   vertical-align: middle;
   padding:10rpx 20rpx;
-  color:var(--mainColor);
+  color:var(--assist1);
   font-size: 24rpx;
   background-color: #fff;
   border-radius: 25px;
-  border:1px solid var(--mainColor);
+  border:1px solid var(--assist1);
 }
 .order-apply__type--active{
   color:#fff;
-  background-color:var(--mainColor);
+  background-color:var(--assist1);
 }
 /*底部*/
 .order-apply__ft view{

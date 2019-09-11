@@ -1,0 +1,36 @@
+<view class="custom">
+  <view class="pd30 bg-white custom-box">
+    <form >
+      <view class="flex flex-item-center custom-group">
+        <input class="flex-item custom-group__input" placeholder='公司名称'></input>
+        <view class="custom-group__close iconfont icon-close_light"></view>
+      </view>
+      <view class="flex flex-item-center custom-group">
+        <input class="flex-item custom-group__input" placeholder='姓名'></input>
+        <view class="custom-group__close iconfont icon-close_light"></view>
+      </view>
+      <view class="flex flex-item-center custom-group">
+        <input class="flex-item custom-group__input" placeholder='职务'></input>
+        <view class="custom-group__close iconfont icon-close_light"></view>
+      </view>
+      <view class="flex flex-item-center custom-group">
+        <input class="flex-item custom-group__input" placeholder='电话'></input>
+        <view class="custom-group__close iconfont icon-close_light"></view>
+      </view>
+      <view class="custom-group">
+        <textarea class="custom-group__textarea" placeholder='需求说明'></textarea>
+        <view class="custom-group__ft flex flex-item-end">
+          <view class="custom-group__upload">
+            <c-upload></c-upload>
+          </view>
+          <view class="flex-item text-right custom-group__number">0/200</view>
+        </view>
+      </view>
+      <button 
+        class="mt30 clearButton mainButton--default round custom-group__btn" 
+        hover-class="custom-group__btn--hover">
+        提交需求
+      </button>
+    </form>
+  </view>
+</view>

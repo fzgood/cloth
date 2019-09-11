@@ -1,4 +1,4 @@
-const app = getApp();
+// components/c-apply/c-apply.js
 Component({
   options: {
     addGlobalClass: true
@@ -21,9 +21,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    bindJumpPage(e) {
-      const page = e.currentTarget.dataset.page;
-      app.jumpPage(page);
-    }
+
   }
 })

@@ -95,7 +95,7 @@
 }
 
 .flex-pd-lr{
-  margin-right:-15rpx;
+  margin-right:-20rpx;
 }
 .flex-pd-lr>.flex-col__1,
 .flex-pd-lr>.flex-col__2,
@@ -108,4 +108,4 @@
 .flex-pd-lr>.flex-col__9,
 .flex-pd-lr>.flex-col__10,
 .flex-pd-lr>.flex-col__11,
-.flex-pd-lr>.flex-col__12{padding-right:15rpx;}
+.flex-pd-lr>.flex-col__12{padding-right:20rpx;}

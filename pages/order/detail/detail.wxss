@@ -9,6 +9,9 @@
 .order-detail__status--text{
   font-size: 32rpx;
 }
+.order-detail__id{
+  font-size: 24rpx;
+}
 .order-detail__hd--date{
   font-size: 24rpx;
 }
@@ -19,6 +22,10 @@
 .order-detail__user--address{
   color:#6a6a6a;
   font-size: 24rpx;
+}
+.order-detail__user--icon{
+  color:#999;
+  font-size: 48rpx;
 }
 .order-detail__section--title{
   color:#0e0e0e;
@@ -54,10 +61,15 @@
   border:1px solid var(--borderColor);
 }
 .order-detail__button--apply{
-  color:var(--mainColor);
-  border-color:var(--mainColor);
+  color:var(--assist1);
+  border-color:var(--assist1);
 }
 .order-detail__button--apply--hover{
   color:#fff;
-  background-color:var(--mainColor);
+  background-color:var(--assist1);
+}
+.order-detail__textarea{
+  font-size: 28rpx;
+  height: 4.2em;
+  line-height: 1.4;
 }

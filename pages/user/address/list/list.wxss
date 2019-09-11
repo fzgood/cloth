@@ -31,8 +31,8 @@
   font-size: 24rpx;
   border-radius: 50%;
   background-color:#fff;
-  color:var(--mainColor);
-  border:1px solid var(--mainColor)
+  color:var(--assist1);
+  border:1px solid var(--assist1)
 }
 .address-item__button--delete{
   color:var(--secondColor);
@@ -41,7 +41,7 @@
 }
 .address-item__button--hover{
   color:#fff;
-  background-color: var(--mainColor);
+  background-color: var(--assist1);
 }
 .address-item__button--delete--hover{
   color:#fff;

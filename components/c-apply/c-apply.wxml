@@ -1,0 +1,9 @@
+<view class="c-apply">
+  <view class="c-apply__mask"></view>
+  <view class="pd30 bg-white c-apply__box">
+    <view class="c-apply__hd">
+      
+    </view>
+    <view class="custom-group__close iconfont icon-close_light"></view>
+  </view>
+</view>

@@ -117,9 +117,9 @@ image, video{
   height:80rpx;
   line-height: 80rpx;
   text-align: center;
-  color:var(--secondColor);
+  color:var(--assist1);
   font-size: 28rpx;
-  border:1px solid var(--secondColor);
+  border:1px solid var(--assist1);
 }
 .mainButton--default{
   height:80rpx;
@@ -129,11 +129,11 @@ image, video{
 }
 .mainButton--sx{
   color:#fff;
-  background-color:var(--secondColor);
+  background-color:var(--assist1);
 }
 .mainButton.button-hover{
   color:#fff;
-  background-color:var(--secondColor);
+  background-color:var(--assist1);
 }
 .mainButton--sx.button-hover{
   opacity:0.9;

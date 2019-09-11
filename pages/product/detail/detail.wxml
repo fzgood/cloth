@@ -6,7 +6,7 @@
         <view class="goods-thumbnail">
           <image 
             mode="aspectFill" 
-            src="https://alienware.dell-brand.com/fy200130/images/ALW15M-4501B.jpg"></image>
+            src="/images/product.jpg"></image>
         </view>
       </view>
       <view class="flex-item">

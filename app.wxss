@@ -11,9 +11,114 @@ page{
   width:100vw;
   font-size: 28rpx;
   overflow-x: hidden;
-  background-color:#f2f2f2;
+  background-color:#f7f7f7;
 }
 
 image{
   width: 100%;
+}
+
+/*公共表单*/
+.custom-group{
+  position: relative;
+  margin-bottom: 30rpx;
+  padding:20rpx 30rpx;
+  line-height: 1.4em;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color:#f2f2f2;
+}
+.custom-group:last-child{
+  margin-bottom:0;
+}
+.custom-group__placeholder{
+  color:#999999;
+}
+.custom-group__icon{
+  font-size: 32rpx;
+}
+.custom-group__close{
+  width:36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  color:#fff;
+  font-size: 24rpx;
+  background-color:#d4d4d4;
+  border-radius: 50%;
+}
+.custom-group__textarea{
+  height: 5.2em;
+  line-height: 1.4em;
+}
+/*叉叉*/
+.close{
+  width:36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  color:#fff;
+  font-size: 24rpx;
+  background-color:#d4d4d4;
+  border-radius: 50%;
+}
+/*产品类型按钮*/
+.product-btn{
+  padding:10rpx 40rpx;
+  color:#000000;
+  font-size: 28rpx;
+  background-color:#ebebeb;
+  border:1px solid #ebebeb;
+}
+.product-btn--active{
+  color:var(--assist1);
+  background-color:#fffef7;
+  border-color:var(--assist1);
+}
+.product-btn--hover{
+  color:var(--assist1);
+}
+/*底部支付*/
+.c-apply-ft{
+  background-color:#fff;
+  box-shadow: 0px -3px 20px #dedede;
+}
+.c-apply-ft__left{
+  padding:0 70rpx;
+}
+.c-apply-ft__left text{
+  color:var(--secondColor);
+}
+.c-apply-ft__button{
+  padding:30rpx 70rpx;
+  color:#fff;
+  background-color:var(--assist1);
+}
+
+/*打钩选中*/
+.hook-select{
+  position: relative;
+  border-radius: 50%;
+  width:40rpx;
+  height:40rpx;
+  text-align: center;
+  font-size: 24rpx;
+  border:1px solid #999999;
+  background-color:#fff;
+  transform:rotate(-45deg);
+}
+.hook-select--active{
+  border-color: var(--assist1);
+  background-color: var(--assist1);
+}
+.hook-select::after{
+  content:'';
+  position: absolute;
+  top:50%;
+  left:50%;
+  height: 8rpx;
+  width: 16rpx;
+  border-left:2px solid #fff;
+  border-bottom:2px solid #fff;
+  transform: translate(-50%, -50%) ;
 }

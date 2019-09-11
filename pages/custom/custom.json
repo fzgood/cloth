@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "c-upload": "/components/c-upload/c-upload"    
+  }
+}

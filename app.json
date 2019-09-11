@@ -10,44 +10,47 @@
     "pages/user/edit/edit",
     "pages/order/detail/detail",
     "pages/product/list/list",
-    "pages/product/detail/detail"
+    "pages/product/detail/detail",
+    "pages/custom/custom",
+    "pages/order/quickly/quickly"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#000",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "霸王轮商城",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "usingComponents": {
     "c-avatar": "/components/c-avatar/c-avatar",
     "c-load": "/components/c-load/c-load"
   },
   "tabBar": {
-    "color": "#fff",
+    "color": "#808388",
     "selectedColor": "#eda000",
-    "backgroundColor": "#000",
+    "backgroundColor": "#f7f7f7",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "/images/home.png",
-        "selectedIconPath": "/images/home-active.png"
+        "text": "产品库",
+        "iconPath": "/images/product.png",
+        "selectedIconPath": "/images/product-active.png"
       },
       {
-        "pagePath": "pages/carts/carts",
-        "text": "购物车",
-        "iconPath": "/images/cart.png",
-        "selectedIconPath": "/images/cart-active.png"
+        "pagePath": "pages/order/quickly/quickly",
+        "text": "快速下单",
+        "iconPath": "/images/quickly.png",
+        "selectedIconPath": "/images/quickly-active.png"
       },
       {
-        "pagePath": "pages/order/list/list",
-        "text": "订单中心",
-        "iconPath": "/images/calendar.png",
-        "selectedIconPath": "/images/calendar-active.png"
+        "pagePath": "pages/custom/custom",
+        "text": "定制需求",
+        "iconPath": "/images/custom.png",
+        "selectedIconPath": "/images/custom-active.png"
       },
       {
         "pagePath": "pages/user/index/index",
-        "text": "个人中心",
+        "text": "我的",
         "iconPath": "/images/my.png",
         "selectedIconPath": "/images/my-active.png"
       }

@@ -1,6 +1,7 @@
 @import "../../styles/common.wxss";
 page{
   height:100vh;
+  background-color:#000;
 }
 .cropper{
     position: absolute;

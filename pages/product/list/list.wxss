@@ -9,18 +9,3 @@
 .product-hd__item:last-child{
   margin-right: 0;
 }
-.product-btn{
-  padding:10rpx 40rpx;
-  color:#000000;
-  font-size: 28rpx;
-  background-color:#ebebeb;
-  border:1px solid #ebebeb;
-}
-.product-btn--active{
-  color:var(--assist1);
-  background-color:#fffef7;
-  border-color:var(--assist1);
-}
-.product-btn--hover{
-  color:var(--assist1);
-}

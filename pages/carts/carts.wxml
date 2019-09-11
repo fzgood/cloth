@@ -5,7 +5,7 @@
       <view class="carts-wrap">
         <view class="mb20 carts-number">已添加10件商品</view>
         <view class="flex flex-item-center carts-item" wx:for="{{10}}" wx:key="{{index}}">
-          <view class="carts-item__select carts-item__select--active iconfont icon-check"></view>
+          <view class="hook-select hook-select--active"></view>
           <view class="ml20 mr20 carts-item__thumbnail">
             <view class="goods-thumbnail">
               <image mode="aspectFill" src="https://alienware.dell-brand.com/fy200130/images/ALW15M-4501B.jpg"></image>
@@ -30,7 +30,7 @@
   </view>
   <view class="flex flex-item-center carts-ft">
     <view class="carts-all">
-      <text class="carts-all__round carts-all__round--active iconfont icon-check"></text>
+      <text class="hook-select hook-select--active"></text>
       <text class="ml10 carts-all__text">全选</text>
     </view>
     <view class="flex-item carts-fee text-right">

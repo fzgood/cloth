@@ -1,0 +1,49 @@
+<view class="flex flex-column quickly ">
+  <view class="flex-item quickly-box ">
+    <view class="flex flex-column bg-white quickly-main">
+      <view class="quickly-main__hd pd30">
+        <view class="flex flex-item-center">
+          <view class="mr30">
+            <button 
+              class="clearButton product-btn product-btn--active" 
+              hover-class='product-btn--hover'
+            >门滑轮</button>
+          </view>
+          <view class="mr30">
+            <button 
+              class="clearButton product-btn" 
+              hover-class='product-btn--hover'
+            >窗滑轮</button>
+          </view>
+          <view class="flex-item"></view>
+          <view class="flex flex-item-center quickly-select">
+            <view class="quickly-select__icon iconfont icon-attentionforbid"></view>
+            <view class="ml10 quickly-select__text">已选</view>
+          </view>
+        </view>
+        <view class="mt30 flex flex-item-center custom-group">
+          <view class="mr10 custom-group__icon iconfont icon-search"></view>
+          <input class="flex-item custom-group__input" placeholder='商品名称及型号搜索'></input>
+          <view class="custom-group__close iconfont icon-close_light"></view>
+        </view>
+      </view>
+      <view class="flex-item">
+        <scroll-view scroll-y>
+          <view class="quickly-wrap pd30">
+            <view class="flex flex-item-center quickly-item mb30" wx:for="{{10}}" wx:key="{{index}}">
+              <view class="flex-item quickly-item__title text-wrap">商品名称</view>
+              <view class="ml40 quickly-item__text">14#</view>
+              <view class="ml40 quickly-item__text">数量</view>
+              <input class="ml10 quickly-item__number" value="0">数量</input>
+              <view class="ml40 hook-select hook-select--active"></view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+  <view class="flex flex-item-center bg-white quickly-ft c-apply-ft">
+    <view class="flex-item c-apply-ft__left">合计:<text>￥13505.00</text></view>
+    <view class="c-apply-ft__button">提交订单</view>
+  </view>
+</view>

@@ -35,10 +35,10 @@
 }
 
 .order-item__operation .order-item__operation--apply{
-  color:var(--mainColor);
-  border-color:var(--mainColor);
+  color:var(--assist1);
+  border-color:var(--assist1);
 }
 .order-item__operation .order-item__operation--apply--hover{
   color:#fff;
-  background-color:var(--mainColor);
+  background-color:var(--assist1);
 }

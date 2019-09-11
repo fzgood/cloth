@@ -15,16 +15,22 @@
             <view class="goods-thumbnail">
               <image 
                 mode="aspectFill" 
-                src="https://alienware.dell-brand.com/fy200130/images/ALW15M-4501B.jpg"></image>
+                src="/images/product.jpg"></image>
             </view>
           </view>
           <view class="flex-item">
             <view class="many-wrap product-item__title">
               霸王轮塑钢门窗滑轮（双轮 子）推拉窗户地滑滚轮门霸王轮塑钢门窗滑轮（双轮 子）推拉窗户地滑滚轮门
             </view>
-            <view class="mt20 product-item__type">
-              <image mode="widthFix" class="mr20" src="/images/icon1.png"></image>
-              <image mode="widthFix" src="/images/icon2.png"></image>
+            <view class="mt20 flex flex-item-center product-item__type">
+              <view class="mr20">
+                <image class="mr10" mode="widthFix" src="/images/icon1.png"></image>
+                <text class="inline-block">经三万次检测</text>
+              </view>
+              <view class="mr20">
+                <image class="mr10" mode="widthFix" src="/images/icon2.png"></image>
+                <text class="inline-block">国家发明专利</text>
+              </view>
             </view>
             <view class="mt20 flex flex-item-center product-item__info">
               <view class="product-item__price mr30">￥26.00</view>

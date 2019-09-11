@@ -59,20 +59,6 @@
   display: inline-block;
   vertical-align: middle;
 }
-.carts-all__round, .carts-item__select{
-  border-radius: 50%;
-  width:32rpx;
-  height:32rpx;
-  line-height:32rpx;
-  text-align: center;
-  color:#fff;
-  font-size: 24rpx;
-  border:1px solid #ccc;
-}
-.carts-all__round--active, .carts-item__select--active{
-  border-color: var(--secondColor);
-  background-color: var(--secondColor);
-}
 
 .carts-fee{
   color:var(--secondColor);
@@ -82,5 +68,5 @@
   padding:8rpx 30rpx;
   color:#fff;
   font-size: 24rpx;
-  background-color:var(--secondColor);
+  background-color:var(--assist1);
 }

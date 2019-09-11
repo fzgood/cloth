@@ -1,0 +1,24 @@
+.c-upload{
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom:100%;
+  border:1px solid #999999;
+  border-radius: 5px;
+}
+.c-upload__box{
+  position: absolute;
+  top:50%;
+  left:50%;
+  width:100%;
+  transform: translate(-50%, -50%);
+}
+.c-upload__icon{
+  color:#b3b3b3;
+  font-size: 56rpx;
+}
+.c-upload__text{
+  color:#999999;
+  font-size: 24rpx;
+  line-height: 1;
+}
