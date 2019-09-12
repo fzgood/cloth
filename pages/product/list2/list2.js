@@ -81,8 +81,8 @@ Page({
   bindJumpPage(e){
     app.jumpPage(e.currentTarget.dataset.page);
   },
-  bindscroll(e){
-    if (e.currentTarget.offsetTop> 100){
+  bindscroll(e) {
+    if (e.detail.scrollTop> 100){
       this.setData({
         scrollTop: 234
       })
