@@ -1,0 +1,15 @@
+<view class="flex flex-column search">
+  <view class="pd30 search-hd bg-white">
+    <view class="flex flex-item-center search-hd__box">
+      <view class="iconfont icon-search mr20"></view>
+      <input class="flex-item" placeholder="请输入商品关键字搜索"></input>
+    </view>
+  </view>
+  <view class="flex-item" id="search-box">
+    <scroll-view scroll-y style="{{scrollHeight?'height:'+scrollHeight+'px;':''}}">
+      <view class="search-wrap">
+        
+      </view>
+    </scroll-view>
+  </view>
+</view>

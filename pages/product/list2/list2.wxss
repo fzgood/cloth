@@ -1,0 +1,122 @@
+.product-banner{
+  position: relative;
+}
+.product-banner image{
+  width:100%;
+}
+.product-main{
+  height: 100vh;
+  overflow: hidden;
+}
+
+.product-menu{
+  position: relative;
+  width: 120rpx;
+  height: 120rpx;
+  background-color:#fff;
+  box-shadow: 2px 1px 4px #eee;
+  border-bottom:1px solid var(--borderColor);
+}
+.product-menu--active{
+  color:var(--mainColor);
+  background-color:transparent;
+}
+.product-menu--active::after{
+  content:'';
+  position: absolute;
+  top:0;
+  left:0;
+  width: 3px;
+  height: 100%;
+  background-color: var(--mainColor);
+}
+
+.product-search{
+  
+}
+.product-search__icon{
+  font-size: 44rpx;
+}
+.product-search__text{
+  font-size: 28rpx;
+}
+
+.product-wheel{
+  margin-right: 20rpx;
+  padding:10rpx 15rpx;
+  color:#333333;
+  font-size: 24rpx;
+  border:1px solid #333333;
+  border-radius: 4px ;
+}
+.product-level{
+  margin-right: 20rpx;
+  width:50rpx;
+  height: 50rpx;
+  line-height: 48rpx;
+  text-align: center;
+  color:#333333;
+  font-size: 24rpx;
+  border:1px solid #333333;
+  border-radius: 50% ;
+}
+.product-wheel:last-child,
+.product-level:last-child{
+  margin-right: 0;
+}
+.product-wheel--active,
+.product-level--active{
+  color:var(--mainColor);
+  border-color:var(--mainColor);
+}
+
+.product-item{
+  position: relative;
+  margin-bottom:20rpx;
+  padding:20rpx;
+  background-color:#fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px #999;
+  overflow: hidden;
+}
+.product-item:last-child{
+  margin-bottom:0;
+}
+.product-item__status{
+  position:absolute;
+  top:0;
+  left:0;
+  padding:5rpx 100rpx;
+  color:#fff;
+  font-size:20rpx;
+  text-align:center;
+  transform:rotate(-45deg) translate(-30%, -160%);
+}
+.product-item__status--collect{
+  background-color:var(--mainColor);
+}
+.product-item__status--already{
+  background-color:var(--secondColor);
+}
+
+.product-item__title{
+  font-size: 32rpx;
+  line-height: 1.4;
+  height: 2.8em;
+}
+.product-item__thumbnail{
+  width:220rpx;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.product-item__type image{
+  width:36rpx;
+}
+.product-item__type--text{
+  color:#999;
+  font-size: 24rpx;
+}
+.product-item__fee{
+  color:var(--mainColor);
+  font-size: 32rpx;
+}

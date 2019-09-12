@@ -1,4 +1,4 @@
-// pages/carts/carts.js
+const app = getApp();
 Page({
 
   /**
@@ -68,5 +68,8 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  bindJumpPage(e){
+    app.jumpPage(e.currentTarget.dataset.page);
   }
 })

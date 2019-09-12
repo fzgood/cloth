@@ -87,7 +87,7 @@ image{
   padding:0 70rpx;
 }
 .c-apply-ft__left text{
-  color:var(--secondColor);
+  color:var(--mainColor);
 }
 .c-apply-ft__button{
   padding:30rpx 70rpx;
@@ -121,4 +121,56 @@ image{
   border-left:2px solid #fff;
   border-bottom:2px solid #fff;
   transform: translate(-50%, -50%) ;
+}
+.player-icon{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  color:#999;
+  font-size: 128rpx;
+}
+
+/*数量*/
+.c-number{
+  text-align: center;
+  border-radius: 25px;
+  border:1px solid var(--mainColor);
+}
+.c-number__text {
+  width: 60rpx;
+}
+.c-number__operation{
+  position: relative;
+  width: 44rpx;
+  height: 44rpx;
+  font-size: 32rpx;
+  border-radius: 50%;
+}
+.c-number__operation:last-child{
+  background-color:var(--mainColor);
+}
+.c-number__operation--reduce::after,
+.c-number__operation--plus::before,
+.c-number__operation--plus::after{
+  content:'';
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width:50%;
+  height: 50%;
+  background-color:#333;
+}
+
+.c-number__operation--reduce::after{
+  height: 3rpx;
+  background-color:var(--mainColor);
+}
+
+.c-number__operation--plus::before{
+  width: 3rpx;
+}
+.c-number__operation--plus::after{
+  height: 3rpx;
 }

@@ -1,11 +1,11 @@
-const app = getApp();
+// pages/product/search/search.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    scrollHeight: 0
   },
 
   /**
@@ -19,7 +19,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.createSelectorQuery().select('#search-box').fields({
+      size: true,
+    }, res => {
+      this.setData({
+        scrollHeight: res.height
+      })
+    }).exec()
   },
 
   /**
@@ -62,9 +68,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  bindJumpPage(e){
-    const page = e.currentTarget.dataset.page;
-    app.jumpPage(page);
   }
 })

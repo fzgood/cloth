@@ -30,6 +30,13 @@
 .flex-justify-center  {
    justify-content: center ;
 }
+/*横竖垂直居中*/
+.flex-center{
+  flex-direction: column;
+  align-items: center;
+  justify-content: center ;
+}
+
 .flex-item{
   flex:1;
 }

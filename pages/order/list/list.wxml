@@ -3,7 +3,6 @@
     <c-tab tabs="{{tabs}}" tabIndex="{{tabIndex}}" bind:toggleTab="bindToggleTab"></c-tab>
   </view>
   <view class="flex-item order-box" id="order-box">
-    <view class="order-box__bg"></view>
     <swiper style="height:{{swiperHeight}}px" current="{{tabIndex}}" bindchange="bindChange">
       <swiper-item wx:for="{{4}}" wx:key="{{index}}">
         <scroll-view style="height:{{swiperHeight}}px" scroll-y>

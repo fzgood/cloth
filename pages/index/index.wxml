@@ -1,10 +1,10 @@
 <view class="home pd20">
   <view class="home-banner">
     <image mode="widthFix" src="/images/banner.jpg"></image>
-    <view class="home-banner__icon iconfont icon-video_light"></view>
+    <view class="player-icon iconfont icon-video_light"></view>
   </view>
   <view class="flex flex-item-center flex-wrap flex-pd-lr home-menu mt20">
-    <view class="flex-col__6 home-menu__item">
+    <view class="flex-col__6 home-menu__item" catchtap="bindJumpPage" data-page="/pages/product/list2/list2">
       <view class="home-menu__item--box home-menu__item--box--door">
         <image mode="widthFix" src="/images/home-btn1.png"></image>
         <view class="home-menu__item--content ">
@@ -13,7 +13,7 @@
         </view>
       </view>
     </view>
-    <view class="flex-col__6 home-menu__item">
+    <view class="flex-col__6 home-menu__item" catchtap="bindJumpPage" data-page="/pages/product/list/list">
       <view class="home-menu__item--box home-menu__item--box--window">
         <image mode="widthFix" src="/images/home-btn2.png"></image>
         <view class="home-menu__item--content ">

@@ -1,0 +1,7 @@
+.search{
+  height: 100vh;
+}
+.search-hd__box{
+  padding:10rpx 30rpx;
+  background-color:#f2f2f2;
+}

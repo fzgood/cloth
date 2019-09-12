@@ -1,5 +1,5 @@
 <view class="flex flex-item-center c-number {{size=='lg'?'lg':''}}">
-  <view class="c-number__operation" catchtap="bindReduce">-</view>
+  <view class="c-number__operation" catchtap="bindReduce"></view>
   <view class="c-number__text"><input type="number" value="{{number}}"></input></view>
-  <view class="c-number__operation" catchtap="bindPlus">+</view>
+  <view class="c-number__operation" catchtap="bindPlus"></view>
 </view>

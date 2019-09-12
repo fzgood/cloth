@@ -1,4 +1,4 @@
-const app = getApp();
+// pages/order2/detail/detail.js
 Page({
 
   /**
@@ -62,9 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  bindJumpPage(e){
-    const page = e.currentTarget.dataset.page;
-    app.jumpPage(page);
   }
 })

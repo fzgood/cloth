@@ -4,14 +4,6 @@
 .home-banner image{
   width: 100%;
 }
-.home-banner__icon{
-  position: absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
-  color:#999;
-  font-size: 128rpx;
-}
 .home-menu__item{
   position: relative;
 }

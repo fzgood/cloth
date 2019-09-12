@@ -44,6 +44,6 @@
   </view>
   <view class="flex flex-item-center bg-white quickly-ft c-apply-ft">
     <view class="flex-item c-apply-ft__left">合计:<text>￥13505.00</text></view>
-    <view class="c-apply-ft__button">提交订单</view>
+    <view class="c-apply-ft__button" catchtap='bindJumpPage' data-page="/pages/order2/apply/apply">提交订单</view>
   </view>
 </view>

@@ -5,21 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    menuItems: [],
+    menuIndex: 0,
+    scrollHeight: 0,
+    productItems: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.createSelectorQuery().select('#product-main__box').fields({
+      size: true,
+    }, res => {
+      this.setData({
+        scrollHeight: res.height
+      })
+    }).exec()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.setData({
+      menuItems: ['14mm', '15mm', '16mm', '17mm', '18mm', '19mm', '20mm', '21mm', '22mm', '23mm', '24mm', '25mm', '26mm', '27mm', '28mm', '29mm', '30mm', '31mm',],
+      productItems: 10
+    })
   },
 
   /**
@@ -64,7 +76,6 @@ Page({
 
   },
   bindJumpPage(e){
-    const page = e.currentTarget.dataset.page;
-    app.jumpPage(page);
+    app.jumpPage(e.currentTarget.dataset.page);
   }
 })

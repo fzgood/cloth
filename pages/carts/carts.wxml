@@ -1,6 +1,5 @@
 <view class="flex flex-column carts">
   <view class="flex-item carts-box" id="carts-box">
-    <view class="carts-box__bg"></view>
     <scroll-view scroll-y style="height:{{scrollHeight}}px;">
       <view class="carts-wrap">
         <view class="mb20 carts-number">已添加10件商品</view>
@@ -8,15 +7,15 @@
           <view class="hook-select hook-select--active"></view>
           <view class="ml20 mr20 carts-item__thumbnail">
             <view class="goods-thumbnail">
-              <image mode="aspectFill" src="https://alienware.dell-brand.com/fy200130/images/ALW15M-4501B.jpg"></image>
+              <image mode="aspectFill" src="/images/product.jpg"></image>
             </view>
           </view>
           <view class="flex-item carts-item__box">
             <view class="flex flex-item-center">
-              <view class="flex-item carts-item__title text-wrap">新ALIENWARE 外星人15.6英寸游戏本</view>
+              <view class="flex-item carts-item__title text-wrap">13#滑轮R13</view>
               <view class="ml20 iconfont icon-delete_light"></view>
             </view>
-            <view class="mt10 carts-item__intro">帅气 方便携带 不卡</view>
+            <view class="mt10 carts-item__intro">宽度16mm 最低高度31mm 可调7mm</view>
             <view class="mt10 flex flex-item-center">
               <view class="flex-item carts-item__fee">￥1333</view>
               <view class="ml20 ">
@@ -36,6 +35,6 @@
     <view class="flex-item carts-fee text-right">
       总计：￥2666.00
     </view>
-    <button class="ml20 clearButton carts-apply round">结算</button>
+    <button class="ml20 clearButton carts-apply round" catchtap="bindJumpPage" data-page="/pages/order2/apply/apply">结算</button>
   </view>
 </view>

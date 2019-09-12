@@ -1,9 +1,9 @@
 .c-tab{
-  background-color:var(--mainColor);
+  background-color:#fff;
 }
 .c-tab__item{
   padding:20rpx;
-  color:#ccc;
+  color:#999;
   text-align: center;
   transition: all 0.5s ease;
 }
@@ -18,8 +18,8 @@
   transition: all 0.5s ease;
 }
 .c-tab__item--active{
-  color:#fff;
+  color:var(--mainColor);
 }
 .c-tab__item--active::after{
-  background-color:#fff;
+  background-color:var(--mainColor);
 }

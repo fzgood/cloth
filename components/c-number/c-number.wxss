@@ -1,33 +1,43 @@
 .c-number{
-  color:#666;
-  font-size: 24rpx;
-  border:1px solid #cfcfcf;
-  background-color:#fff;
-  border-radius: 5px;
-}
-.c-number__text{
-  width:2.5em;
-  color:#333333;
   text-align: center;
-  overflow-x: auto;
+  border-radius: 25px;
+  border:1px solid var(--mainColor);
+}
+.c-number__text {
+  width: 60rpx;
 }
 .c-number__operation{
-  padding:5rpx;
-  width: 1.5em;
-  color:#cfcfcf;
-  font-size: 28rpx;
-  text-align: center;
-}
-.c-number__operation:first-child{
-  border-right: 1px solid #cfcfcf;
+  position: relative;
+  width: 44rpx;
+  height: 44rpx;
+  font-size: 32rpx;
+  border-radius: 50%;
 }
 .c-number__operation:last-child{
-  border-left: 1px solid #cfcfcf;
+  transform: translateX(1px);
+  background-color:var(--mainColor);
 }
-.lg .c-number__operation{
-  padding:8rpx;
-  width: 2em;
+.c-number__operation:first-child::after,
+.c-number__operation:last-child::before,
+.c-number__operation:last-child::after{
+  content:'';
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width:50%;
+  height: 50%;
+  background-color:#333;
 }
-.lg .c-number__text{
-  width:3em;
+
+.c-number__operation:first-child::after{
+  height: 3rpx;
+  background-color:var(--mainColor);
+}
+
+.c-number__operation:last-child::before{
+  width: 3rpx;
+}
+.c-number__operation:last-child::after{
+  height: 3rpx;
 }

@@ -35,7 +35,8 @@
 }
 
 .order-item__operation .order-item__operation--apply{
-  color:var(--assist1);
+  color:#fff;
+  background-color:var(--assist1);
   border-color:var(--assist1);
 }
 .order-item__operation .order-item__operation--apply--hover{

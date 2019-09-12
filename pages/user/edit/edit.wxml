@@ -1,7 +1,7 @@
 <view class="flex flex-column user-edit">
   <view class="flex-item user-bd">
     <scroll-view scroll-y>
-      <view class="pd40 bg-mainColor ">
+      <view class="pd40 bg-white ">
         <view class="user-edit__avatar" catchtap='bindUpload'>
           <c-avatar></c-avatar>
         </view>

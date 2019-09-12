@@ -1,0 +1,127 @@
+.detail-section__title{
+  color:#000;
+  font-weight: bold;
+}
+.detail-section__content{
+  margin-top:10rpx;
+  color:#999;
+  font-size: 24rpx;
+}
+.detail-section__group{
+  margin-top:15rpx;
+  font-size: 24rpx;
+}
+.detail-section__group--name{
+  margin-right: 5rpx;
+  width: 5em;
+}
+.detail-section__group--text{
+  color:#999;
+}
+.detail-status{
+  position: relative;
+}
+.detail-status__progress{
+  position: absolute;
+  height: 3px;
+  bottom:12rpx;
+  left:20rpx;
+  right:20rpx;
+  
+}
+.detail-status__progress--ing::after{
+  content: '';
+  position: absolute;
+  bottom:0;
+  left:0;
+  width:50%;
+  height: 100%;
+  background-color:var(--mainColor);
+}
+.detail-status__item--name{
+  color:#999;
+}
+.detail-status__item--hook{
+  position: relative;
+  margin:20rpx auto 0;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  border:2px solid var(--mainColor);
+}
+.detail-status__item--hook--active{
+  background-color:var(--mainColor);
+  transform: rotate(45deg);
+}
+.detail-status__item--hook--active::after{
+  content:'';
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width:7rpx;
+  height: 14rpx;
+  border-right:2px solid #fff;
+  border-bottom:2px solid #fff;
+}
+
+.detail-user__address{
+  color:#999;
+  font-size: 24rpx;
+}
+
+.detail-product__item{
+  margin-bottom:30rpx;
+}
+.detail-product__item:last-child{
+  margin-bottom:0;
+}
+.detail-product__item--name{
+  width:0;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.detail-product__item--number{
+  font-size: 32rpx;
+}
+.detail-product__item--number::before{
+  content:'x';
+  font-size: 24rpx;
+}
+
+.detail-product__item--fee{
+  font-size: 32rpx;
+}
+.detail-product__item--fee::before{
+  content:'￥';
+  font-size: 24rpx;
+}
+.detail-product__item--intro view{
+  margin-bottom:10rpx;
+  color:#999;
+  font-size: 24rpx;
+}
+.detail-product__item--intro view::before{
+  content:'-';
+  margin-right: 10rpx;
+}
+.detail-product__item--intro view:last-child{
+  margin-bottom:0;
+}
+.detail-total{
+  border-top:1px solid var(--borderColor);
+}
+.detail-total__name{
+  color:#000;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.detail-total__fee{
+  color:#000;
+  font-size: 38rpx;
+}
+.detail-total__fee::before{
+  content:'￥';
+  color:#333;
+  font-size: 28rpx
+}

@@ -1,0 +1,79 @@
+<view class="flex flex-column apply">
+  <view class="flex-item" id="apply-box">
+    <scroll-view scroll-y style="{{scrollHeight?'height:'+scrollHeight+'px;':''}}">
+      <view class="apply-section" catchtap="bindJumpPage" data-page="/pages/user/address/address">
+        <view class="flex flex-item-center pd30 apply-section__box apply-user ">
+          <view class="flex-item flex flex-item-center flex-wrap apply-user__main">
+            <view class="apply-user__name mr20">铁憨憨</view>
+            <view class="flex-item apply-user__phone">13246765751</view>
+            <view class="flex-col__12 mt10 apply-user__address">广东省深圳市福田区莲花山公园</view>
+          </view>
+          <view class="apply-user__select iconfont icon-right"></view>
+        </view>
+      </view>
+      <view class="apply-section">
+        <view class="pd30 apply-section__title">请选择支付方式</view>
+        <view class=" apply-section__box apply-type">
+          <view class="flex flex-item-center pd30 apply-section__group">
+            <image class="apply-section__group--image" src="/images/icon3.png" mode="widthFix"></image>
+            <view class="flex-item apply-section__group--title">线上支付</view>
+            <view class="hook-select hook-select--active"></view>
+          </view>
+          <view class="flex flex-item-center pd30 apply-section__group">
+            <image class="apply-section__group--image" src="/images/icon4.png" mode="widthFix"></image>
+            <view class="flex-item">
+              <view class="apply-section__group--title">线下支付</view>
+              <view class="mt10 apply-section__group--intro">线下支付提交后,请上传支付凭证照片</view>
+            </view>
+            <view class="hook-select"></view>
+          </view>
+        </view>
+      </view>
+
+      <view class="apply-section mt20 ">
+        <view class="apply-section__box pd30">
+          <view class="flex goods-item 1">
+            <view class="flex-item goods-item__box">
+              <view class="goods-item__title">13#滑轮R13</view>
+              <view class="mt20 goods-item__intro">
+                <view>宽度16mm</view>
+                <view>最低高度31mm</view>
+                <view>可调7mm</view>
+              </view>
+            </view>
+            <view class="ml30"><text class="goods-item__unit">￥</text><text class="goods-item__fee">34.5</text></view>
+            <view class="ml30">
+              <c-number></c-number>
+            </view>
+          </view>
+          <view class="mt30 flex flex-item-center apply-order">
+            <view class="flex-item apply-order__name">合计</view>
+            <view class="ml30"><text class="goods-item__unit">￥</text><text class="goods-item__fee">34.5</text></view>
+          </view>
+        </view>
+      </view>
+      <view class="apply-section mt20">
+        <view class=" apply-section__box ">
+          <view class="flex flex-item-center pd30 apply-section__group">
+            <view class="flex-item apply-section__group--title">发票需求</view>
+            <view class="hook-select hook-select--active"></view>
+          </view>
+        </view>
+      </view>
+      <view class="apply-section">
+        <view class="pd30 apply-section__title">订单备注</view>
+        <view class="apply-section__box pd30">
+          <textarea class="apply-section__remask"></textarea>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class=" apply-ft pd30">
+    <button class="clearButton mainButton--sx round">线上支付￥34.50</button>
+    <!-- <view class="apply-ft__name">合计</view>
+    <view class="ml30 apply-ft__fee">34.5</view>
+    <view class="flex-item"></view>
+    <view class=" text-right apply-payment">去支付</view>
+    <view class="ml10 iconfont icon-right apply-ft__icon"></view> -->
+  </view>
+</view>

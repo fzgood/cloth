@@ -1,5 +1,5 @@
 .user-hd{
-  background-color:var(--mainColor);
+  background-color:#fff;
 }
 .user-box__avatar{
   width:120rpx;
@@ -10,21 +10,20 @@
   width:0;
 }
 .user-name{
-  color:#fff;
   font-size: 32rpx;
 }
 .user-intro{
-  color:#eee;
-  font-size: 28rpx;
+  color:#999;
+  font-size: 24rpx;
 }
 .user-edit{
   width: 60rpx;
   height: 60rpx;
   line-height: 60rpx;
   text-align: center;
-  color:var(--mainColor);
+  color:#666;
   font-size: 36rpx;
-  background-color:#fff;
+  background-color:#f5f5f5;
   border-radius: 50%;
 }
 
@@ -32,10 +31,9 @@
 .user-statistics{
   margin-top:20rpx;
   padding-top:20rpx;
-  border-top:1px solid #333;
+  border-top:1px solid var(--borderColor);
 }
 .user-statistics__item{
-  color:#fff;
 }
 .user-statistics__item--number{
   font-size: 48rpx;
@@ -46,7 +44,7 @@
 }
 /*订单项*/
 .user-order__item--icon{
-  color:#464646;
+  color:#666;
   font-size: 54rpx;
 }
 .user-order__item--name{
