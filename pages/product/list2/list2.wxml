@@ -1,74 +1,90 @@
+
 <view class="product">
-  <view class="product-banner">
-    <image mode="widthFix" src="/images/banner.jpg"></image>
-    <view class="player-icon iconfont icon-video_light"></view>
-  </view>
-  <view class="flex flex-column product-main">
-    <view class="product-main__hd bg-white">
-      <view class="flex flex-item-center ">
-        <view class="flex flex-center product-menu product-search" catchtap="bindJumpPage" data-page="/pages/product/search/search">
-          <view class="iconfont icon-search product-search__icon"></view>
-          <view class="mt5 product-search__text">搜索</view>
-        </view>
-        <view class="flex-item flex flex-item-center pd20">
-          <view class="product-wheel product-wheel--active">单轮</view>
-          <view class="product-wheel">双轮</view>
-          <view class="product-wheel">四轮</view>
-          <view class="flex-item"></view>
-          <view class="product-level product-level--active">高</view>
-          <view class="product-level">中</view>
-          <view class="product-level">低</view>
-        </view>
-      </view> 
+  <scroll-view scroll-y class="product-scroll" scroll-top="{{scrollTop}}" scroll-with-animation>
+    <view class="product-banner" id="product-banner">
+      <image mode="widthFix" src="/images/banner.jpg" bindload="bindImageLoad"></image>
+      <view class="player-icon iconfont icon-video_light"></view>
     </view>
-    <view class="flex-item " id="product-main__box">
-      <view class="flex flex-item-center product-main__wrap">
-        <view class="product-main__left">
-          <scroll-view scroll-y style="{{scrollHeight?'height:'+scrollHeight+'px':''}}">
-            <view class="flex flex-center product-menu {{menuIndex == index ?'product-menu--active':''}}" wx:for="{{menuItems}}" wx:key="{{index}}">{{item}}</view>
-          </scroll-view>
-        </view>
-        <view class="flex-item product-main__right">
-          <scroll-view scroll-y style="{{scrollHeight?'height:'+scrollHeight+'px':''}}">
-            <view class="pd20">
-              <view class="flex flex-item-end product-item" wx:for="{{productItems}}" wx:key="{{index}}">
-                <view class="product-item__thumbnail mr20">
-                  <view class="goods-thumbnail">
-                    <image src="/images/product.jpg"></image>
-                  </view>
-                </view>
-                <view class="flex-item product-item__box">
-                  <view class="product-item__title text-right">13#滑轮R13</view>
-                  <view class="mt20 product-item__type">
-                    <view class="flex flex-item-center flex-justify-end">
-                      <image mode="widthFix" class="mr10" src="/images/icon1.png"></image>
-                      <view class="product-item__type--text">三万次检测</view>
+    <view class="flex flex-column product-main">
+      <view class="product-main__hd bg-white">
+        <view class="flex flex-item-center ">
+          <view class="flex flex-center product-menu product-search" catchtap="bindJumpPage" data-page="/pages/product/search/search">
+            <view class="iconfont icon-search product-search__icon"></view>
+            <view class="mt5 product-search__text">搜索</view>
+          </view>
+          <view class="pd20 flex-item flex flex-item-center ">
+            <view class="flex-item">
+              <swiper display-multiple-items="{{3}}" next-margin="10px">
+                <swiper-item wx:for="{{wheelItems}}" wx:key="{{index}}">
+                  <view class="product-wheel  {{index == 1 ?'product-wheel--active':''}}">{{item}}</view>
+                </swiper-item>
+              </swiper>
+            </view>
+            <view class="ml20 product-level__box">
+              <view class="product-level product-level--active" catchtap='bindToggleLevel'>高</view>
+              <view class="product-level__select" wx:if="{{levelStatus}}">
+                <view catchtap='bindSelectLevel' class="active">高</view>
+                <view catchtap='bindSelectLevel'>中</view>
+                <view catchtap='bindSelectLevel'>低</view>
+              </view>
+              <!-- <view class="product-level">中</view>
+              <view class="product-level">低</view> -->
+            </view>
+          </view>
+        </view> 
+      </view>
+      <view class="flex-item " id="product-main__box">
+        <view class="flex flex-item-center product-main__wrap">
+          <view class="product-main__left">
+            <scroll-view scroll-y style="{{scrollHeight?'height:'+scrollHeight+'px':''}}" bindscroll="bindscroll">
+              <view class="flex flex-center product-menu {{menuIndex == index ?'product-menu--active':''}}" wx:for="{{menuItems}}" wx:key="{{index}}">{{item}}</view>
+            </scroll-view>
+          </view>
+          <view class="flex-item product-main__right">
+            <scroll-view scroll-y style="{{scrollHeight?'height:'+scrollHeight+'px':''}}" bindscroll="bindscroll">
+              <view class="pd20">
+                <view class="flex flex-item-end product-item" wx:for="{{productItems}}" wx:key="{{index}}">
+                  <view class="product-item__thumbnail mr20">
+                    <view class="goods-thumbnail">
+                      <image src="/images/product.jpg"></image>
                     </view>
-                    <view class="mt10 flex flex-item-center flex-justify-end">
-                      <image mode="widthFix" class="mr10" src="/images/icon2.png"></image>
-                      <view class="product-item__type--text">国家发明专利</view>
-                    </view>
                   </view>
-                  <view class="mt40 flex flex-item-center">
-                    <view class="flex-item product-item__fee">￥260.0</view>
-                    <view>
-                      <view class="flex flex-item-center c-number">
-                        <view class="c-number__operation c-number__operation--reduce" catchtap="bindReduce" wx:if="{{false}}"></view>
-                        <view class="c-number__text" wx:if="{{false}}"><input type="number" value="1" ></input></view>
-                        <view class="c-number__operation c-number__operation--plus" catchtap="bindPlus"></view>
+                  <view class="flex-item product-item__box">
+                    <view class="product-item__title text-right">13#滑轮R13</view>
+                    <view class="mt20 product-item__type">
+                      <view class="flex flex-item-center flex-justify-end">
+                        <image mode="widthFix" class="mr10" src="/images/icon1.png"></image>
+                        <view class="product-item__type--text">三万次检测</view>
+                      </view>
+                      <view class="mt10 flex flex-item-center flex-justify-end">
+                        <image mode="widthFix" class="mr10" src="/images/icon2.png"></image>
+                        <view class="product-item__type--text">国家发明专利</view>
+                      </view>
+                    </view>
+                    <view class="mt40 flex flex-item-center">
+                      <view class="flex-item product-item__fee">￥260.0</view>
+                      <view>
+                        <view class="flex flex-item-center c-number">
+                          <view class="c-number__operation c-number__operation--reduce" catchtap="bindReduce" wx:if="{{false}}"></view>
+                          <view class="c-number__text" wx:if="{{false}}"><input type="number" value="1" ></input></view>
+                          <view class="c-number__operation c-number__operation--plus" catchtap="bindPlus"></view>
+                        </view>
                       </view>
                     </view>
                   </view>
-                </view>
-                <view class="product-item__status {{index == 0 ?'product-item__status--collect':''}} {{index == 1 ?'product-item__status--already':''}}">
-                  {{index == 0 ?'收藏过':''}}
-                  {{index == 1 ?'购买过':''}}
+                  <view class="product-item__status {{index == 0 ?'product-item__status--collect':''}} {{index == 1 ?'product-item__status--already':''}}">
+                    {{index == 0 ?'收藏过':''}}
+                    {{index == 1 ?'购买过':''}}
+                  </view>
                 </view>
               </view>
-            </view>
-          </scroll-view>
+            </scroll-view>
+          </view>
         </view>
       </view>
     </view>
+  </scroll-view>
+  <view class="product-carts">
+    <c-carts></c-carts>
   </view>
 </view>

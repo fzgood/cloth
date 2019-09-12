@@ -8,7 +8,8 @@ Page({
     menuItems: [],
     menuIndex: 0,
     scrollHeight: 0,
-    productItems: 0
+    productItems: 0,
+    scrollTop: 0
   },
 
   /**
@@ -30,7 +31,9 @@ Page({
   onReady: function () {
     this.setData({
       menuItems: ['14mm', '15mm', '16mm', '17mm', '18mm', '19mm', '20mm', '21mm', '22mm', '23mm', '24mm', '25mm', '26mm', '27mm', '28mm', '29mm', '30mm', '31mm',],
-      productItems: 10
+      productItems: 10,
+      wheelItems: ['单轮', '双轮', '三轮', '四轮', '导轨轮', '高轨轮', '风车轮', '窄边轮'],
+      levelStatus: false
     })
   },
 
@@ -77,5 +80,29 @@ Page({
   },
   bindJumpPage(e){
     app.jumpPage(e.currentTarget.dataset.page);
+  },
+  bindscroll(e){
+    if (e.currentTarget.offsetTop> 100){
+      this.setData({
+        scrollTop: 234
+      })
+    }else{
+      this.setData({
+        scrollTop: 0
+      })
+    }
+  },
+  bindImageLoad(e){
+    console.log(e);
+  },
+  bindToggleLevel(e){
+    this.setData({
+      levelStatus: !this.data.levelStatus
+    })
+  },
+  bindSelectLevel(e){
+    this.setData({
+      levelStatus: false
+    })
   }
 })

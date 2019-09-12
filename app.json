@@ -48,9 +48,15 @@
       },
       {
         "pagePath": "pages/custom/custom",
-        "text": "定制需求",
+        "text": "定制轮",
         "iconPath": "/images/custom.png",
         "selectedIconPath": "/images/custom-active.png"
+      },
+      {
+        "pagePath": "pages/carts/carts",
+        "text": "购物车",
+        "iconPath": "/images/carts.png",
+        "selectedIconPath": "/images/carts-active.png"
       },
       {
         "pagePath": "pages/user/index/index",

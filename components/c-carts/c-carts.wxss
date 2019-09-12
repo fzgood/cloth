@@ -1,0 +1,49 @@
+.c-carts{
+  position: relative;
+  padding:20rpx 40rpx;
+  background-color:#1a1a1a;
+}
+.c-carts__icon{
+  position: absolute;
+  width:80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color:#fff;
+  font-size: 48rpx;
+  border-radius: 50%;
+  background-color:#404040;
+  transform: translateY(-30%);
+  box-shadow: 0px 0px 0px 5px #1a1a1a;
+}
+.c-carts__number{
+  position: absolute;
+  top:0;
+  right:0;
+  transform: translate(30%, -30%);
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  color:#000;
+  font-size: 24rpx;
+  border-radius: 50%;
+  background-color:var(--mainColor);
+}
+.c-carts__fee{
+  margin-left:100rpx;
+  color:#fff;
+  font-size: 44rpx;
+}
+.c-carts__fee::before{
+  content:'￥';
+  font-size: 24rpx;
+}
+
+.c-carts__apply{
+  color:var(--mainColor);
+  font-size: 34rpx;
+}
+
+.c-carts__apply--icon{
+  font-size: 38rpx;
+}
