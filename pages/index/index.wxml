@@ -4,7 +4,7 @@
     <!-- <view class="player-icon iconfont icon-video_light"></view> -->
   </view>
   <view class="flex flex-item-center flex-wrap flex-pd-lr home-menu mt20">
-    <view class="flex-col__6 home-menu__item" catchtap="bindJumpPage" data-page="/pages/product/list2/list2">
+    <view class="flex-col__6 home-menu__item" catchtap="bindOpenSelect">
       <view class="home-menu__item--box ">
         <image mode="widthFix" src="/images/home-btn1.png"></image>
         <view class="home-menu__item--content ">
@@ -42,3 +42,9 @@
     </view>
   </view>
 </view>
+
+<!-- 
+  1：新增 天滑轮，地滑轮
+  2：产品列表调整：档次添加背景颜色
+  3：产品分类：新增已购产品
+ -->

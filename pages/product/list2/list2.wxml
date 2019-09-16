@@ -36,8 +36,9 @@
       <view class="flex-item " id="product-main__box">
         <view class="flex flex-item-center product-main__wrap">
           <view class="product-main__left">
-            <scroll-view scroll-y style="{{scrollHeight?'height:'+scrollHeight+'px':''}}" bindscroll="bindscroll">
+            <scroll-view scroll-y style="{{scrollHeight?'height:'+scrollHeight+'px':''}}" >
               <view class="flex flex-center product-menu {{menuIndex == index ?'product-menu--active':''}}" wx:for="{{menuItems}}" wx:key="{{index}}">{{item}}</view>
+              <view class="cart-zw"></view>
             </scroll-view>
           </view>
           <view class="flex-item product-main__right">
@@ -78,6 +79,7 @@
                   </view>
                 </view>
               </view>
+              <view class="cart-zw"></view>
             </scroll-view>
           </view>
         </view>

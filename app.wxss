@@ -174,3 +174,8 @@ image{
 .c-number__operation--plus::after{
   height: 3rpx;
 }
+
+/*购物条占位*/
+.cart-zw{
+  height: 100rpx;
+}

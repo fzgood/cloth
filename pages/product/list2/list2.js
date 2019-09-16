@@ -30,7 +30,7 @@ Page({
    */
   onReady: function () {
     this.setData({
-      menuItems: ['14mm', '15mm', '16mm', '17mm', '18mm', '19mm', '20mm', '21mm', '22mm', '23mm', '24mm', '25mm', '26mm', '27mm', '28mm', '29mm', '30mm', '31mm',],
+      menuItems: ['推荐','14mm', '15mm', '16mm', '17mm', '18mm', '19mm', '20mm', '21mm', '22mm', '23mm', '24mm', '25mm', '26mm', '27mm', '28mm', '29mm', '30mm', '31mm',],
       productItems: 10,
       wheelItems: ['单轮', '双轮', '三轮', '四轮', '导轨轮', '高轨轮', '风车轮', '窄边轮'],
       levelStatus: false

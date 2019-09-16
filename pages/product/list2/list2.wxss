@@ -1,5 +1,5 @@
 swiper{
-  height: 58rpx;
+  height: 50rpx;
 }
 .product-scroll{
   position: relative;
@@ -50,7 +50,8 @@ swiper{
 
 .product-wheel{
   margin-right: 20rpx;
-  padding:10rpx 15rpx;
+  height: 50rpx;
+  line-height: 50rpx;
   color:#333333;
   font-size: 24rpx;
   border:1px solid #333333;
@@ -80,9 +81,9 @@ swiper{
   color:var(--mainColor);
 }
 .product-level{
-  width:50rpx;
-  height: 50rpx;
-  line-height: 48rpx;
+  width:60rpx;
+  height: 60rpx;
+  line-height: 58rpx;
   text-align: center;
   color:#333333;
   font-size: 24rpx;
@@ -95,7 +96,8 @@ swiper{
 } */
 .product-wheel--active,
 .product-level--active{
-  color:var(--mainColor);
+  color:#fff;
+  background-color:var(--mainColor);
   border-color:var(--mainColor);
 }
 
