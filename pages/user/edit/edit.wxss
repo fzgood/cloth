@@ -46,3 +46,9 @@ scroll-view{
   height: 5.6em;
   line-height: 1.4em;
 }
+.user-edit__group--btn{
+  padding:10rpx 20rpx;
+  color:#fff;
+  font-size: 24rpx;
+  background-color:var(--mainColor);
+}

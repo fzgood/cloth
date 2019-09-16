@@ -23,9 +23,41 @@ App({
     config: globalConfig
   },
   onLaunch: function () {
+    this.login();
   },
   $request,
   $location,
   ...feedback,
-  jumpPage
+  jumpPage,
+  login(){
+    return new Promise((resolve, reject)=>{
+      wx.login({
+        success: res=> {
+          if (res.code) {
+            this.$request.post('/apiIndex/index/wechatLogin', {
+              code: res.code
+            }).then(res=>{
+              if (res.code === this.globalData.RESPONSE_CODE.SUCCESS){
+                wx.setStorageSync('token', res.data.token);
+              }
+            })
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
+        }
+      })
+    })
+  },
+  checkLogin(fn){
+    wx.checkSession({
+      success() {
+        fn && fn();
+      },
+      fail() {
+        this.login().then(res=>{
+          fn && fn()
+        });
+      }
+    })
+  }
 })

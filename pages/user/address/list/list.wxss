@@ -17,12 +17,20 @@
   margin-bottom:0;
 }
 .address-item__name{
-  color:#666;
-  font-size: 24rpx;
 }
 .address-item__phone{
+  color:#666;
+}
+.address-item__text{
   color:#999;
   font-size: 24rpx;
+}
+.address-item__default{
+  padding:3rpx 6rpx;
+  color:#fff;
+  font-size: 20rpx;
+  background-color: var(--mainColor);
+  border-radius: 4px;
 }
 .address-item__button{
   width: 50rpx;

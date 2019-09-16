@@ -1,68 +1,74 @@
-<view class="flex flex-column user-edit">
-  <view class="flex-item user-bd">
-    <scroll-view scroll-y>
-      <view class="pd40 bg-white ">
-        <view class="user-edit__avatar" catchtap='bindUpload'>
-          <c-avatar></c-avatar>
-        </view>
-      </view>
-      <view class="mt30 bg-white user-edit__section">
-        <view class="flex flex-item-center user-edit__group">
-          <view class="user-edit__group--name">昵称</view>
-          <view class="flex-item user-edit__group--in">
-            <input placeholder='昵称'></input>
+<form bindsubmit="bindSave">
+  <view class="flex flex-column user-edit">
+    <view class="flex-item user-bd">
+      <scroll-view scroll-y>
+        <view class="pd40 bg-white ">
+          <view class="user-edit__avatar" catchtap='bindUpload'>
+            <c-avatar></c-avatar>
           </view>
         </view>
-        <view class="flex flex-item-center user-edit__group">
-          <view class="user-edit__group--name">出生日期</view>
-          <view class="flex-item user-edit__group--in">
-            <picker mode="date" value="{{date}}" bindchange="bindDateChange">
-              <view class="picker" wx:if="{{date}}">{{date}}</view>
-              <view wx:else class="placeholder">出生日期</view>
-            </picker>
-          </view>
-        </view>
-        <view class="flex user-edit__group">
-          <view class="user-edit__group--name">个人简介</view>
-          <view class="flex-item user-edit__group--in">
-            <textarea placeholder='详细地址'></textarea>
-          </view>
-        </view>
-      </view>
-      <view class="mt30 bg-white user-edit__section">
-        <view class="flex flex-item-center user-edit__group">
-          <view class="user-edit__group--name">联系电话</view>
-          <view class="flex-item user-edit__group--in">
-            <input placeholder='联系电话'></input>
-          </view>
-        </view>
-        <view class="flex flex-item-center user-edit__group">
-          <view class="user-edit__group--name">联系邮箱</view>
-          <view class="flex-item user-edit__group--in">
-            <input placeholder='联系邮箱'></input>
-          </view>
-        </view>
-      </view>
-      <view class="mt30 bg-white user-edit__section">
-        <view class="flex flex-item-center user-edit__group">
-            <view class="user-edit__group--name">所在城市</view>
+        <view class="mt30 bg-white user-edit__section">
+          <view class="flex flex-item-center user-edit__group">
+            <view class="user-edit__group--name">昵称</view>
             <view class="flex-item user-edit__group--in">
-              <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-                <view wx:if="{{region[0]}}">{{region[0]}}-{{region[1]}}-{{region[2]}}</view>
-                <view wx:else class="placeholder">所在城市</view>
+              <input placeholder='昵称' name="nickName" value="{{userInfo.member.nickName}}"></input>
+            </view>
+          </view>
+          <view class="flex flex-item-center user-edit__group" wx:if="{{false}}">
+            <view class="user-edit__group--name">出生日期</view>
+            <view class="flex-item user-edit__group--in">
+              <picker mode="date" value="{{userInfo.member.birthday}}" bindchange="bindDateChange" name="birthday">
+                <view class="picker" wx:if="{{userInfo.member.birthday}}">{{userInfo.member.birthday}}</view>
+                <view wx:else class="placeholder">出生日期</view>
               </picker>
             </view>
           </view>
-          <view class="flex flex-item-center user-edit__group">
-            <view class="user-edit__group--name">详细地址</view>
+          <view class="flex user-edit__group">
+            <view class="user-edit__group--name">个人简介</view>
             <view class="flex-item user-edit__group--in">
-              <input placeholder='详细地址'></input>
+              <textarea placeholder='个人简介' name="introduction" value="{{userInfo.member.introduction}}"></textarea>
             </view>
           </view>
-      </view>  
-    </scroll-view>
+        </view>
+        <view class="mt30 bg-white user-edit__section">
+          <view class="flex flex-item-center user-edit__group">
+            <view class="user-edit__group--name">联系电话</view>
+            <view class="flex-item user-edit__group--in">
+              <view wx:if="{{userInfo.member.tel}}" >
+                {{userInfo.member.tel}}<input hidden name="tel" value="{{userInfo.member.tel}}"></input>
+              </view>
+              <view wx:else class="placeholder">请获取电话</view>
+            </view>
+            <button class="ml20 clearButton user-edit__group--btn">获取电话</button>
+          </view>
+          <view class="flex flex-item-center user-edit__group">
+            <view class="user-edit__group--name">联系邮箱</view>
+            <view class="flex-item user-edit__group--in">
+              <input placeholder='联系邮箱' name="email" value="{{userInfo.member.email}}"></input>
+            </view>
+          </view>
+        </view>
+        <view class="mt30 bg-white user-edit__section">
+          <view class="flex flex-item-center user-edit__group">
+              <view class="user-edit__group--name">所在城市</view>
+              <view class="flex-item user-edit__group--in">
+                <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" name="region">
+                  <view wx:if="{{region[0]}}">{{region[0]}}-{{region[1]}}-{{region[2]}}</view>
+                  <view wx:else class="placeholder">所在城市</view>
+                </picker>
+              </view>
+            </view>
+            <view class="flex flex-item-center user-edit__group">
+              <view class="user-edit__group--name">详细地址</view>
+              <view class="flex-item user-edit__group--in">
+                <input placeholder='详细地址' name="addr"  value="{{userInfo.member.addr}}"></input>
+              </view>
+            </view>
+        </view>  
+      </scroll-view>
+    </view>
+    <view class="user-ft pd20 bg-white">
+      <button class="clearButton mainButton--sx"  form-type="submit">保存信息</button>
+    </view>
   </view>
-  <view class="user-ft pd20 bg-white">
-    <button class="clearButton mainButton--sx">保存信息</button>
-  </view>
-</view>
+</form>

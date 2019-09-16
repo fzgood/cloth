@@ -1,7 +1,14 @@
-const apiUrl = '';
-
+const apiUrl = 'https://cmqplus.goho.co/';
+const version = 'V201907225';
 const Request = function () {
-  this.apiUrl = apiUrl;
+  this.apiUrl = apiUrl + version;
+  this.data = {
+    'client': 'wechat_applet',
+    'companyId': '1',
+    'latitude': 0,
+    'longitude': 0,
+    'token': ''
+  }
 }
 
 Request.prototype.use = function(fn){
@@ -9,14 +16,19 @@ Request.prototype.use = function(fn){
   return this;
 }
 
+Request.prototype.getToken = function(){
+  this.data.token = wx.getStorageSync('token');
+}
+
 Request.prototype.get = function (url, data) {
+  this.getToken();
   var header = {
     'content-type': 'application/json'
   };
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
     wx.request({
-      url: apiUrl + url, //仅为示例，并非真实的接口地址
-      data: data,
+      url: this.apiUrl + url, //仅为示例，并非真实的接口地址
+      data: Object.assign(this.data, data),
       method: 'get',
       header: header,
       success(res) {
@@ -34,14 +46,17 @@ Request.prototype.get = function (url, data) {
   })
 }
 
+
+
 Request.prototype.post = function (url, data) {
+  this.getToken();
   var header = {
     'content-type': 'application/json'
   };
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject)=> {
     wx.request({
-      url: apiUrl + url, //仅为示例，并非真实的接口地址
-      data: data,
+      url: this.apiUrl + url, //仅为示例，并非真实的接口地址
+      data: Object.assign(this.data, data),
       method: 'post',
       header: header,
       success(res) {
@@ -63,25 +78,29 @@ Request.prototype.post = function (url, data) {
 Request.prototype.uploadImage = function(images){
   return new Promise((resolve, reject)=>{
     var files = [];
-    var upload = function (images){
+    var upload = (arr)=>{
       var file = arr.splice(0, 1)[0];
       wx.uploadFile({
-        url: 'https://example.weixin.qq.com/upload', //仅为示例，非真实的接口地址
+        url: this.apiUrl + '/file/upload', //仅为示例，非真实的接口地址
         filePath: file,
         name: 'file',
         success(res) {
-          if(200){
-            files.push(res.data);
-            if (arr.length) {
-              upload(arr)
-            } else {
-              resolve(files);
+          if (res.statusCode === 200) {
+            var data = JSON.parse(res.data);
+            if (data.code === 0) {
+              files.push(data.data.name);
+              console.log(data.data.name);
+              if (arr.length) {
+                upload(arr)
+              } else {
+                resolve(files);
+              }
             }
           }
         }
       })
     }
-    
+    upload(images);
   })
 }
 

@@ -5,15 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-    date: '',
-    region: ['','','']
+    region: ['','',''],
+    userInfo:{
+      headFile: {
+        src: 'asdfasdf.jpg'
+      },
+      member: {
+        nickName: '',
+        addr: '',
+        area: '',
+        city: '',
+        prov: '',
+        birthday: '',
+        email: '',
+        tel: '13246765751',
+        introduction: ''
+      }
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.checkLogin(()=>{
+      this.getUserInfo();
+    })
   },
 
   /**
@@ -71,7 +88,7 @@ Page({
   },
   bindDateChange: function (e) {
     this.setData({
-      date: e.detail.value
+      'userInfo.member.birthday': e.detail.value
     })
   },
   bindUpload() {
@@ -85,4 +102,47 @@ Page({
       }
     })
   },
+  bindSave(e){
+    const data = e.detail.value;
+    console.log(data);
+    app.$request.post('/member/updateMember', {
+      headFile: this.data.userInfo.headFile,
+      member: {
+        nickName: data.nickName,
+        addr: data.addr,
+        area: data.region[2],
+        city: data.region[1],
+        prov: data.region[0],
+        birthday: data.birthday,
+        email: data.email,
+        tel: data.tel,
+        introduction: data.introduction
+      }
+    }).then(res=>{
+      console.log(res);
+    })
+  },
+  getUserInfo(){
+    app.$request.post('/member/memberDetail').then(res=>{
+      if(res.code === app.globalData.RESPONSE_CODE.SUCCESS){
+        console.log(res);
+        var member = {
+          nickName: res.data.nickName,
+          addr: res.data.addr,
+          area: res.data.area,
+          city: res.data.city,
+          prov: res.data.prov,
+          birthday: res.data.birthday,
+          email: res.data.email,
+          tel: res.data.tel,
+          introduction: res.data.introduction
+        }
+        var region = [member.prov, member.city, member.area]
+        this.setData({
+          'userInfo.member': member,
+          region: region
+        })
+      }
+    });
+  }
 })

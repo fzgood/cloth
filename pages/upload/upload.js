@@ -40,16 +40,21 @@ Page({
     this.cropper.touchEnd(e)
   },
   getCropperImage () {
-    this.cropper.getCropperImage(function (path, err) {
+    this.cropper.getCropperImage((path, err)=> {
       if (err) {
         wx.showModal({
           title: '温馨提示',
           content: err.message
         })
       } else {
-        wx.previewImage({
-          current: '', // 当前显示图片的 http 链接
-          urls: [path] // 需要预览的图片 http 链接列表
+        const pages = getCurrentPages();
+        const prevPage = pages[pages.length-2];
+        app.$request.uploadImage([path]).then(res=>{
+          prevPage.setData({
+            'userInfo.headFile.src': res[0]
+          }, ()=>{
+            wx.navigateBack()
+          });
         })
       }
     })

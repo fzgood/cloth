@@ -13,7 +13,7 @@
         </view>
       </view>
     </view>
-    <view class="flex-col__6 home-menu__item" catchtap="bindJumpPage" data-page="/pages/product/list/list">
+    <view class="flex-col__6 home-menu__item" catchtap="bindOpenSelect">
       <view class="home-menu__item--box ">
         <image mode="widthFix" src="/images/home-btn2.png"></image>
         <view class="home-menu__item--content ">
