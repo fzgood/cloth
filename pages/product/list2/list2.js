@@ -234,6 +234,10 @@ Page({
     }else{
       ++item.productCart.qty
     }
+    var key = 'productItems['+index+']';
+    this.setData({
+      [key]: item
+    })
     console.log(item.productCart.qty);
   }
 })

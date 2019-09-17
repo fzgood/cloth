@@ -77,8 +77,15 @@
                       <view class="flex-item product-item__fee">￥{{item.price}}</view>
                       <view>
                         <view class="flex flex-item-center c-number">
-                          <view class="c-number__operation c-number__operation--reduce" catchtap="bindReduce" wx:if="{{false}}"></view>
-                          <view class="c-number__text" wx:if="{{false}}"><input type="number" value="1" ></input></view>
+                          <view 
+                            class="c-number__operation c-number__operation--reduce" 
+                            catchtap="bindReduce" 
+                            wx:if="{{item.productCart && item.productCart.qty}}"></view>
+                          <view 
+                            class="c-number__text" 
+                            wx:if="{{item.productCart && item.productCart.qty}}">
+                            <input type="number" value="{{item.productCart.qty}}" ></input>
+                          </view>
                           <view class="c-number__operation c-number__operation--plus" catchtap="bindAddCart" data-index="{{index}}"></view>
                         </view>
                       </view>
