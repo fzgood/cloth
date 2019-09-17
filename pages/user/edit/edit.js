@@ -8,7 +8,7 @@ Page({
     region: ['','',''],
     userInfo:{
       headFile: {
-        src: 'asdfasdf.jpg'
+        src: ''
       },
       member: {
         nickName: '',
@@ -103,8 +103,8 @@ Page({
     })
   },
   bindSave(e){
+    app.showLoading();
     const data = e.detail.value;
-    console.log(data);
     app.$request.post('/member/updateMember', {
       headFile: this.data.userInfo.headFile,
       member: {
@@ -119,10 +119,17 @@ Page({
         introduction: data.introduction
       }
     }).then(res=>{
-      console.log(res);
+      app.showToast({
+        title: res.msg,
+      }).then(()=>{
+        if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
+          wx.navigateBack();
+        }
+      })
     })
   },
   getUserInfo(){
+    app.showLoading();
     app.$request.post('/member/memberDetail').then(res=>{
       if(res.code === app.globalData.RESPONSE_CODE.SUCCESS){
         console.log(res);
@@ -139,10 +146,16 @@ Page({
         }
         var region = [member.prov, member.city, member.area]
         this.setData({
+          'userInfo.headFile.src': res.data.headFile.src,
           'userInfo.member': member,
           region: region
+        },()=>{
+          app.hideLoading();
         })
       }
     });
+  },
+  bindgetphonenumber(e){
+    console.log(e);
   }
 })

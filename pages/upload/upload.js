@@ -85,11 +85,11 @@ Page({
       cropperOpt.src = option.src
       this.cropper = new WeCropper(cropperOpt)
         .on('ready', (ctx) => {
-          console.log(`wecropper is ready for work!`)
+          // console.log(`wecropper is ready for work!`)
         })
         .on('beforeImageLoad', (ctx) => {
-          console.log(`before picture loaded, i can do something`)
-          console.log(`current canvas context:`, ctx)
+          // console.log(`before picture loaded, i can do something`)
+          // console.log(`current canvas context:`, ctx)
           wx.showToast({
             title: '上传中',
             icon: 'loading',
@@ -97,13 +97,13 @@ Page({
           })
         })
         .on('imageLoad', (ctx) => {
-          console.log(`picture loaded`)
-          console.log(`current canvas context:`, ctx)
+          // console.log(`picture loaded`)
+          // console.log(`current canvas context:`, ctx)
           wx.hideToast()
         })
         .on('beforeDraw', (ctx, instance) => {
-          console.log(`before canvas draw,i can do something`)
-          console.log(`current canvas context:`, ctx)
+          // console.log(`before canvas draw,i can do something`)
+          // console.log(`current canvas context:`, ctx)
         })
     }
   }

@@ -5,17 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuItems: [],
-    menuIndex: 0,
+    id: '',
+    categoryItems: [],
+    categoryId: '',
+    attrList: [],
+    attrId: '',
+    scrollTop: 0,
     scrollHeight: 0,
-    productItems: 0,
-    scrollTop: 0
+    productItems: [],
+    gradeItems: [],
+    gradeIndex: 0,
+    pageNum:1 ,
+    pageSize: 10,
+    nextPage: true,
+    levelStatus: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data.id = options.id;
+    app.checkLogin(()=>{
+      this.getCategory().then(res=>{
+        this.setData({
+          categoryId: res[0].id
+        }, ()=>{
+          this.getData();
+        });
+      });
+    })
+
     wx.createSelectorQuery().select('#product-main__box').fields({
       size: true,
     }, res => {
@@ -29,12 +49,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.setData({
-      menuItems: ['推荐','14mm', '15mm', '16mm', '17mm', '18mm', '19mm', '20mm', '21mm', '22mm', '23mm', '24mm', '25mm', '26mm', '27mm', '28mm', '29mm', '30mm', '31mm',],
-      productItems: 10,
-      wheelItems: ['单轮', '双轮', '三轮', '四轮', '导轨轮', '高轨轮', '风车轮', '窄边轮'],
-      levelStatus: false
-    })
+
   },
 
   /**
@@ -93,16 +108,132 @@ Page({
     }
   },
   bindImageLoad(e){
-    console.log(e);
   },
-  bindToggleLevel(e){
+  getCategory(){
+    return new Promise((resolve, reject)=>{
+      app.$request.post('/product/apiNoSession/categoryListProductList', {
+        id: this.data.id
+      }).then(res => {
+        if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
+          this.setData({
+            categoryItems: res.data
+          })
+          resolve(res.data);
+        }
+      });
+    })
+  },
+  getData(){
+    app.showLoading();
+    app.$request.post('/product/apiNoSession/productList', {
+      categoryIdList: [this.data.categoryId],
+      attrIdList: [this.data.attrId],
+      brandIdList: [],
+      pageNum: this.data.pageNum,
+      pageSize: this.data.pageSize,
+      productFilter:{
+        grade: this.data.gradeItems.length ? this.data.gradeItems[this.data.gradeIndex].id : ''
+      }
+    }).then(res=>{
+      if(res.code === app.globalData.RESPONSE_CODE.SUCCESS){
+        if(this.data.pageNum === 1){
+          var gradeItems = [{
+            id: '',
+            name: '全'
+          }];
+          for (var key in res.data.gradeMap){
+            gradeItems.push({
+              id: key,
+              name: res.data.gradeMap[key]
+            })
+          }
+          res.data.attrList.unshift({
+            id: '',
+            name: '全部'
+          })
+          this.setData({
+            attrList: res.data.attrList,
+            gradeItems: gradeItems
+          })
+        }
+        var originArr = this.data.productItems;
+        this.setData({
+          productItems: originArr.concat(res.data.productGrid.rows),
+          nextPage: res.data.productGrid.nextPage
+        })
+        this.data.pageNum = res.data.productGrid.pageNum;
+      }
+      app.hideLoading();
+    });
+  },
+  /**
+   * 切换档次
+   */
+  bindToggleLevel(e) {
     this.setData({
       levelStatus: !this.data.levelStatus
     })
   },
-  bindSelectLevel(e){
+  bindSelectLevel(e) {
+    const index = e.currentTarget.dataset.index;
+    if (this.data.gradeIndex !== index){
+      this.setData({
+        levelStatus: false,
+        gradeIndex: index
+      })
+      this.resetParmas();
+      this.getData();
+    }
+  },
+  /**
+   * 切换分类
+   */
+  bindToggleCategory(e){
     this.setData({
-      levelStatus: false
+      categoryId: e.currentTarget.dataset.id
     })
+    this.resetParmas();
+    this.getData();
+  },
+  /**
+   * 切换属性
+   */
+  bindToggleAttr(e){
+    const attrId = e.currentTarget.dataset.id
+    if (attrId !== this.data.attrId){
+      this.setData({
+        attrId: attrId,
+        gradeIndex: 0
+      })
+      this.resetParmas();
+      this.getData();
+    }
+    
+  },
+  /**
+   * 重置参数
+   */
+  resetParmas(){
+    this.setData({
+      nextPage: true,
+      productItems: [],
+      gradeIndex: 0,
+    })
+    this.data.pageNum = 1;
+  },
+  /**
+   * 加入购物车
+   */
+  bindAddCart(e){
+    const index = e.currentTarget.dataset.index;
+    var item = this.data.productItems[index];
+    if (!item.productCart){
+      item.productCart = {
+        qty: 1
+      };
+    }else{
+      ++item.productCart.qty
+    }
+    console.log(item.productCart.qty);
   }
 })

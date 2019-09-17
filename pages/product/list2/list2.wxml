@@ -15,20 +15,25 @@
           <view class="pd20 flex-item flex flex-item-center ">
             <view class="flex-item">
               <swiper display-multiple-items="{{3}}" next-margin="10px">
-                <swiper-item wx:for="{{wheelItems}}" wx:key="{{index}}">
-                  <view class="product-wheel  {{index == 1 ?'product-wheel--active':''}}">{{item}}</view>
+                <swiper-item wx:for="{{attrList}}" wx:key="{{index}}">
+                  <view 
+                  class="product-wheel  {{item.id == attrId ?'product-wheel--active':''}}" 
+                  catchtap="bindToggleAttr"
+                  data-id="{{item.id}}">{{item.name}}</view>
                 </swiper-item>
               </swiper>
             </view>
             <view class="ml20 product-level__box">
-              <view class="product-level product-level--active" catchtap='bindToggleLevel'>高</view>
+              <view class="product-level product-level--active" catchtap='bindToggleLevel'>{{gradeItems[gradeIndex].name}}</view>
               <view class="product-level__select" wx:if="{{levelStatus}}">
-                <view catchtap='bindSelectLevel' class="active">高</view>
-                <view catchtap='bindSelectLevel'>中</view>
-                <view catchtap='bindSelectLevel'>低</view>
+                <view 
+                  class="{{index === gradeIndex ?'active':''}}" 
+                  wx:for="{{gradeItems}}" 
+                  wx:key="{{item.id}}"
+                  catchtap='bindSelectLevel'
+                  data-index="{{index}}"
+                  >{{item.name}}</view>
               </view>
-              <!-- <view class="product-level">中</view>
-              <view class="product-level">低</view> -->
             </view>
           </view>
         </view> 
@@ -37,7 +42,13 @@
         <view class="flex flex-item-center product-main__wrap">
           <view class="product-main__left">
             <scroll-view scroll-y style="{{scrollHeight?'height:'+scrollHeight+'px':''}}" >
-              <view class="flex flex-center product-menu {{menuIndex == index ?'product-menu--active':''}}" wx:for="{{menuItems}}" wx:key="{{index}}">{{item}}</view>
+              <view 
+                class="flex flex-center product-menu {{categoryId == item.id ?'product-menu--active':''}}" 
+                wx:for="{{categoryItems}}" 
+                wx:key="{{item.id}}"
+                catchtap="bindToggleCategory"
+                data-id="{{item.id}}"
+              >{{item.name}}</view>
               <view class="cart-zw"></view>
             </scroll-view>
           </view>
@@ -47,11 +58,11 @@
                 <view class="flex flex-item-end product-item" wx:for="{{productItems}}" wx:key="{{index}}">
                   <view class="product-item__thumbnail mr20">
                     <view class="goods-thumbnail">
-                      <image src="/images/product.jpg"></image>
+                      <image src="{{item.imgLogoSrc}}" mode="aspectFill"></image>
                     </view>
                   </view>
                   <view class="flex-item product-item__box">
-                    <view class="product-item__title text-right">13#滑轮R13</view>
+                    <view class="product-item__title text-right">{{item.name}}</view>
                     <view class="mt20 product-item__type">
                       <view class="flex flex-item-center flex-justify-end">
                         <image mode="widthFix" class="mr10" src="/images/icon1.png"></image>
@@ -63,12 +74,12 @@
                       </view>
                     </view>
                     <view class="mt40 flex flex-item-center">
-                      <view class="flex-item product-item__fee">￥260.0</view>
+                      <view class="flex-item product-item__fee">￥{{item.price}}</view>
                       <view>
                         <view class="flex flex-item-center c-number">
                           <view class="c-number__operation c-number__operation--reduce" catchtap="bindReduce" wx:if="{{false}}"></view>
                           <view class="c-number__text" wx:if="{{false}}"><input type="number" value="1" ></input></view>
-                          <view class="c-number__operation c-number__operation--plus" catchtap="bindPlus"></view>
+                          <view class="c-number__operation c-number__operation--plus" catchtap="bindAddCart" data-index="{{index}}"></view>
                         </view>
                       </view>
                     </view>

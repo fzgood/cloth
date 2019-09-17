@@ -2,9 +2,12 @@ const app = getApp()
 
 Page({
   data: {
+    categorysItems: []
   },
   onLoad: function () {
-   
+   app.checkLogin(()=>{
+     this.getCategory();
+   })
   },
 
   /**
@@ -17,12 +20,25 @@ Page({
     const page = e.currentTarget.dataset.page;
     app.jumpPage(page);
   },
-  bindOpenSelect(){
+  bindOpenSelect(e){
+    const index = e.currentTarget.dataset.index;
+    const items = this.data.categorysItems[index].sonList;
+    const arr = items.map((item)=>{
+      return item.name;
+    })
     wx.showActionSheet({
-      itemList: ['天滑轮', '地滑轮'],
+      itemList: arr,
       success: (res)=> {
-        console.log(res);
-        app.jumpPage('/pages/product/list2/list2');
+        app.jumpPage('/pages/product/list2/list2?id=' + items[res.tapIndex].id);
+      }
+    });
+  },
+  getCategory(){
+    app.$request.post('/product/apiNoSession/categoryListIndex').then(res=>{
+      if(res.code == app.globalData.RESPONSE_CODE.SUCCESS){
+        this.setData({
+          categorysItems: res.data
+        })
       }
     });
   }

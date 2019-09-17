@@ -1,34 +1,25 @@
-const app = getApp();
+// pages/startup/startup.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    scrollHeight: 0,
-    items: []
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.checkLogin(()=>{
-      this.getData();
-    })
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.createSelectorQuery().select('#carts-box').fields({
-      size: true,
-    }, res => {
-      this.setData({
-        scrollHeight: res.height
-      })
-    }).exec()
+
   },
 
   /**
@@ -71,13 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  bindJumpPage(e){
-    app.jumpPage(e.currentTarget.dataset.page);
-  },
-  getData(){
-    app.$request.post('/productCart/myList').then(res=>{
-      console.log(res);
-    });
   }
 })

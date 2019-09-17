@@ -2,11 +2,11 @@
   <view class="pd30 user-hd ">
     <view class="flex flex-item-center user-box">
       <view class="user-box__avatar mr20">
-        <c-avatar></c-avatar>
+        <c-avatar url="{{userInfo.headFile.src}}"></c-avatar>
       </view>
       <view class="flex-item user-info ">
-        <view class=" user-name text-wrap">铁憨憨</view>
-        <view class="mt10 user-intro text-wrap">收拾家鸽还是随随便便</view>
+        <view class=" user-name text-wrap">{{userInfo.nickName || '未命名'}}</view>
+        <view class="mt10 user-intro text-wrap">{{userInfo.introduction || '暂无个人简介'}}</view>
       </view>
       <view class="user-edit iconfont icon-write" catchtap="bindJumpPage" data-page="/pages/user/edit/edit"></view>
     </view>

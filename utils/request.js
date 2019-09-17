@@ -88,8 +88,7 @@ Request.prototype.uploadImage = function(images){
           if (res.statusCode === 200) {
             var data = JSON.parse(res.data);
             if (data.code === 0) {
-              files.push(data.data.name);
-              console.log(data.data.name);
+              files.push(data.data.url);
               if (arr.length) {
                 upload(arr)
               } else {

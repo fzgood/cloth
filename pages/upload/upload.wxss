@@ -20,3 +20,6 @@ page{
     border-radius: 2px;
     color: #ffffff;
 }
+.getCropperImage.btn{
+  background-color: var(--mainColor);
+}

@@ -42,6 +42,9 @@ scroll-view{
   width:4em;
   line-height: 1.4em;
 }
+.user-edit__group--in{
+  color:#666;
+}
 .user-edit__group--in textarea{
   height: 5.6em;
   line-height: 1.4em;

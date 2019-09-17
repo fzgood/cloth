@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userInfo: null,
 
   },
 
@@ -12,7 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -26,7 +27,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    app.checkLogin(() => {
+      this.getUserInfo();
+    })
   },
 
   /**
@@ -65,5 +68,17 @@ Page({
   },
   bindJumpPage(e){
     app.jumpPage(e.currentTarget.dataset.page);
+  },
+  getUserInfo(){
+    // app.showLoading();
+    app.$request.post('/member/memberDetail').then(res => {
+      if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
+        this.setData({
+          userInfo: res.data,
+        }, () => {
+          // app.hideLoading();
+        })
+      }
+    });
   }
 })

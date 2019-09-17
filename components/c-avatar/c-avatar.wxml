@@ -1,4 +1,4 @@
 <view class="c-avatar">
-  <image wx:if="{{url}}"></image>
+  <image wx:if="{{url}}" src="{{url}}" class="image-full"></image>
   <text wx:else class="iconfont icon-my_light c-avatar__icon"></text>
 </view>

@@ -16,7 +16,8 @@
     "pages/product/list2/list2",
     "pages/order2/detail/detail",
     "pages/order2/apply/apply",
-    "pages/product/search/search"
+    "pages/product/search/search",
+    "pages/startup/startup"
   ],
   "window": {
     "backgroundTextStyle": "light",
