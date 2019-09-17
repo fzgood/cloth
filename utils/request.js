@@ -25,10 +25,11 @@ Request.prototype.get = function (url, data) {
   var header = {
     'content-type': 'application/json'
   };
+  const params = Object.assign(this.data, data);
   return new Promise((resolve, reject) => {
     wx.request({
       url: this.apiUrl + url, //仅为示例，并非真实的接口地址
-      data: Object.assign(this.data, data),
+      data: params,
       method: 'get',
       header: header,
       success(res) {
@@ -53,10 +54,11 @@ Request.prototype.post = function (url, data) {
   var header = {
     'content-type': 'application/json'
   };
+  const params = Object.assign(this.data, data);
   return new Promise((resolve, reject)=> {
     wx.request({
       url: this.apiUrl + url, //仅为示例，并非真实的接口地址
-      data: Object.assign(this.data, data),
+      data: params,
       method: 'post',
       header: header,
       success(res) {

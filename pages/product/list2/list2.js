@@ -1,4 +1,7 @@
 const app = getApp();
+
+var cartTimeout = null;
+
 Page({
 
   /**
@@ -224,20 +227,52 @@ Page({
   /**
    * 加入购物车
    */
-  bindAddCart(e){
+  bindPlusCart(e) {
     const index = e.currentTarget.dataset.index;
     var item = this.data.productItems[index];
-    if (!item.productCart){
+    if (!item.productCart) {
       item.productCart = {
         qty: 1
       };
-    }else{
+    } else {
       ++item.productCart.qty
     }
-    var key = 'productItems['+index+']';
+    var key = 'productItems[' + index + ']';
     this.setData({
       [key]: item
     })
-    console.log(item.productCart.qty);
+    this.bindSaveCart(item);
+  },
+  /**
+   * 购物车商品数量减少
+   */
+  bindReduceCart(e) {
+    const index = e.currentTarget.dataset.index;
+    var item = this.data.productItems[index];
+    if (!item.productCart) {
+      item.productCart = {
+        qty: 0
+      };
+    } else {
+      --item.productCart.qty
+    }
+    var key = 'productItems[' + index + ']';
+    this.setData({
+      [key]: item
+    })
+    this.bindSaveCart(item);
+  },
+  /**
+   * 保存到购物车
+   */
+  bindSaveCart(item){
+    clearTimeout(cartTimeout);
+    cartTimeout = setTimeout(()=>{
+      app.$request.post('/productCart/save', {
+        productId: item.id,
+        qty: item.productCart.qty
+      });
+    }, 1000)
+    
   }
 })
