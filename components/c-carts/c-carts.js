@@ -7,7 +7,14 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    sumCount: {
+      type: Number,
+      value: 0
+    },
+    sumPrice: {
+      type: Number,
+      value: 0
+    }
   },
 
   /**

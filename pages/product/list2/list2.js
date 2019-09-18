@@ -1,7 +1,7 @@
 const app = getApp();
+let cartsTimeout = {
 
-var cartTimeout = null;
-
+}
 Page({
 
   /**
@@ -21,7 +21,9 @@ Page({
     pageNum:1 ,
     pageSize: 10,
     nextPage: true,
-    levelStatus: false
+    levelStatus: false,
+    sumCount: 0,
+    sumPrice: 0
   },
 
   /**
@@ -59,7 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getListSum();
   },
 
   /**
@@ -179,23 +181,23 @@ Page({
   },
   bindSelectLevel(e) {
     const index = e.currentTarget.dataset.index;
-    if (this.data.gradeIndex !== index){
+    if (this.data.gradeIndex !== index) {
+      this.resetParmas();
       this.setData({
         levelStatus: false,
         gradeIndex: index
       })
-      this.resetParmas();
       this.getData();
     }
   },
   /**
    * 切换分类
    */
-  bindToggleCategory(e){
+  bindToggleCategory(e) {
+    this.resetParmas();
     this.setData({
       categoryId: e.currentTarget.dataset.id
     })
-    this.resetParmas();
     this.getData();
   },
   /**
@@ -203,12 +205,12 @@ Page({
    */
   bindToggleAttr(e){
     const attrId = e.currentTarget.dataset.id
-    if (attrId !== this.data.attrId){
+    if (attrId !== this.data.attrId) {
+      this.resetParmas();
       this.setData({
         attrId: attrId,
         gradeIndex: 0
       })
-      this.resetParmas();
       this.getData();
     }
     
@@ -263,16 +265,59 @@ Page({
     this.bindSaveCart(item);
   },
   /**
+   * 手动改变数量
+   */
+  bindInputCarts(e) {
+    const index = e.currentTarget.dataset.index;
+    var item = this.data.productItems[index];
+    var key = 'productItems[' + index + ']';
+    item.productCart.qty = Number(e.detail.value);
+    this.setData({
+      [key]: item
+    })
+    this.bindSaveCart(item);
+  },
+  /**
    * 保存到购物车
    */
   bindSaveCart(item){
-    clearTimeout(cartTimeout);
-    cartTimeout = setTimeout(()=>{
+    clearTimeout(cartsTimeout[item.id]);
+    cartsTimeout[item.id] = setTimeout(()=>{
       app.$request.post('/productCart/save', {
         productId: item.id,
         qty: item.productCart.qty
+      }).then(res=>{
+        if(res.code === app.globalData.RESPONSE_CODE.SUCCESS){
+          const data = res.data;
+          if (data.isCheck == 0) {
+            this.bindSetCheck(data.id);
+          }else{
+            this.getListSum();
+          }
+        }
       });
-    }, 1000)
-    
-  }
+    }, 500)
+  },
+  /**
+   * 加入购物车选中
+   */
+  bindSetCheck(id){
+    app.$request.post('/productCart/setCheck', {
+      id: id
+    }).then(res => {
+      if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
+        this.getListSum();
+      }
+    });
+  },
+  getListSum() {
+    app.$request.post('/productCart/myListSum').then(res => {
+      if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
+        this.setData({
+          sumCount: res.data.sumCount,
+          sumPrice: res.data.sumPrice
+        })
+      }
+    });
+  },
 })

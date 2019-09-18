@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    model: false,
     region: ['','',''],
     userInfo:{
       headFile: {
@@ -30,6 +31,13 @@ Page({
   onLoad: function (options) {
     app.checkLogin(()=>{
       this.getUserInfo();
+      if(wx.getStorageSync('userLevel') == 0){
+        this.setData({
+          model: true
+        })
+      }
+
+      
     })
   },
 
@@ -123,6 +131,7 @@ Page({
         title: res.msg,
       }).then(()=>{
         if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
+          wx.setStorageSync('userLevel', 1)
           wx.navigateBack();
         }
       })
@@ -157,5 +166,26 @@ Page({
   },
   bindgetphonenumber(e){
     console.log(e);
+  },
+  hideModel(){
+    this.setData({
+      model: false
+    })
+  },
+  bindgetuserinfo(e){
+    app.showLoading();
+    wx.getUserInfo({
+      success: (res)=>{
+        const info = JSON.parse(res.rawData);
+        this.setData({
+          'userInfo.member.nickName': info.nickName,
+          'userInfo.headFile.src': info.avatarUrl,
+        })
+      },
+      complete: ()=>{
+        this.hideModel();
+        app.hideLoading();
+      }
+    })
   }
 })

@@ -49,7 +49,7 @@
                 catchtap="bindToggleCategory"
                 data-id="{{item.id}}"
               >{{item.name}}</view>
-              <view class="cart-zw"></view>
+              <view class="cart-zw"  wx:if="{{sumPrice}}"></view>
             </scroll-view>
           </view>
           <view class="flex-item product-main__right">
@@ -80,13 +80,21 @@
                           <view 
                             class="c-number__operation c-number__operation--reduce" 
                             catchtap="bindReduceCart" 
+                            data-index="{{index}}"
                             wx:if="{{item.productCart && item.productCart.qty}}"></view>
                           <view 
                             class="c-number__text" 
                             wx:if="{{item.productCart && item.productCart.qty}}">
-                            <input type="number" value="{{item.productCart.qty}}" ></input>
+                            <input type="number" value="{{item.productCart.qty}}" 
+                              bindinput="bindInputCarts" 
+                              data-index="{{index}}"
+                              type="number"
+                              ></input>
                           </view>
-                          <view class="c-number__operation c-number__operation--plus" catchtap="bindPlusCart" data-index="{{index}}"></view>
+                          <view 
+                            class="c-number__operation c-number__operation--plus" 
+                            catchtap="bindPlusCart" 
+                            data-index="{{index}}"></view>
                         </view>
                       </view>
                     </view>
@@ -97,14 +105,14 @@
                   </view>
                 </view>
               </view>
-              <view class="cart-zw"></view>
+              <view class="cart-zw"  wx:if="{{sumPrice}}"></view>
             </scroll-view>
           </view>
         </view>
       </view>
     </view>
   </scroll-view>
-  <view class="product-carts">
-    <c-carts></c-carts>
+  <view class="product-carts" wx:if="{{sumPrice}}">
+    <c-carts sumPrice="{{sumPrice}}" sumCount="{{sumCount}}"></c-carts>
   </view>
 </view>

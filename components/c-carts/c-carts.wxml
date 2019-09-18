@@ -1,8 +1,8 @@
 <view class="flex flex-item-center  c-carts">
   <view class="iconfont icon-cart c-carts__icon">
-    <view class="c-carts__number">5</view>
+    <view class="c-carts__number">{{sumCount}}</view>
   </view>
-  <view class="c-carts__fee">47</view>
+  <view class="c-carts__fee">{{sumPrice}}</view>
   <view class="flex-item text-right c-carts__apply">
     <text>选好了</text>
     <text class="ml20 iconfont icon-right c-carts__apply--icon"></text>

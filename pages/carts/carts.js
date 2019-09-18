@@ -1,4 +1,9 @@
 const app = getApp();
+
+var cartsTimeout = {
+  
+}
+
 Page({
 
   /**
@@ -6,16 +11,15 @@ Page({
    */
   data: {
     scrollHeight: 0,
-    items: []
+    items: [],
+    sumCount: 0,
+    sumPrice: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.checkLogin(()=>{
-      this.getData();
-    })
   },
 
   /**
@@ -35,7 +39,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    app.checkLogin(() => {
+      this.getData();
+      this.getListSum();
+    })
   },
 
   /**
@@ -78,6 +85,61 @@ Page({
   getData(){
     app.$request.post('/productCart/myList').then(res=>{
       console.log(res);
+      if(res.code === app.globalData.RESPONSE_CODE.SUCCESS){
+        this.setData({
+          items: res.data
+        })
+      }
     });
+  },
+  getListSum(){
+    app.$request.post('/productCart/myListSum').then(res=>{
+      if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
+        this.setData({
+          sumCount: res.data.sumCount,
+          sumPrice: res.data.sumPrice
+        })
+      }
+    });
+  },
+  bindSetCheck(e){
+    const index = e.currentTarget.dataset.index;
+    const item = this.data.items[index];
+    const key = 'items['+index+'].isCheck';
+    const url = item.isCheck == 1 ? '/productCart/setNotCheck' : '/productCart/setCheck';
+    app.$request.post(url, {
+      id: item.id
+    }).then(res=>{
+      if(res.code === app.globalData.RESPONSE_CODE.SUCCESS){
+        this.setData({
+          [key]: item.isCheck == 0 ? 1 : 0
+        },()=>{
+          this.getListSum();
+        })
+      }
+    });
+  },
+  bindPlusCart(e){
+    const index = e.currentTarget.dataset.index;
+    var item = this.data.items[index];
+    var key = 'items[' + index + ']';
+    ++item.qty;
+    this.setData({
+      [key]: item
+    })
+    this.bindSaveCart(item);
+  },
+  bindSaveCart(item){
+    clearTimeout(cartsTimeout[item.id]);
+    cartsTimeout[item.id] = setTimeout(() => {
+      app.$request.post('/productCart/save', {
+        productId: item.productCid,
+        qty: item.qty
+      }).then(res => {
+        if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
+          this.getListSum();
+        }
+      });
+    }, 500)
   }
 })

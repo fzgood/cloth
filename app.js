@@ -38,7 +38,13 @@ App({
               code: res.code
             }).then(res=>{
               if (res.code === this.globalData.RESPONSE_CODE.SUCCESS){
+                const user = res.data.sessionMember.member;
+                let userLevel = 0;
+                if (user.nickName && user.tel){
+                  userLevel = 1;
+                }
                 wx.setStorageSync('token', res.data.token);
+                wx.setStorageSync('userLevel', userLevel);
               }
             })
           } else {
@@ -53,7 +59,7 @@ App({
       success() {
         fn && fn();
       },
-      fail() {
+      fail:()=> {
         this.login().then(res=>{
           fn && fn()
         });

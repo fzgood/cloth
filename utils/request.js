@@ -1,4 +1,5 @@
 const apiUrl = 'https://cmqplus.goho.co/';
+// const apiUrl = 'http://192.168.31.230:8888/';
 const version = 'V201907225';
 const Request = function () {
   this.apiUrl = apiUrl + version;
@@ -25,7 +26,8 @@ Request.prototype.get = function (url, data) {
   var header = {
     'content-type': 'application/json'
   };
-  const params = Object.assign(this.data, data);
+  const params = Object.assign({}, this.data, data);
+  console.log(params);
   return new Promise((resolve, reject) => {
     wx.request({
       url: this.apiUrl + url, //仅为示例，并非真实的接口地址
@@ -54,7 +56,7 @@ Request.prototype.post = function (url, data) {
   var header = {
     'content-type': 'application/json'
   };
-  const params = Object.assign(this.data, data);
+  const params = Object.assign({}, this.data, data);
   return new Promise((resolve, reject)=> {
     wx.request({
       url: this.apiUrl + url, //仅为示例，并非真实的接口地址
@@ -69,8 +71,9 @@ Request.prototype.post = function (url, data) {
           reject();
         }
       },
-      fail(xhr) {
+      fail: xhr => {
         reject(xhr);
+        wx.hideLoading()
       }
     })
   })
@@ -98,6 +101,9 @@ Request.prototype.uploadImage = function(images){
               }
             }
           }
+        },
+        fail: xhr=>{
+          wx.hideLoading()
         }
       })
     }

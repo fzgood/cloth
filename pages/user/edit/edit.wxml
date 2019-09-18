@@ -78,3 +78,18 @@
     </view>
   </view>
 </form>
+
+<view class="user-model" wx:if="{{model}}">
+  <view class="user-model__box">
+    <view class="user-model__title text-center">授权</view>
+    <view class="mt40 user-model__intro ">您是第一次登陆，是否授权获取基本信息？</view>
+    <view class="mt40 flex flex-item-center">
+      <view class="flex-item pr20">
+        <button class="clearButton user-model__btn ">取消</button>
+      </view>
+      <view class="flex-item pl20">
+        <button class="clearButton user-model__btn user-model__btn--confirm " open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">同意</button>
+      </view>
+    </view>
+  </view>
+</view>
