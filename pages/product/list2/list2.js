@@ -271,11 +271,13 @@ Page({
     const index = e.currentTarget.dataset.index;
     var item = this.data.productItems[index];
     var key = 'productItems[' + index + ']';
-    item.productCart.qty = Number(e.detail.value);
-    this.setData({
-      [key]: item
-    })
-    this.bindSaveCart(item);
+    if (e.detail.value){
+      item.productCart.qty = Number(e.detail.value);
+      this.setData({
+        [key]: item
+      })
+      this.bindSaveCart(item);
+    }
   },
   /**
    * 保存到购物车

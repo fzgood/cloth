@@ -13,7 +13,7 @@ Page({
     scrollHeight: 0,
     items: [],
     sumCount: 0,
-    sumPrice: 0
+    sumPrice: 0,
   },
 
   /**
@@ -119,7 +119,10 @@ Page({
       }
     });
   },
-  bindPlusCart(e){
+  /**
+   * 购物车商品数量增加
+   */
+  bindPlusCart(e) {
     const index = e.currentTarget.dataset.index;
     var item = this.data.items[index];
     var key = 'items[' + index + ']';
@@ -128,6 +131,38 @@ Page({
       [key]: item
     })
     this.bindSaveCart(item);
+  },
+  /**
+   * 购物车商品数量减少
+   */
+  bindReduceCart(e) {
+    const index = e.currentTarget.dataset.index;
+    var item = this.data.items[index];
+    var key = 'items[' + index + ']';
+    if (item.qty>=2){
+      --item.qty;
+      this.setData({
+        [key]: item
+      })
+      this.bindSaveCart(item);
+    }
+    
+  },
+  /**
+   * 手动更改商品数量
+   */
+  bindInputCarts(e){
+    const index = e.currentTarget.dataset.index;
+    var item = this.data.items[index];
+    var key = 'items[' + index + ']';
+    var number = Number(e.detail.value);
+    if (number) {
+      item.qty = number;
+      this.setData({
+        [key]: item
+      })
+      this.bindSaveCart(item);
+    }
   },
   bindSaveCart(item){
     clearTimeout(cartsTimeout[item.id]);
@@ -141,5 +176,21 @@ Page({
         }
       });
     }, 500)
+  },
+  bindToggleAll(e){
+    const flag = this.data.items.length == this.data.sumCount;
+    const url = flag ? '/productCart/setNotCheckAll' : '/productCart/setCheckAll';
+    app.$request.post(url).then(res => {
+      if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
+        this.getListSum();
+        var items = this.data.items;
+        for (var i = 0, l = items.length;i<l;i++){
+          items[i].isCheck = !flag;
+        }
+        this.setData({
+          items: items
+        })
+      }
+    });
   }
 })

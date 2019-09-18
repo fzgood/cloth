@@ -85,10 +85,11 @@
                           <view 
                             class="c-number__text" 
                             wx:if="{{item.productCart && item.productCart.qty}}">
-                            <input type="number" value="{{item.productCart.qty}}" 
+                            <input 
+                              type="number" 
+                              value="{{item.productCart.qty}}" 
                               bindinput="bindInputCarts" 
                               data-index="{{index}}"
-                              type="number"
                               ></input>
                           </view>
                           <view 

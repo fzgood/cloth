@@ -4,7 +4,10 @@
       <view class="carts-wrap">
         <view class="mb20 carts-number">已添加{{items.length}}件商品</view>
         <view class="flex flex-item-center carts-item" wx:for="{{items}}" wx:key="{{item.id}}">
-          <view class="hook-select {{item.isCheck ?'hook-select--active':''}} " catchtap="bindSetCheck" data-index="{{index}}"></view>
+          <view 
+          class="hook-select {{item.isCheck ?'hook-select--active':''}} " 
+          catchtap="bindSetCheck" 
+          data-index="{{index}}"></view>
           <view class="ml20 mr20 carts-item__thumbnail">
             <view class="goods-thumbnail">
               <image mode="aspectFill" src="{{item.productVo.imgLogoSrc}}"></image>
@@ -22,10 +25,15 @@
                 <view class="flex flex-item-center c-number">
                   <view 
                     class="c-number__operation c-number__operation--reduce" 
-                    catchtap="bindReduceCart" ></view>
-                  <view 
-                    class="c-number__text" >
-                    <input type="number" value="{{item.qty}}" ></input>
+                    catchtap="bindReduceCart" 
+                    data-index="{{index}}"></view>
+                  <view class="c-number__text" >
+                    <input 
+                      type="number" 
+                      value="{{item.qty}}" 
+                      bindinput="bindInputCarts"
+                      data-index="{{index}}"
+                    ></input>
                   </view>
                   <view 
                     class="c-number__operation c-number__operation--plus" 
@@ -40,8 +48,8 @@
     </scroll-view>
   </view>
   <view class="flex flex-item-center carts-ft">
-    <view class="carts-all">
-      <text class="hook-select hook-select--active"></text>
+    <view class="carts-all" catchtap="bindToggleAll">
+      <text class="hook-select {{items.length == sumCount ?'hook-select--active':''}} "></text>
       <text class="ml10 carts-all__text">全选</text>
     </view>
     <view class="flex-item carts-fee text-right">
