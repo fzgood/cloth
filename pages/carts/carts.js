@@ -93,14 +93,18 @@ Page({
     });
   },
   getListSum(){
-    app.$request.post('/productCart/myListSum').then(res=>{
-      if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
-        this.setData({
-          sumCount: res.data.sumCount,
-          sumPrice: res.data.sumPrice
-        })
-      }
-    });
+    return new Promise((resolve ,reject)=>{
+      app.$request.post('/productCart/myListSum').then(res => {
+        if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
+          this.setData({
+            sumCount: res.data.sumCount,
+            sumPrice: res.data.sumPrice
+          })
+          resolve();
+        }
+      });
+    })
+    
   },
   bindSetCheck(e){
     const index = e.currentTarget.dataset.index;
@@ -192,5 +196,32 @@ Page({
         })
       }
     });
+  },
+  /**
+   * 移除购物车某个商品
+   */
+  bindRemoveCart(e){
+    const index = e.currentTarget.dataset.index;
+    wx.showModal({
+      title: '移除',
+      content: '是否把当前商品移除购物车中',
+      success: res=>{
+        if(res.confirm){
+          app.$request.post('/productCart/delete', {
+            id: this.data.items[index].id
+          }).then(res => {
+            if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
+              this.getListSum().then(()=>{
+                var items = this.data.items;
+                items.splice(index, 1);
+                this.setData({
+                  items: items
+                })
+              });
+            }
+          });
+        }
+      }
+    })
   }
 })

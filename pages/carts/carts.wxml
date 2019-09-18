@@ -16,7 +16,7 @@
           <view class="flex-item carts-item__box">
             <view class="flex flex-item-center">
               <view class="flex-item carts-item__title text-wrap">{{item.productVo.name}}</view>
-              <view class="ml20 iconfont icon-delete_light"></view>
+              <view class="ml20 iconfont icon-delete_light" catchtap="bindRemoveCart" data-index="{{index}}"></view>
             </view>
             <view class="mt10 carts-item__intro">{{item.productVo.attrName}}</view>
             <view class="mt10 flex flex-item-center">
