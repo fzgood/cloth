@@ -1,7 +1,7 @@
 page:root{
-  --mainColor: #f4be43;
-  --secondColor: #d14e49;
-  --assist1: #f4be43;
-  --assist2: #f4be43;
+  --mainColor: #963c48;
+  --secondColor: #f43530;
+  --bgColor:#f7eae3;
+  --bgMask: rgba(0,0,0, 0.6);
   --borderColor: #eee;
 }

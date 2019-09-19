@@ -1,0 +1,54 @@
+<view class="home">
+  <view class="pd30 bg-white">
+    <view class="home-search">
+      <view class="flex flex-item-center home-search__box">
+        <view class="mr20 iconfont icon-search home-search__box--icon"></view>
+        <input class="flex-item" placeholder="请输入您要搜索的内容"></input>
+      </view>
+    </view>
+    <view class="mt30 home-banner">
+      <swiper indicator-active-color="#963c48" indicator-dots>
+        <swiper-item wx:for="{{3}}" wx:key="{{index}}">
+          <view class="home-banner__item">
+            <c-image mode="aspectFill" src="/images/banner.jpg"></c-image>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+  <view class="mt20 pd10 bg-white flex flex-item-center flex-wrap home-category">
+    <view class="pd20 flex-column__5 home-category__item" wx:for="{{5}}">
+      <view class="goods-thumbnail">
+        <c-image src="/images/category.png"></c-image>
+      </view>
+      <view class="mt10 home-category__item--name text-center">衬衫</view>
+    </view>
+  </view>
+  <view class="mt20 pd30 bg-white home-store"  wx:for="{{3}}" wx:key="{{index}}">
+    <view class="flex flex-item-center home-store__hd">
+      <view class="home-store__logo mr20">
+        <view class="goods-thumbnail">
+          <c-image src="/images/chanel.jpg"></c-image>
+        </view>
+      </view>
+      <view class="flex-item">
+        <view class="home-store__name">CHANEL</view>
+        <view class="mt5 home-store__number">106款</view>
+      </view>
+      <button class="clearButton home-store__like">关注店铺</button>
+    </view>
+    <view class="mt20 home-store__bd">
+      <swiper class="home-store__swiper" next-margin="30px" display-multiple-items="3">
+        <swiper-item wx:for="{{5}}">
+          <view class="home-store__item">
+            <view class="goods-thumbnail home-store__item--thumbnail">
+              <c-image src="/images/product.jpg"></c-image>
+            </view>
+            <view class="mt10 text-wrap home-store__item--name">GABRIELLE小号流浪包</view>
+            <view class="home-store__item--price">26,400</view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+</view>

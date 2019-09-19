@@ -2,7 +2,6 @@ const app = getApp()
 
 Page({
   data: {
-    categorysItems: []
   },
   onLoad: function () {
 

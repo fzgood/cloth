@@ -4,11 +4,12 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarBackgroundColor": "#963c48",
     "navigationBarTitleText": "布料商城",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "usingComponents": {
+    "c-image": "/components/c-image/c-image"
   },
   "sitemapLocation": "sitemap.json"
 }
