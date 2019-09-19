@@ -4,37 +4,10 @@
   </view>
   <view class="flex-item order-box" id="order-box">
     <swiper style="height:{{swiperHeight}}px" current="{{tabIndex}}" bindchange="bindChange">
-      <swiper-item>
+      <swiper-item wx:for="{{orderItems}}" wx:key="{{index}}" wx:for-item="list">
         <scroll-view style="height:{{swiperHeight}}px" scroll-y>
           <view class="order-wrap">
-            <view wx:for="{{all.items}}" wx:key="{{item.id}}" class="mb20">
-              <c-order item="{{item}}"></c-order>
-            </view>
-          </view>
-        </scroll-view>
-      </swiper-item>
-      <swiper-item>
-        <scroll-view style="height:{{swiperHeight}}px" scroll-y>
-          <view class="order-wrap">
-            <view wx:for="{{stay.items}}" wx:key="{{item.id}}" class="mb20">
-              <c-order item="{{item}}"></c-order>
-            </view>
-          </view>
-        </scroll-view>
-      </swiper-item>
-      <swiper-item>
-        <scroll-view style="height:{{swiperHeight}}px" scroll-y>
-          <view class="order-wrap">
-            <view wx:for="{{collect.items}}" wx:key="{{item.id}}" class="mb20">
-              <c-order item="{{item}}"></c-order>
-            </view>
-          </view>
-        </scroll-view>
-      </swiper-item>
-      <swiper-item>
-        <scroll-view style="height:{{swiperHeight}}px" scroll-y>
-          <view class="order-wrap">
-            <view wx:for="{{over.items}}" wx:key="{{item.id}}" class="mb20">
+            <view wx:for="{{list.items}}" wx:key="{{item.id}}" class="mb20">
               <c-order item="{{item}}"></c-order>
             </view>
           </view>

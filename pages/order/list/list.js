@@ -5,33 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabs: ['全部订单','待付款','待收货','已收货'],
+    tabs: [],
     tabIndex: 0,
     swiperHeight: 0,
-    all: {
-      items: [],
-      pageNum: 1,
-      pageSize: 10,
-      nextPage: true
-    },
-    stay: {
-      items: [],
-      pageNum: 1,
-      pageSize: 10,
-      nextPage: true
-    },
-    collect: {
-      items: [],
-      pageNum: 1,
-      pageSize: 10,
-      nextPage: true
-    },
-    over: {
-      items: [],
-      pageNum: 1,
-      pageSize: 10,
-      nextPage: true
-    }
+    orderItems: [],
+    items: []
   },
 
   /**
@@ -39,11 +17,7 @@ Page({
    */
   onLoad: function (options) {
     app.checkLogin(()=>{
-      app.showLoading();
-      this.getAllOrder();
-      this.getStayOrder();
-      this.getCollectOrder();
-      this.getOverOrder();
+      this.getCategory();
     })
   },
 
@@ -80,27 +54,6 @@ Page({
   onUnload: function () {
 
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   bindToggleTab(e){
     this.setData({
       tabIndex: e.detail
@@ -111,69 +64,56 @@ Page({
       tabIndex: e.detail.current
     })
   },
-  getAllOrder() {
-    app.$request.post('/order/myList_all', {
-      pageNum: this.data.all.pageNum,
-      pageSize: this.data.all.pageSize,
-    }).then(res => {
-      if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
-        let originArr = this.data.all.items;
+  getCategory() {
+    app.showLoading();
+    app.$request.post('/order/getOrderStatusList').then(res=>{
+      if(res.code === app.globalData.RESPONSE_CODE.SUCCESS){
+        var items = res.data;
+        var category = [];
+        var arr = [];
+        for(var i = 0 , l = items.length;i<l;i++){
+          let item = items[i];
+          category.push(item.name);
+          arr.push(Object.assign({}, item, {
+            items: [],
+            pageNum: 1,
+            pageSize: 10,
+            nextPage: true
+          }))
+        }
         this.setData({
-          'all.items': originArr.concat(res.data.rows)
+          tabs: category,
+          orderItems: arr
+        }, ()=>{
+          for(var i = 0, l = this.data.orderItems.length;i<l;i++){
+            this.getData(i);
+          }
         })
-        this.data.all.pageNum = res.data.pageNum;
-        this.data.all.pageSize = res.data.pageSize;
-        this.data.all.nextPage = res.data.nextPage;
+        app.hideLoading();
       }
-      app.hideLoading();
-    })
+    });
   },
-  getStayOrder() {
-    app.$request.post('/order/myList_create', {
-      pageNum: this.data.stay.pageNum,
-      pageSize: this.data.stay.pageSize,
+  getData(index) {
+    const i = index || this.data.tabIndex;
+    app.$request.post(this.data.orderItems[i].url, {
+      pageNum: this.data.orderItems[i].pageNum,
+      pageSize: this.data.orderItems[i].pageSize,
     }).then(res => {
       if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
-        let originArr = this.data.stay.items;
+        let originArr = this.data.orderItems[i].items;
+        const key = 'orderItems['+i+'].items'
         this.setData({
-          'stay.items': originArr.concat(res.data.rows)
+          [key]: originArr.concat(res.data.rows)
         })
-        this.data.stay.pageNum = res.data.pageNum;
-        this.data.stay.pageSize = res.data.pageSize;
-        this.data.stay.nextPage = res.data.nextPage;
-      }
-    })
-  }, 
-  getCollectOrder() {
-    app.$request.post('/order/myList_delivery_all', {
-      pageNum: this.data.collect.pageNum,
-      pageSize: this.data.collect.pageSize,
-    }).then(res => {
-      if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
-        let originArr = this.data.collect.items;
-        this.setData({
-          'collect.items': originArr.concat(res.data.rows)
-        })
-        this.data.collect.pageNum = res.data.pageNum;
-        this.data.collect.pageSize = res.data.pageSize;
-        this.data.collect.nextPage = res.data.nextPage;
+        this.data.orderItems[i].pageNum = res.data.pageNum;
+        this.data.orderItems[i].nextPage = res.data.nextPage;
       }
     })
   },
-  getOverOrder() {
-    app.$request.post('/order/myList_finish', {
-      pageNum: this.data.over.pageNum,
-      pageSize: this.data.over.pageSize,
-    }).then(res => {
-      if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
-        let originArr = this.data.over.items;
-        this.setData({
-          'over.items': originArr.concat(res.data.rows)
-        })
-        this.data.over.pageNum = res.data.pageNum;
-        this.data.over.pageSize = res.data.pageSize;
-        this.data.over.nextPage = res.data.nextPage;
-      }
-    })
+  bindDownLoad(){
+    var index = this.data.tabIndex;
+    if (this.data.orderItems[index].nextPage){
+      this.getData();
+    }
   }
 })

@@ -1,10 +1,22 @@
-<view class="flex flex-item-center c-tab ">
-  <view class="flex-item c-tab__item {{index == tabIndex ?'c-tab__item--active':''}}" 
-    wx:for="{{tabs}}" 
-    wx:key="{{index}}"
-    bindtap="bindToggleTab"
-    data-index="{{index}}"
-  >
-    {{item}}
+<view>
+  <view class="flex flex-item-center c-tab " wx:if="{{tabs.length < 5}}">
+    <view class="flex-item c-tab__item {{index == tabIndex ?'c-tab__item--active':''}}" 
+      wx:for="{{tabs}}" 
+      wx:key="{{index}}"
+      bindtap="bindToggleTab"
+      data-index="{{index}}"
+    >
+      {{item}}
+    </view>
+  </view>
+  <view wx:else class="c-tab">
+    <swiper display-multiple-items="4">
+      <swiper-item wx:for="{{tabs}}"  wx:key="{{index}}">
+        <view 
+          class=" c-tab__item {{index == tabIndex ?'c-tab__item--active':''}}" 
+          bindtap="bindToggleTab"
+          data-index="{{index}}">{{item}}</view>
+      </swiper-item>
+    </swiper>
   </view>
 </view>
