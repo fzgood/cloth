@@ -1,3 +1,6 @@
+.detail{
+  padding-bottom:100rpx;
+}
 .detail-section__title{
   color:#000;
   font-weight: bold;
@@ -34,9 +37,15 @@
   position: absolute;
   bottom:0;
   left:0;
-  width:50%;
+  width:0%;
   height: 100%;
   background-color:var(--mainColor);
+}
+.detail-status__progress--ing50::after{
+  width:50%;
+}
+.detail-status__progress--ing100::after{
+  width:100%;
 }
 .detail-status__item--name{
   color:#999;
@@ -124,4 +133,14 @@
   content:'￥';
   color:#333;
   font-size: 28rpx
+}
+.detail-flex{
+  position: fixed;
+  bottom:0;
+  left:0;
+  width: 100%;
+  padding:30rpx;
+}
+.apply-btn{
+
 }

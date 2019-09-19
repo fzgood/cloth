@@ -39,6 +39,7 @@ Page({
    */
   onLoad: function (options) {
     app.checkLogin(()=>{
+      app.showLoading();
       this.getAllOrder();
       this.getStayOrder();
       this.getCollectOrder();
@@ -124,6 +125,7 @@ Page({
         this.data.all.pageSize = res.data.pageSize;
         this.data.all.nextPage = res.data.nextPage;
       }
+      app.hideLoading();
     })
   },
   getStayOrder() {

@@ -81,6 +81,9 @@ Request.prototype.post = function (url, data) {
 
 
 Request.prototype.uploadImage = function(images){
+  wx.showLoading({
+    mask: true
+  })
   return new Promise((resolve, reject)=>{
     var files = [];
     var upload = (arr)=>{
@@ -97,12 +100,14 @@ Request.prototype.uploadImage = function(images){
               if (arr.length) {
                 upload(arr)
               } else {
+                wx.hideLoading()
                 resolve(files);
               }
             }
           }
         },
-        fail: xhr=>{
+        fail: xhr => {
+          resolve(files);
           wx.hideLoading()
         }
       })

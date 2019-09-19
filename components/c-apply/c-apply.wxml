@@ -1,9 +1,29 @@
-<view class="c-apply">
-  <view class="c-apply__mask"></view>
-  <view class="pd30 bg-white c-apply__box">
-    <view class="c-apply__hd">
-      
+<view class="c-apply" wx-if="{{showMask}}">
+  <view class="c-apply__mask "  catchtap="hide"></view>
+  <view class=" bg-white c-apply__box {{!showBox?'c-apply__box--active':''}}" >
+    <view class="flex flex-item-center c-apply__hd">
+      <view class="flex-item c-apply__title">付款方式</view>
+      <view class="custom-group__close iconfont icon-close_light" catchtap="hide"></view>
     </view>
-    <view class="custom-group__close iconfont icon-close_light"></view>
+    <view class="c-apply__bd">
+      <view class="flex flex-item-center c-apply__item" catchtap="bindToggleType" data-type="10">
+        <image class="mr30 c-apply__item--image" src="/images/icon3.png" mode="widthFix"></image>
+        <view class="flex-item ">
+          <view class="flex-item c-apply__item--name">微信支付</view>
+        </view>
+        <view class="ml30 hook-select {{payId == '10' ?'hook-select--active':''}} "></view>
+      </view>
+      <view class="mt30 flex flex-item-center c-apply__item" catchtap="bindToggleType" data-type="20">
+        <image class="mr30 c-apply__item--image" src="/images/icon4.png" mode="widthFix"></image>
+        <view class="flex-item ">
+          <view class="flex-item c-apply__item--name">线下支付</view>
+          <view class="flex-item c-apply__item--intro">线下支付提交后,请上传支付凭证照片</view>
+        </view>
+        <view class="ml30 hook-select {{payId == '20' ?'hook-select--active':''}} "></view>
+      </view>
+    </view>
+    <view class="c-apply__ft" wx:if="{{orderStatus == 10}}">
+      <button class="clearButton mainButton--sx round">支付￥{{price}}</button>
+    </view>
   </view>
 </view>

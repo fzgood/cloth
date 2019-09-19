@@ -12,7 +12,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.checkLogin(()=>{
+      this.getData();
+    })
   },
 
   /**
@@ -66,5 +68,10 @@ Page({
   bindJumpPage(e){
     const page = e.currentTarget.dataset.page;
     app.jumpPage(page);
+  },
+  getData(){
+    app.$request.post('/productQuick/myList', {
+      
+    });
   }
 })

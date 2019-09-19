@@ -6,7 +6,8 @@ Page({
    */
   data: {
     id: '',
-    detail: null
+    detail: null,
+    statusNumber: 0
   },
 
   /**
@@ -27,7 +28,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.apply = this.selectComponent('#c-apply')
   },
 
   /**
@@ -75,19 +76,41 @@ Page({
    * 获取详情
    */
   getDetail(){
+    app.showLoading();
     app.$request.post('/order/detail', {
       id: this.data.id
     }).then(res=>{
-      var detail = res.data;
-      for (var i = 0, l = detail.orderLineVoList.length ; i<l ;i++){
-        var item = detail.orderLineVoList[i];
-        item.productVo.attrArr = item.productVo.attrName.split(' ');
-      }
       if(res.code === app.globalData.RESPONSE_CODE.SUCCESS){
+        var detail = res.data;
+        for (var i = 0, l = detail.orderLineVoList.length; i < l; i++) {
+          var item = detail.orderLineVoList[i];
+          item.productVo.attrArr = item.productVo.attrName.split(' ');
+        }
         this.setData({
-          detail: res.data
+          detail: detail
         })
+        this.getStatus(detail.orderStatus);
       }
+      app.hideLoading();
     });
+  },
+  /**
+   * 获取订单当前状态
+   */
+  getStatus(status){
+    var statusNumber = 0;
+    if(status>=20 && status<40){
+      statusNumber = 1;
+    } else if (status > 40 && status <= 70) {
+      statusNumber = 50
+    } else if (status > 70){
+      statusNumber = 100;
+    }
+    this.setData({
+      statusNumber: statusNumber
+    })
+  },
+  bindApply(){
+    this.apply.show();
   }
 })

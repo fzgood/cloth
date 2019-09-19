@@ -1,34 +1,47 @@
 <view class="custom">
   <view class="pd30 bg-white custom-box">
-    <form >
+    <form  bindsubmit="bindSaveForm" >
       <view class="flex flex-item-center custom-group">
-        <input class="flex-item custom-group__input" placeholder='公司名称'></input>
-        <view class="custom-group__close iconfont icon-close_light"></view>
+        <input class="flex-item custom-group__input" placeholder='公司名称' name="companyName" value="{{companyName}}" bindinput="bindInput" data-key="companyName"></input>
+        <view class="custom-group__close iconfont icon-close_light" catchtap="bindClear" data-key="companyName"></view>
       </view>
       <view class="flex flex-item-center custom-group">
-        <input class="flex-item custom-group__input" placeholder='姓名'></input>
-        <view class="custom-group__close iconfont icon-close_light"></view>
+        <input class="flex-item custom-group__input" placeholder='姓名' name="person" value="{{person}}" bindinput="bindInput" data-key="person"></input>
+        <view class="custom-group__close iconfont icon-close_light" catchtap="bindClear" data-key="person"></view>
       </view>
       <view class="flex flex-item-center custom-group">
-        <input class="flex-item custom-group__input" placeholder='职务'></input>
-        <view class="custom-group__close iconfont icon-close_light"></view>
+        <input class="flex-item custom-group__input" placeholder='职务' name="job" value="{{job}}" bindinput="bindInput" data-key="job" ></input>
+        <view class="custom-group__close iconfont icon-close_light"catchtap="bindClear" data-key="job"></view>
       </view>
       <view class="flex flex-item-center custom-group">
-        <input class="flex-item custom-group__input" placeholder='电话'></input>
-        <view class="custom-group__close iconfont icon-close_light"></view>
+        <input class="flex-item custom-group__input" placeholder='电话' name="tel" value="{{tel}}" bindinput="bindInput" data-key="tel" ></input>
+        <view class="custom-group__close iconfont icon-close_light"catchtap="bindClear" data-key="tel"></view>
       </view>
       <view class="custom-group">
-        <textarea class="custom-group__textarea" placeholder='需求说明'></textarea>
+        <textarea class="custom-group__textarea" placeholder='需求说明' maxlength="200" name="details" value="{{details}}" bindinput="bindInput" data-key="details"></textarea>
         <view class="custom-group__ft flex flex-item-end">
-          <view class="custom-group__upload">
-            <c-upload></c-upload>
+          <view class="flex-item flex flex-wrap flex-pd-lr">
+            <view class="flex-col__4" wx:for="{{detailFileList}}" wx:key="{{index}}">
+              <view class="goods-thumbnail custom-group__image">
+                <c-image src="{{item.src}}" mode="aspectFill" catchtap="bindShowImage" data-index="{{index}}"></c-image>
+                <view 
+                catchtap="bindRemoveImage" 
+                data-index="{{index}}" 
+                class="thumbnail-close iconfont icon-round_close_fill_light"></view>
+              </view>
+            </view>
+            <view class="flex-col__4" wx:if="{{detailFileList.length < 9}}">
+              <c-upload count="{{9-detailFileList.length}}"  bind:uploadOver="bindUploadOver"></c-upload>
+            </view>
           </view>
-          <view class="flex-item text-right custom-group__number">0/200</view>
+          <view class="ml20 custom-group__number">{{details.length}}/200</view>
         </view>
       </view>
       <button 
         class="mt30 clearButton mainButton--default round custom-group__btn" 
-        hover-class="custom-group__btn--hover">
+        hover-class="custom-group__btn--hover"
+        form-type="submit"
+        >
         提交需求
       </button>
     </form>

@@ -17,7 +17,13 @@
 .custom-group__upload{
   width:160rpx;
 }
+.custom-group__image{
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom:15rpx;
+}
 .custom-group__number{
+  margin-bottom:15rpx;
   color:#999999;
   font-size: 24rpx;
 }

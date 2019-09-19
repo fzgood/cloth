@@ -1,4 +1,4 @@
-<view class="c-upload">
+<view class="c-upload" catchtap="bindUpload">
   <view class="c-upload__box text-center">
     <view class="c-upload__icon iconfont icon-cameraaddfill"></view>
     <view class="c-upload__text mt20">添加图片</view>

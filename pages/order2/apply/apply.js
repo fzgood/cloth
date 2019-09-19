@@ -172,6 +172,12 @@ Page({
    * 支付
    */
   bindApply(){
+    if(!this.data.payId){
+      app.showToast({
+        title: '请选择支付方式',
+      })
+      return;
+    }
 
     const orderLineList = this.data.orderLineVoList.map((item)=>{
       return {
@@ -182,7 +188,8 @@ Page({
     app.$request.post('/order/save', {
       order: {
         collectAddressId: this.data.defaulAddress.id,
-        remarks: this.data.remarks
+        remarks: this.data.remarks,
+        payment: this.data.payId
       },
       orderLineList: orderLineList
     }).then(res=>{

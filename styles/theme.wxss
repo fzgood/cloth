@@ -31,6 +31,13 @@ image, video{
   width:100%;
   height:100%;
 }
+.thumbnail-close{
+  position: absolute;
+  top:0;
+  right:0;
+  font-size: 48rpx;
+  color:var(--mainColor);
+}
 .video-box{
   position: relative;
   width:100%;

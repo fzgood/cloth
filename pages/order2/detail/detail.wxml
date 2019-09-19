@@ -1,20 +1,20 @@
 <view class="detail">
   <view class="mt20 detail-section pd30 bg-white">
     <view class="flex flex-item-center  detail-section__box detail-status">
-      <view class="detail-status__progress detail-status__progress--ing"></view>
+      <view class="detail-status__progress detail-status__progress--ing detail-status__progress--ing{{statusNumber}}"></view>
       <view class="detail-status__item ">
         <view class="detail-status__item--name" >支付</view>
-        <view class="detail-status__item--hook detail-status__item--hook--active"></view>
+        <view class="detail-status__item--hook {{statusNumber ?'detail-status__item--hook--active' :''}}"></view>
       </view>
       <view class="flex-item"></view>
       <view class="detail-status__item ">
         <view class="detail-status__item--name" >发货</view>
-        <view class="detail-status__item--hook detail-status__item--hook--active"></view>
+        <view class="detail-status__item--hook  {{statusNumber >= 50 ?'detail-status__item--hook--active' :''}}"></view>
       </view>
       <view class="flex-item"></view>
       <view class="detail-status__item ">
         <view class="detail-status__item--name" >完成</view>
-        <view class="detail-status__item--hook"></view>
+        <view class="detail-status__item--hook  {{statusNumber >= 100 ?'detail-status__item--hook--active' :''}}"></view>
       </view>
     </view>
   </view>
@@ -76,4 +76,8 @@
       </view>
     </view>
   </view>
+  <view class="detail-flex">
+    <view class="clearButton mainButton--sx round" catchtap="bindApply">立即支付</view>
+  </view>
+  <c-apply id="c-apply" price="{{detail.sumProductPrice}}"></c-apply>
 </view>
