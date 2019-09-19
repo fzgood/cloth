@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "c-join": "/components/c-join/c-join",
-    "c-number": "/components/c-number/c-number"
-  }
-}

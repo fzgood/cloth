@@ -23,7 +23,6 @@ App({
     config: globalConfig
   },
   onLaunch: function () {
-    this.login();
   },
   $request,
   $location,

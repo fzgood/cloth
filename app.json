@@ -1,72 +1,14 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/user/index/index",
-    "pages/order/list/list",
-    "pages/order/apply/apply",
-    "pages/user/address/list/list",
-    "pages/user/address/edit/edit",
-    "pages/carts/carts",
-    "pages/user/edit/edit",
-    "pages/order/detail/detail",
-    "pages/product/list/list",
-    "pages/product/detail/detail",
-    "pages/custom/custom",
-    "pages/order/quickly/quickly",
-    "pages/product/list2/list2",
-    "pages/order2/detail/detail",
-    "pages/order2/apply/apply",
-    "pages/product/search/search",
-    "pages/startup/startup"
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "霸王轮商城",
+    "navigationBarTitleText": "布料商城",
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
-    "c-avatar": "/components/c-avatar/c-avatar",
-    "c-load": "/components/c-load/c-load",
-    "c-image": "/components/c-image/c-image"
-  },
-  "tabBar": {
-    "color": "#808388",
-    "selectedColor": "#eda000",
-    "backgroundColor": "#f7f7f7",
-    "borderStyle": "white",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "产品库",
-        "iconPath": "/images/product.png",
-        "selectedIconPath": "/images/product-active.png"
-      },
-      {
-        "pagePath": "pages/order/quickly/quickly",
-        "text": "快速下单",
-        "iconPath": "/images/quickly.png",
-        "selectedIconPath": "/images/quickly-active.png"
-      },
-      {
-        "pagePath": "pages/custom/custom",
-        "text": "定制轮",
-        "iconPath": "/images/custom.png",
-        "selectedIconPath": "/images/custom-active.png"
-      },
-      {
-        "pagePath": "pages/carts/carts",
-        "text": "购物车",
-        "iconPath": "/images/carts.png",
-        "selectedIconPath": "/images/carts-active.png"
-      },
-      {
-        "pagePath": "pages/user/index/index",
-        "text": "我的",
-        "iconPath": "/images/my.png",
-        "selectedIconPath": "/images/my-active.png"
-      }
-    ]
   },
   "sitemapLocation": "sitemap.json"
 }
