@@ -1,15 +1,15 @@
-<view class="flex c-goods" catchtap="bindJumpPage" data-page="/pages/product/detail/detail">
+<view class="flex c-goods" catchtap="bindJumpPage" data-page="/pages/product/detail/detail?id={{item.productVo.id}}">
   <view class="c-goods__thumbnail mr20">
     <view class="goods-thumbnail">
-      <image mode="aspectFill" src="/images/product.jpg"></image>
+      <c-image mode="aspectFill" src="{{item.productVo.imgLogoSrc}}"></c-image>
     </view>
   </view>
   <view class="flex-item c-goods__middle">
-    <view class="c-goods__title">13# 滑轮R13</view>
-    <view class="mt10 c-goods__intro">宽度16mm 最低高度31mm 可调7mm</view>
+    <view class="c-goods__title">{{item.productVo.name}}</view>
+    <view class="mt10 c-goods__intro">{{item.productVo.attrName}}</view>
   </view>
   <view class="ml20 c-goods__right">
-    <view class="c-goods__fee">9999</view>
-    <view class="mt5 c-goods__number">1</view>
+    <view class="c-goods__fee">{{item.productVo.price}}</view>
+    <view class="mt5 c-goods__number">{{item.qty}}</view>
   </view>
 </view>

@@ -1,18 +1,26 @@
-// pages/order2/detail/detail.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    id: '',
+    detail: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options);
+    this.setData({
+      id: options.id
+    }, ()=>{
+      app.checkLogin(() => {
+        this.getDetail();
+      })
+    })
   },
 
   /**
@@ -62,5 +70,24 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+   * 获取详情
+   */
+  getDetail(){
+    app.$request.post('/order/detail', {
+      id: this.data.id
+    }).then(res=>{
+      var detail = res.data;
+      for (var i = 0, l = detail.orderLineVoList.length ; i<l ;i++){
+        var item = detail.orderLineVoList[i];
+        item.productVo.attrArr = item.productVo.attrName.split(' ');
+      }
+      if(res.code === app.globalData.RESPONSE_CODE.SUCCESS){
+        this.setData({
+          detail: res.data
+        })
+      }
+    });
   }
 })

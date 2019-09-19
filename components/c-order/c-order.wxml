@@ -1,13 +1,26 @@
-<view class="order-item" catchtap='bindJumpPage' data-page="/pages/order2/detail/detail">
+<view class="order-item" catchtap='bindJumpPage' data-page="/pages/order2/detail/detail?id={{item.id}}">
   <view class="flex flex-item-center order-item__hd">
-    <view class="order-item__id flex-item">hfjkh891273hkjashf</view>
-    <view class="ml20 order-item__status">交易成功</view>
+    <view class="order-item__id flex-item">{{item.id}}</view>
+    <view class="ml20 order-item__status">{{item.orderStatusEnum[item.orderStatus]}}</view>
   </view>
-  <c-goods></c-goods>
-  <view class="mt20 text-right order-item__info">共1件商品，合计￥<text class="order-item__fee">9999.00</text></view>
+  <view class="mb20" 
+    wx:for="{{item.orderLineVoList}}" 
+    wx:key="{{productItem.id}}" 
+    wx:for-item="productItem" 
+    wx:for-index="index">
+    <c-goods item="{{productItem}}"></c-goods>
+  </view>
+  <view class=" text-right order-item__info">
+    共{{item.orderLineVoList.length}}件商品，合计￥<text class="order-item__fee">{{item.sumPrice}}</text>
+  </view>
   <view class="mt20 flex flex-justify-end order-item__operation">
     <view class="ml20">
-      <button class=" bg-white clearButton order-item__operation--btn order-item__operation--apply" hover-class="order-item__operation--apply--hover" catchtap='bindJumpPage' data-page="/pages/order2/apply/apply">支付</button>
+      <button 
+        class=" bg-white clearButton order-item__operation--btn order-item__operation--apply"           
+        hover-class="order-item__operation--apply--hover" 
+        catchtap='bindJumpPage' 
+        data-page="/pages/order2/detail/detail?id={{item.id}}"
+      >支付</button>
     </view>
   </view>
 </view>

@@ -12,17 +12,28 @@
             <view class="address-item__text mt10">{{item.prov}}{{item.city}}{{item.area}}{{item.addr}}</view>
           </view>
           <button 
+            wx:if="{{!selectShow}}"
             class="ml10 clearButton address-item__button address-item__button--update iconfont icon-writefill" 
             hover-class='address-item__button--hover'
             catchtap="bindJumpPage" 
             data-page="/pages/user/address/edit/edit?id={{item.id}}">
           </button>
           <button 
+            wx:if="{{!selectShow}}"
             class="ml10 clearButton address-item__button address-item__button--delete iconfont icon-delete_light" 
             hover-class='address-item__button--delete--hover'
             catchtap="bindRemoveItem"
             data-index="{{index}}"
             >
+          </button>
+          <button 
+            wx:if="{{selectShow && item.id != selectId}}"
+            class="ml10 clearButton address-item__button address-item__button--select" 
+            hover-class='address-item__button--hover'
+            catchtap="bindSelect"
+            data-index="{{index}}"
+            >
+            选中
           </button>
         </view>
       </view>

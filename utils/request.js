@@ -1,5 +1,5 @@
-const apiUrl = 'https://cmqplus.goho.co/';
-// const apiUrl = 'http://192.168.31.230:8888/';
+// const apiUrl = 'https://cmqplus.goho.co/';
+const apiUrl = 'http://192.168.31.230:8888/';
 const version = 'V201907225';
 const Request = function () {
   this.apiUrl = apiUrl + version;

@@ -24,7 +24,9 @@
               </swiper>
             </view>
             <view class="ml20 product-level__box">
-              <view class="product-level product-level--active" catchtap='bindToggleLevel'>{{gradeItems[gradeIndex].name}}</view>
+              <view 
+                class="product-level product-level--active" 
+                catchtap='bindToggleLevel'>{{gradeItems[gradeIndex].name}}</view>
               <view class="product-level__select" wx:if="{{levelStatus}}">
                 <view 
                   class="{{index === gradeIndex ?'active':''}}" 

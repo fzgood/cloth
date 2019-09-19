@@ -1,4 +1,6 @@
 const app = getApp();
+let pages = null;
+let prevPage = null;
 Page({
 
   /**
@@ -8,13 +10,19 @@ Page({
     scrollHeight: 0,
     pageNum: 1,
     pageSize: 100,
-    items: []
+    items: [],
+    selectShow: false,
+    selectId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
+    this.setData({
+      selectId: options.selectId || ''
+    })
     app.checkLogin(()=>{
       this.getItems();
     })
@@ -31,6 +39,10 @@ Page({
         scrollHeight: res.height
       })
     }).exec()
+
+    pages = getCurrentPages();
+    prevPage = pages[pages.length - 2];
+    this.getPageInfo();
   },
 
   /**
@@ -115,5 +127,21 @@ Page({
         } 
       }
     })
+  },
+  getPageInfo(){
+    if (prevPage.route === 'pages/order2/apply/apply'){
+      this.setData({
+        selectShow: true
+      })
+    }
+  },
+  bindSelect(e){
+    const index = e.currentTarget.dataset.index;
+    prevPage.setData({
+      defaulAddress: this.data.items[index]
+    }, ()=>{
+      wx.navigateBack();
+    })
+    
   }
 })

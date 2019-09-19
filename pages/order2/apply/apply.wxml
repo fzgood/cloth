@@ -1,12 +1,12 @@
 <view class="flex flex-column apply">
   <view class="flex-item" id="apply-box">
     <scroll-view scroll-y style="{{scrollHeight?'height:'+scrollHeight+'px;':''}}">
-      <view class="apply-section" catchtap="bindJumpPage" data-page="/pages/user/address/address">
+      <view class="apply-section" catchtap="bindJumpPage" data-page="/pages/user/address/list/list?selectId={{defaulAddress.id}}">
         <view class="flex flex-item-center pd30 apply-section__box apply-user ">
           <view class="flex-item flex flex-item-center flex-wrap apply-user__main">
-            <view class="apply-user__name mr20">铁憨憨</view>
-            <view class="flex-item apply-user__phone">13246765751</view>
-            <view class="flex-col__12 mt10 apply-user__address">广东省深圳市福田区莲花山公园</view>
+            <view class="apply-user__name mr20">{{defaulAddress.person}}</view>
+            <view class="flex-item apply-user__phone">{{defaulAddress.tel}}</view>
+            <view class="flex-col__12 mt10 apply-user__address">{{defaulAddress.prov}}{{defaulAddress.city}}{{defaulAddress.area}}{{defaulAddress.addr}}</view>
           </view>
           <view class="apply-user__select iconfont icon-right"></view>
         </view>
@@ -14,41 +14,59 @@
       <view class="apply-section">
         <view class="pd30 apply-section__title">请选择支付方式</view>
         <view class=" apply-section__box apply-type">
-          <view class="flex flex-item-center pd30 apply-section__group">
+          <view class="flex flex-item-center pd30 apply-section__group" catchtap="bindToggleType" data-type="10">
             <image class="apply-section__group--image" src="/images/icon3.png" mode="widthFix"></image>
-            <view class="flex-item apply-section__group--title">线上支付</view>
-            <view class="hook-select hook-select--active"></view>
+            <view class="flex-item apply-section__group--title">{{payObj['10'].name}}</view>
+            <view class="hook-select {{payId == '10' ?'hook-select--active':''}} "></view>
           </view>
-          <view class="flex flex-item-center pd30 apply-section__group">
+          <view class="flex flex-item-center pd30 apply-section__group" catchtap="bindToggleType" data-type="20">
             <image class="apply-section__group--image" src="/images/icon4.png" mode="widthFix"></image>
             <view class="flex-item">
-              <view class="apply-section__group--title">线下支付</view>
+              <view class="apply-section__group--title">{{payObj['20'].name}}</view>
               <view class="mt10 apply-section__group--intro">线下支付提交后,请上传支付凭证照片</view>
             </view>
-            <view class="hook-select"></view>
+            <view class="hook-select  {{payId == '20' ?'hook-select--active':''}} "></view>
           </view>
         </view>
       </view>
-
       <view class="apply-section mt20 ">
         <view class="apply-section__box pd30">
-          <view class="flex goods-item 1">
+          <view class="flex goods-item" wx:for="{{orderLineVoList}}" wx:key="{{item.productId}}">
             <view class="flex-item goods-item__box">
-              <view class="goods-item__title">13#滑轮R13</view>
+              <view class="goods-item__title">{{item.productVo.name}}</view>
               <view class="mt20 goods-item__intro">
-                <view>宽度16mm</view>
-                <view>最低高度31mm</view>
-                <view>可调7mm</view>
+                <view>{{item.productVo.attrName}}</view>
               </view>
             </view>
-            <view class="ml30"><text class="goods-item__unit">￥</text><text class="goods-item__fee">34.5</text></view>
             <view class="ml30">
-              <c-number></c-number>
+              <text class="goods-item__unit">￥</text>
+              <text class="goods-item__fee">{{item.productVo.price}}</text>
+            </view>
+            <view class="ml30">
+              <view class="flex flex-item-center c-number">
+                <view 
+                  class="c-number__operation c-number__operation--reduce" 
+                  catchtap="bindReduceCart" 
+                  data-index="{{index}}"></view>
+                <view 
+                  class="c-number__text" >
+                  <input 
+                    type="number" 
+                    value="{{item.qty}}" 
+                    bindinput="bindInputCart" 
+                    data-index="{{index}}"
+                    ></input>
+                </view>
+                <view 
+                  class="c-number__operation c-number__operation--plus" 
+                  catchtap="bindPlusCart" 
+                  data-index="{{index}}"></view>
+              </view>
             </view>
           </view>
           <view class="mt30 flex flex-item-center apply-order">
-            <view class="flex-item apply-order__name">合计</view>
-            <view class="ml30"><text class="goods-item__unit">￥</text><text class="goods-item__fee">34.5</text></view>
+            <view class="flex-item apply-order__name" number="{{item.qty}}">合计</view>
+            <view class="ml30"><text class="goods-item__unit">￥</text><text class="goods-item__fee">{{totalPrice}}</text></view>
           </view>
         </view>
       </view>
@@ -63,13 +81,13 @@
       <view class="apply-section">
         <view class="pd30 apply-section__title">订单备注</view>
         <view class="apply-section__box pd30">
-          <textarea class="apply-section__remask"></textarea>
+          <textarea class="apply-section__remask" bindinput="bindInputRemarks"></textarea>
         </view>
       </view>
     </scroll-view>
   </view>
   <view class=" apply-ft pd30">
-    <button class="clearButton mainButton--sx round">线上支付￥34.50</button>
+    <button class="clearButton mainButton--sx round" catchtap="bindApply">线上支付￥{{totalPrice}}</button>
     <!-- <view class="apply-ft__name">合计</view>
     <view class="ml30 apply-ft__fee">34.5</view>
     <view class="flex-item"></view>

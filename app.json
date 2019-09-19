@@ -27,7 +27,8 @@
   },
   "usingComponents": {
     "c-avatar": "/components/c-avatar/c-avatar",
-    "c-load": "/components/c-load/c-load"
+    "c-load": "/components/c-load/c-load",
+    "c-image": "/components/c-image/c-image"
   },
   "tabBar": {
     "color": "#808388",

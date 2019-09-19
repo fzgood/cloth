@@ -33,8 +33,9 @@ Page({
     this.data.id = options.id;
     app.checkLogin(()=>{
       this.getCategory().then(res=>{
+        console.log(res);
         this.setData({
-          categoryId: res[0].id
+          categoryId: res.length ? res[0].id : ''
         }, ()=>{
           this.getData();
         });
@@ -151,6 +152,9 @@ Page({
               id: key,
               name: res.data.gradeMap[key]
             })
+          }
+          if (!res.data.attrList){
+            res.data.attrList = [];
           }
           res.data.attrList.unshift({
             id: '',

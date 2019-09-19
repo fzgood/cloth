@@ -20,27 +20,25 @@
   </view>
   <view class="mt20 detail-section pd30 bg-white">
     <view class="detail-section__box flex flex-wrap flex-item-center detail-user">
-      <view class="detail-user__name mr20">詹富政</view>
-      <view class="flex-item detail-user__phone">13246765751</view>
-      <view class="mt10 flex-col__12 detail-user__address">广东省深圳市福田区莲花山公园</view>
+      <view class="detail-user__name mr20">{{detail.collectAddress.person}}</view>
+      <view class="flex-item detail-user__phone">{{detail.collectAddress.tel}}</view>
+      <view class="mt10 flex-col__12 detail-user__address">{{detail.collectAddress.prov}}{{detail.collectAddress.city}}{{detail.collectAddress.area}}{{detail.collectAddress.addr}}</view>
     </view>
   </view>
   <view class="mt20 detail-section  bg-white">
     <view class="detail-section__box detail-product pd30">
-      <view class="flex flex-item-center flex-wrap detail-product__item">
+      <view class="flex flex-item-center flex-wrap detail-product__item" wx:for="{{detail.orderLineVoList}}" wx:key="{{item.id}}">
         <view class="flex-item detail-product__item--name text-wrap">13#滑轮R13</view>
-        <view class="ml40 detail-product__item--number">1</view>
-        <view class="ml40 detail-product__item--fee">33.5</view>
+        <view class="ml40 detail-product__item--number">{{item.qty}}</view>
+        <view class="ml40 detail-product__item--fee">{{item.price}}</view>
         <view class="flex-col__12 mt20 detail-product__item--intro">
-          <view>宽度16mm</view>
-          <view>最低高度31mm</view>
-          <view>可调7mm</view>
+          <view wx:for="{{item.productVo.attrArr}}" wx:for-index="listIndex" wx:for-item="list" wx:key="{{listIndex}}">{{list}}</view>
         </view>
       </view>
     </view>
     <view class="flex flex-item-center detail-section__box detail-total pd30">
       <view class="flex-item detail-total__name">合计</view>
-      <view class="detail-total__fee">43.5</view>
+      <view class="detail-total__fee">{{detail.sumProductPrice}}</view>
     </view>
   </view>
   <view class="mt20 detail-section bg-white pd30">
@@ -54,7 +52,7 @@
       <view class="detail-section__title">订单信息</view>
       <view class="flex detail-section__group">
         <view class="detail-section__group--name">订单号：</view>
-        <view class="flex-item detail-section__group--text">1545 4212 9839 0400 66</view>
+        <view class="flex-item detail-section__group--text">{{detail.id}}</view>
       </view>
       <view class="flex detail-section__group">
         <view class="detail-section__group--name">交易单号：</view>
@@ -74,7 +72,7 @@
       </view>
       <view class="flex detail-section__group">
         <view class="detail-section__group--name">订单备注：</view>
-        <view class="flex-item detail-section__group--text">轻拿轻放</view>
+        <view class="flex-item detail-section__group--text">{{detail.remarks}}</view>
       </view>
     </view>
   </view>
