@@ -1,0 +1,9 @@
+<view class="c-product" hover-class="c-product--hover" catchtap="bindJumpPage" data-page="/pages/product/detail/detail">
+  <view class="goods-thumbnail c-product__thumbnail">
+    <c-image src="/images/product.jpg"></c-image>
+  </view>
+  <view class="c-product__box mt10">
+    <view class="c-product__name text-wrap">GABRIELLE小号流浪包</view>
+    <view class="mt10 c-product__price">26000</view>
+  </view>
+</view>

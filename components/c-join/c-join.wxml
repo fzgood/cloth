@@ -5,11 +5,11 @@
     <view class="flex flex-item-end c-product-hd">
       <view class="c-product-thumbnail mr20">
         <view class="goods-thumbnail">
-          <image mode="aspectFill" src="https://alienware.dell-brand.com/fy200130/images/ALW15M-4501B.jpg"></image>
+          <image mode="aspectFill" src="/images/product.jpg"></image>
         </view>
       </view>
       <view class="c-product-hd__box mt10">
-        <view class="c-product-fee">499.00</view>
+        <view class="c-product-fee">26000</view>
         <view class="c-product-id">编号:5188756464</view>
       </view>
     </view>

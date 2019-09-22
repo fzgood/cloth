@@ -24,40 +24,9 @@ page{
 .home-category__item--name{
   color:#464646;
 }
-.home-store__logo{
-  width:60rpx;
-  border-radius: 2px;
-  overflow: hidden;
-}
-.home-store__name{
-  font-size: 24rpx;
-}
-.home-store__number{
-  color:#999;
-  font-size: 20rpx;
-}
-.home-store__like{
-  padding:10rpx 30rpx;
-  color:#fff;
-  font-size: 24rpx;
-  background-color:var(--mainColor);
-  border-radius: 25px;
-}
-.home-store__swiper{
-  height: 270rpx;
-}
-.home-store__item{
-  padding-right: 20rpx;
-}
-.home-store__item--thumbnail{
-  border-radius: 5px;
-  overflow: hidden;
-}
-.home-store__item--price{
-  color:var(--secondColor);
-  font-size: 24rpx;
-}
-.home-store__item--price::before{
-  content:'￥';
-  font-size: 20rpx;
+.home-recommend__title{
+  padding-left:20rpx;
+  font-size: 32rpx;
+  line-height: 1;
+  border-left: 3px solid var(--mainColor);
 }

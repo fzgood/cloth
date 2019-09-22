@@ -1,0 +1,27 @@
+<view class="flex list">
+  <view class="list-left mr40">
+    <scroll-view scroll-y>
+      <view class="list-menu">
+        <view class="list-menu__item ">
+          <view class="iconfont icon-search list-menu__item__icon"></view>
+          <!-- <view class="mt10">搜索</view> -->
+        </view>
+        <view class="list-menu__item list-menu__item--active">推荐</view>
+        <view class="list-menu__item" wx:for="{{categorys}}" wx:key="{{index}}">{{item}}</view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="list-right flex-item">
+    <scroll-view scroll-y>
+      <view class="list-wrap">
+        <view class="flex flex-wrap flex-pd-lr">
+          <view class="flex-col__6" wx:for="{{20}}" wx:key="{{index}}">
+            <view class="mb20 ">
+              <c-product></c-product>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

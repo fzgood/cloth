@@ -3,10 +3,93 @@
   font-size: 28rpx;
 }
 @import "./styles/theme";
-page{
-  font-size: 28rpx;
-  background-color:#f2f2f2;
-}
-page,textarea,button,view{
+ 
+page, view, textarea,cover-view,button,image {
   box-sizing: border-box;
+}
+page{
+  width:100vw;
+  font-size: 28rpx;
+  overflow-x: hidden;
+  background-color:#f7f7f7;
+}
+ 
+image{
+  width: 100%;
+  max-width: 100%;
+}
+ 
+
+
+/*数量*/
+.c-number{
+  text-align: center;
+  border-radius: 25px;
+  border:1px solid var(--mainColor);
+}
+.c-number__text {
+  width: 60rpx;
+}
+.c-number__operation{
+  position: relative;
+  width: 44rpx;
+  height: 44rpx;
+  font-size: 32rpx;
+  border-radius: 50%;
+}
+.c-number__operation:last-child{
+  background-color:var(--mainColor);
+}
+.c-number__operation--reduce::after,
+.c-number__operation--plus::before,
+.c-number__operation--plus::after{
+  content:'';
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width:50%;
+  height: 50%;
+  background-color:#fff;
+}
+ 
+.c-number__operation--reduce::after{
+  height: 3rpx;
+  background-color:var(--mainColor);
+}
+ 
+.c-number__operation--plus::before{
+  width: 3rpx;
+}
+.c-number__operation--plus::after{
+  height: 3rpx;
+}
+
+
+/*打钩选中*/
+.hook-select{
+  position: relative;
+  border-radius: 50%;
+  width:40rpx;
+  height:40rpx;
+  text-align: center;
+  font-size: 24rpx;
+  border:1px solid #999999;
+  background-color:#fff;
+  transform:rotate(-45deg);
+}
+.hook-select--active{
+  border-color: var(--mainColor);
+  background-color: var(--mainColor);
+}
+.hook-select::after{
+  content:'';
+  position: absolute;
+  top:50%;
+  left:50%;
+  height: 8rpx;
+  width: 16rpx;
+  border-left:2px solid #fff;
+  border-bottom:2px solid #fff;
+  transform: translate(-50%, -50%) ;
 }

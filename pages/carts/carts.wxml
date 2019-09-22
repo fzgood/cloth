@@ -1,0 +1,60 @@
+<view class="flex flex-column carts">
+  <view class="flex-item carts-box" id="carts-box">
+    <scroll-view scroll-y style="height:{{scrollHeight}}px;">
+      <view class="carts-wrap">
+        <view class="mb20 carts-number">已添加{{2}}件商品</view>
+        <view class="flex flex-item-center carts-item" wx:for="{{10}}" wx:key="{{index}}">
+          <view 
+          class="hook-select {{true ?'hook-select--active':''}} " 
+          catchtap="bindSetCheck" 
+          data-index="{{index}}"></view>
+          <view class="ml20 mr20 carts-item__thumbnail">
+            <view class="goods-thumbnail">
+              <c-image mode="aspectFill" src="/images/product.jpg"></c-image>
+            </view>
+          </view>
+          <view class="flex-item carts-item__box">
+            <view class="flex flex-item-center">
+              <view class="flex-item carts-item__title text-wrap">GABRIELLE小号流浪包</view>
+              <view class="ml20 iconfont icon-delete_light" catchtap="bindRemoveCart" data-index="{{index}}"></view>
+            </view>
+            <view class="mt10 carts-item__intro">精致 小巧 方便携带</view>
+            <view class="mt10 flex flex-item-center">
+              <view class="flex-item carts-item__fee">￥20</view>
+              <view class="ml20 ">
+                <view class="flex flex-item-center c-number">
+                  <view 
+                    class="c-number__operation c-number__operation--reduce" 
+                    catchtap="bindReduceCart" 
+                    data-index="{{index}}"></view>
+                  <view class="c-number__text" >
+                    <input 
+                      type="number" 
+                      value="{{1}}" 
+                      bindinput="bindInputCarts"
+                      data-index="{{index}}"
+                    ></input>
+                  </view>
+                  <view 
+                    class="c-number__operation c-number__operation--plus" 
+                    catchtap="bindPlusCart" 
+                    data-index="{{index}}"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="flex flex-item-center carts-ft">
+    <view class="carts-all" catchtap="bindToggleAll">
+      <text class="hook-select {{true ?'hook-select--active':''}} "></text>
+      <text class="ml10 carts-all__text">全选</text>
+    </view>
+    <view class="flex-item carts-fee text-right">
+      总计：￥0
+    </view>
+    <button class="ml20 clearButton carts-apply round" catchtap="bindJumpPage" data-page="/pages/order/apply/apply">结算</button>
+  </view>
+</view>

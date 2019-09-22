@@ -1,0 +1,95 @@
+<form >
+  <view class="flex flex-column user-edit">
+    <view class="flex-item user-bd">
+      <scroll-view scroll-y>
+        <view class="pd40 bg-white ">
+          <view class="user-edit__avatar" catchtap='bindUpload'>
+            <c-avatar url="{{userInfo.headFile.src}}"></c-avatar>
+          </view>
+        </view>
+        <view class="mt30 bg-white user-edit__section">
+          <view class="flex flex-item-center user-edit__group">
+            <view class="user-edit__group--name">昵称</view>
+            <view class="flex-item user-edit__group--in">
+              <input placeholder='昵称' name="nickName" value="{{userInfo.member.nickName}}"></input>
+            </view>
+          </view>
+          <view class="flex flex-item-center user-edit__group">
+            <view class="user-edit__group--name">联系电话</view>
+            <view class="flex-item user-edit__group--in">
+              <view wx:if="{{userInfo.member.tel}}" >
+                {{userInfo.member.tel}}<input hidden name="tel" value="{{userInfo.member.tel}}"></input>
+              </view>
+              <view wx:else class="placeholder">请获取电话</view>
+            </view>
+            <button class="ml20 clearButton user-edit__group--btn" 
+            open-type="getPhoneNumber" 
+            bindgetphonenumber="bindgetphonenumber">获取电话</button>
+          </view>
+          <view class="flex flex-item-center user-edit__group">
+            <view class="user-edit__group--name">联系邮箱</view>
+            <view class="flex-item user-edit__group--in">
+              <input placeholder='联系邮箱' name="email" value="{{userInfo.member.email}}"></input>
+            </view>
+          </view>
+          <view class="flex flex-item-center user-edit__group" wx:if="{{false}}">
+            <view class="user-edit__group--name">出生日期</view>
+            <view class="flex-item user-edit__group--in">
+              <picker mode="date" value="{{userInfo.member.birthday}}" bindchange="bindDateChange" name="birthday">
+                <view class="picker" wx:if="{{userInfo.member.birthday}}">{{userInfo.member.birthday}}</view>
+                <view wx:else class="placeholder">出生日期</view>
+              </picker>
+            </view>
+          </view>
+          
+          <view class="flex flex-item-center user-edit__group">
+            <view class="user-edit__group--name">所在城市</view>
+            <view class="flex-item user-edit__group--in">
+              <picker 
+                mode="region" 
+                bindchange="bindRegionChange" 
+                value="{{region}}" 
+                custom-item="{{customItem}}" name="region">
+                <view wx:if="{{region[0]}}">{{region[0]}}-{{region[1]}}-{{region[2]}}</view>
+                <view wx:else class="placeholder">所在城市</view>
+              </picker>
+            </view>
+          </view>
+            
+          <view class="flex flex-item-center user-edit__group">
+            <view class="user-edit__group--name">详细地址</view>
+            <view class="flex-item user-edit__group--in">
+              <input placeholder='详细地址' name="addr"  value="{{userInfo.member.addr}}"></input>
+            </view>
+          </view>
+        </view>
+        <view class="mt30 bg-white user-edit__section" wx:if="{{!model}}">
+          <view class="flex user-edit__group">
+            <view class="user-edit__group--name">个人简介</view>
+            <view class="flex-item user-edit__group--in">
+              <textarea placeholder='个人简介' name="introduction" value="{{userInfo.member.introduction}}"></textarea>
+            </view>
+          </view>
+        </view>  
+      </scroll-view>
+    </view>
+    <view class="user-ft pd20 bg-white">
+      <button class="clearButton mainButton--sx"  form-type="submit">保存信息</button>
+    </view>
+  </view>
+</form>
+ 
+<view class="user-model" wx:if="{{model}}">
+  <view class="user-model__box">
+    <view class="user-model__title text-center">授权</view>
+    <view class="mt40 user-model__intro ">您是第一次登陆，是否授权获取基本信息？</view>
+    <view class="mt40 flex flex-item-center">
+      <view class="flex-item pr20">
+        <button class="clearButton user-model__btn ">取消</button>
+      </view>
+      <view class="flex-item pl20">
+        <button class="clearButton user-model__btn user-model__btn--confirm " open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">同意</button>
+      </view>
+    </view>
+  </view>
+</view>

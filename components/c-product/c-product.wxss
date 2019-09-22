@@ -1,0 +1,16 @@
+.c-product{
+  padding:20rpx;
+  background-color:#fff;
+  border:1px solid var(--borderColor);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.c-product__price{
+  color:var(--secondColor);
+}
+.c-product__price::before{
+  content: '￥';
+}
+.c-product--hover{
+  background-color: #fafafa;
+}

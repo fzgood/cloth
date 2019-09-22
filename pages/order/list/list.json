@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "c-tab": "/components/c-tab/c-tab",
+    "c-order": "/components/c-order/c-order"
+  }
+}

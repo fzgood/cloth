@@ -9,11 +9,11 @@ Component({
   properties: {
     src: {
       type: String,
-      url: ''
+      value: ''
     },
     mode: {
       type: String,
-      url: ''
+      value: 'widthFix'
     },
     flag: {
       type: Boolean,

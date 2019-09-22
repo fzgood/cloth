@@ -1,0 +1,97 @@
+.apply{
+  height: 100vh;
+}
+.apply-section__title{
+  color:#878787;
+  font-size: 24rpx;
+}
+.apply-section__box{
+  background-color:#fff;
+}
+.apply-user__address{
+  color:#999;
+  font-size: 24rpx;
+}
+.apply-user__select{
+  font-size: 32rpx;
+}
+.apply-user__nodata--title{
+  font-size: 32rpx;
+}
+.apply-user__nodata--intro{
+  color:#999;
+}
+.apply-section__group{
+  border-bottom:1px solid var(--borderColor);
+}
+.apply-section__group:last-child{
+  border-bottom:0;
+}
+.apply-section__group--image{
+  margin-right: 20rpx;
+  width: 50rpx;
+  max-height: 50rpx;
+}
+.apply-section__group--title{
+}
+.apply-section__group--intro{
+  color:#999;
+  font-size: 24rpx;
+}
+.goods-item{
+  margin-bottom:30rpx;
+}
+.goods-item:last-child{
+  margin-bottom:0;
+}
+.goods-item__intro{
+  color:#999;
+  font-size: 24rpx;
+}
+.goods-item__intro view{
+  margin-bottom:10rpx;
+}
+.goods-item__intro view::before{
+  content:'-';
+  margin-right: 5px;
+}
+.goods-item__intro view:last-child{
+  margin-bottom:0;
+}
+.goods-item__unit{
+  font-size: 24rpx;
+  font-weight: bold;
+}
+.goods-item__fee{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.apply-ft{
+  /* background-color:#333333; */
+}
+.apply-ft__name{
+  color:var(--assist1);
+  font-size: 32rpx;
+}
+.apply-ft__fee{
+  color:#fff;
+  font-size: 36rpx;
+}
+.apply-ft__fee::before{
+  content:'￥';
+  font-size: 24rpx;
+}
+.apply-payment{
+  padding-left:60rpx;
+  color:#c9c9c9;
+  font-size: 32rpx;
+  border-left:1px solid #c9c9c9;
+}
+.apply-ft__icon{
+  color:#c9c9c9;
+  font-size: 40rpx;
+}
+.apply-section__remask{
+  height: 4.2em;
+  line-height: 1.4em;
+}

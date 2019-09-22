@@ -1,0 +1,33 @@
+.list{
+  height: 100vh;
+}
+scroll-view{
+  height: 100%;
+}
+.list-left{
+  background-color:#fff;
+}
+.list-menu__item{
+  padding:25rpx 0;
+  width:100rpx;
+  text-align: center;
+  border-bottom:1px solid var(--borderColor);
+}
+.list-menu__item--active{
+  position: relative;
+  color:var(--mainColor);
+  background-color:#f7f7f7;
+  border-bottom-color:transparent;
+}
+.list-menu__item--active::before{
+  content:'';
+  position: absolute;
+  left:0;
+  top:0;
+  width:3px;
+  height: 100%;
+  background-color: var(--mainColor);
+}
+.list-menu__item__icon{
+  font-size: 48rpx;
+}

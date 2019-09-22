@@ -1,0 +1,48 @@
+<swiper class="detail-swiper">
+  <swiper-item >
+    <view class="goods-thumbnail">
+      <c-image src="/images/product.jpg"></c-image>
+    </view>
+  </swiper-item>
+</swiper>
+<view class="pd20 flex bg-white detail-hd">
+  <view class="flex-item">
+    <view class="detail-title">GABRIELLE小号流浪包</view>
+    <view class="mt10 detail-price">26000</view>
+  </view>
+  <view class="ml30 detail-collect detail-collect--active " catchtap="bindCollect">
+    <view class="iconfont icon-favor_fill_light detail-collect__icon"></view>
+    <view class="mt5 detail-collect__text">收藏</view>
+  </view>
+</view>
+<view class="pd20 mt20 bg-white">
+  <view class="detail-group flex">
+    <view class="mr20 detail-group__name">宝贝描述</view>
+    <view class="flex-item detail-group__text">精致 小巧 方便携带</view>
+  </view>
+  <view class="detail-group flex">
+    <view class="mr20 detail-group__name">宝贝编号</view>
+    <view class="flex-item detail-group__text">W16S27P4-235</view>
+  </view>
+  <view class="detail-group flex">
+    <view class="mr20 detail-group__name">宝贝尺寸</view>
+    <view class="flex-item detail-group__text">长235x宽16</view>
+  </view>
+</view>
+<view class="mt20 pd20 detail-bd bg-white">
+  <view class="detail-bd__title">宝贝详情</view>
+  <view class="mt20">
+    <c-image src="/images/product.jpg"></c-image>
+  </view>
+</view>
+<view class="flex flex-item-center flex-justify-end carts">
+  <view class="flex-item"></view>
+  <view wx:if="{{detail.productCart && detail.productCart.qty}}" class="carts-number">1</view>
+  <view class="ml10">
+    <button class="clearButton carts-btn carts-btn__add round" catchtap="bindOpenApply">加入购物车</button>
+  </view>
+  <view class="ml30">
+    <button class="clearButton carts-btn carts-btn__shop round" catchtap="bindJumpCart">立即购买</button>
+  </view>
+</view>
+<c-join id="joinCart" item="{{detail}}" bind:getNumber="bindGetNumber"></c-join>

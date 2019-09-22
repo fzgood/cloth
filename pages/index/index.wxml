@@ -17,38 +17,19 @@
     </view>
   </view>
   <view class="mt20 pd10 bg-white flex flex-item-center flex-wrap home-category">
-    <view class="pd20 flex-column__5 home-category__item" wx:for="{{5}}">
+    <view class="pd20 flex-column__5 home-category__item" wx:for="{{5}}" wx:key="{{index}}">
       <view class="goods-thumbnail">
         <c-image src="/images/category.png"></c-image>
       </view>
       <view class="mt10 home-category__item--name text-center">衬衫</view>
     </view>
   </view>
-  <view class="mt20 pd30 bg-white home-store"  wx:for="{{3}}" wx:key="{{index}}">
-    <view class="flex flex-item-center home-store__hd">
-      <view class="home-store__logo mr20">
-        <view class="goods-thumbnail">
-          <c-image src="/images/chanel.jpg"></c-image>
-        </view>
+  <view class=" bg-white mt30 pd30 home-recommend">
+    <view class="home-recommend__title">商品推荐</view>
+    <view class=" home-recommend__box flex flex-wrap flex-pd-lr">
+      <view class="flex-col__6 mt20" wx:for="{{10}}" wx:key="{{index}}">
+        <c-product></c-product>
       </view>
-      <view class="flex-item">
-        <view class="home-store__name">CHANEL</view>
-        <view class="mt5 home-store__number">106款</view>
-      </view>
-      <button class="clearButton home-store__like">关注店铺</button>
-    </view>
-    <view class="mt20 home-store__bd">
-      <swiper class="home-store__swiper" next-margin="30px" display-multiple-items="3">
-        <swiper-item wx:for="{{5}}">
-          <view class="home-store__item">
-            <view class="goods-thumbnail home-store__item--thumbnail">
-              <c-image src="/images/product.jpg"></c-image>
-            </view>
-            <view class="mt10 text-wrap home-store__item--name">GABRIELLE小号流浪包</view>
-            <view class="home-store__item--price">26,400</view>
-          </view>
-        </swiper-item>
-      </swiper>
     </view>
   </view>
 </view>

@@ -1,0 +1,72 @@
+<view class="user">
+  <view class="pd30 user-hd ">
+    <view class="flex flex-item-center user-box">
+      <view class="user-box__avatar mr20">
+        <c-avatar url="{{userInfo.headFile.src}}"></c-avatar>
+      </view>
+      <view class="flex-item user-info ">
+        <view class=" user-name text-wrap">超级麦炫酷</view>
+        <view class="mt10 user-level ">钻石会员</view>
+      </view>
+      <view class="user-edit iconfont icon-write" catchtap="bindJumpPage" data-page="/pages/user/edit/edit"></view>
+    </view>
+    <view class="flex flex-item-center user-statistics text-center">
+      <view class="flex-item user-statistics__item">
+        <view class="user-statistics__item--number">165</view>
+        <view class="user-statistics__item--name">我的收藏</view>
+      </view>
+      <view class="flex-item user-statistics__item">
+        <view class="user-statistics__item--number">58</view>
+        <view class="user-statistics__item--name">我买过的</view>
+      </view>
+      <view class="flex-item user-statistics__item">
+        <view class="user-statistics__item--number">723</view>
+        <view class="user-statistics__item--name">我的积分</view>
+      </view>
+    </view>
+  </view>
+  <view class="mt30 pd20 bg-white flex flex-item-center user-order text-center">
+    <view class="flex-item user-order__item" catchtap="bindJumpPage" data-page="/pages/order/list/list">
+      <view class="user-order__item--icon iconfont icon-calendar" ></view>
+      <view class="user-order__item--name">全部订单</view>
+    </view>
+    <view class="flex-item user-order__item" catchtap="bindJumpPage" data-page="/pages/order/list/list">
+      <view class="user-order__item--icon iconfont icon-pay"></view>
+      <view class="user-order__item--name">待付款</view>
+    </view>
+    <view class="flex-item user-order__item" catchtap="bindJumpPage" data-page="/pages/order/list/list">
+      <view class="user-order__item--icon iconfont icon-goods"></view>
+      <view class="user-order__item--name">待发货</view>
+    </view>
+    <view class="flex-item user-order__item" catchtap="bindJumpPage" data-page="/pages/order/list/list">
+      <view class="user-order__item--icon iconfont icon-deliver"></view>
+      <view class="user-order__item--name">待收货</view>
+    </view>
+    <view class="flex-item user-order__item" >
+      <view class="user-order__item--icon iconfont icon-service"></view>
+      <view class="user-order__item--name">售后</view>
+    </view>
+  </view>
+  <view class="mt30 bg-white user-menu">
+    <view class="flex flex-item-center user-menu__item" catchtap='bindJumpPage' data-page="/pages/user/address/list/list">
+      <view class="mr20 user-menu__item--icon iconfont icon-location"></view>
+      <view class="flex-item user-menu__item--name">地址管理</view>
+      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
+    </view>
+    <view class="flex flex-item-center user-menu__item">
+      <view class="mr20 user-menu__item--icon iconfont icon-refund"></view>
+      <view class="flex-item user-menu__item--name">退货信息</view>
+      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
+    </view>
+    <view class="flex flex-item-center user-menu__item">
+      <view class="mr20 user-menu__item--icon iconfont icon-service"></view>
+      <view class="flex-item user-menu__item--name">联系客服</view>
+      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
+    </view>
+    <view class="flex flex-item-center user-menu__item">
+      <view class="mr20 user-menu__item--icon iconfont icon-info"></view>
+      <view class="flex-item user-menu__item--name">系统信息</view>
+      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
+    </view>
+  </view>
+</view>
