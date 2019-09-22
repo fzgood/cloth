@@ -10,7 +10,8 @@
     "pages/user/address/edit/edit",
     "pages/user/edit/edit",
     "pages/upload/upload",
-    "pages/product/detail/detail"
+    "pages/product/detail/detail",
+    "pages/order/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

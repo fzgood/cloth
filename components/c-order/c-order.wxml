@@ -1,4 +1,4 @@
-<view class="order-item" catchtap='bindJumpPage' data-page="/pages/order2/detail/detail?id={{item.id}}">
+<view class="order-item" catchtap='bindJumpPage' data-page="/pages/order/detail/detail?id={{item.id}}">
   <view class="flex flex-item-center order-item__hd">
     <view class="order-item__id flex-item">20190922142905756181</view>
     <view class="ml20 order-item__status">待付款</view>
