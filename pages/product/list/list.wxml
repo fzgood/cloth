@@ -6,18 +6,22 @@
           <view class="iconfont icon-search list-menu__item__icon"></view>
           <!-- <view class="mt10">搜索</view> -->
         </view>
-        <view class="list-menu__item list-menu__item--active">推荐</view>
-        <view class="list-menu__item" wx:for="{{categorys}}" wx:key="{{index}}">{{item}}</view>
+        <view class="list-menu__item {{0 == index ?'list-menu__item--active':''}}" wx:for="{{categorys}}" wx:key="{{index}}">{{item}}</view>
       </view>
     </scroll-view>
   </view>
   <view class="list-right flex-item">
     <scroll-view scroll-y>
-      <view class="list-wrap">
+      <view class="list-wrap pd20 bg-white">
         <view class="flex flex-wrap flex-pd-lr">
-          <view class="flex-col__6" wx:for="{{20}}" wx:key="{{index}}">
-            <view class="mb20 ">
-              <c-product></c-product>
+          <view class="flex-col__4 category-item" wx:for="{{20}}" wx:key="{{index}}">
+            <view class="mb30 ">
+              <view class="category-item__img">
+                <view class="goods-thumbnail">
+                  <c-image src="/images/category.png"></c-image>
+                </view>
+              </view>
+              <view class="mt5 category-item__name text-center">衬衫</view>
             </view>
           </view>
         </view>
