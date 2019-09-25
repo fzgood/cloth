@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "c-product": "/components/c-product/c-product"
-  }
+  },
+  "disableScroll": true
 }

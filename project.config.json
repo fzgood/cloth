@@ -20,7 +20,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.8.2",
+	"libVersion": "2.8.3",
 	"appid": "wx24453eaf714c4600",
 	"projectname": "Roller",
 	"debugOptions": {

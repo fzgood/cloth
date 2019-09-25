@@ -15,7 +15,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#963c48",
+    "navigationBarBackgroundColor": "#f33537",
     "navigationBarTitleText": "布料商城",
     "navigationBarTextStyle": "white"
   },
@@ -25,7 +25,7 @@
   },
   "tabBar": {
     "color": "#818181",
-    "selectedColor": "#963c48",
+    "selectedColor": "#f33537",
     "backgroundColor": "#ffffff",
     "borderStyle": "white",
     "list": [

@@ -1,38 +1,73 @@
-<view class="company">
-  <view class="pd30 bg-white flex flex-item-top flex-wrap company-hd box-shadow">
-    <view class="flex-item company-info">
-      <view class="company-name">香奈儿</view>
-      <view class="mt10 flex flex-item-center company-address">
-        <view class="mr10 iconfont icon-locationfill company-address__icon"></view>
-        <view>广东省深圳市福田区莲花山公园</view>
+<view class="home">
+  <scroll-view scroll-y>
+    <view class="bg"></view>
+    <view class="company ">
+      <view class="pd30">
+        <view class="pd30 bg-white flex flex-item-top flex-wrap company-hd box-shadow">
+          <view class="mt20 mr30 company-logo box-shadow">
+            <view class="goods-thumbnail">
+              <c-image src="/images/chanel.jpg"></c-image>
+            </view>
+          </view>
+          <view class="flex-item company-info">
+            <view class="company-name">香奈儿</view>
+            <view class="mt10 flex flex-item-center company-address">
+              <view class="mr10 iconfont icon-locationfill company-address__icon"></view>
+              <view>广东省深圳市福田区莲花山公园</view>
+            </view>
+            <view class="mt10 company-intro">香奈儿品牌,秉承创始人嘉柏丽尔•香奈儿女士划时代的创新理念与前瞻创意,成为现代女性美学的风向标。</view>
+          </view>
+          <view class="pt40 flex-col__12 flex flex-justify-center">
+            <view class="pr20">
+              <button class="clearButton company-btn company-btn--share">分享商家</button>
+            </view>
+            <view class="pl20">
+              <button class="clearButton company-btn">联系商家</button>
+            </view>
+          </view>
+        </view>
+        <view class=" mt30 company-banner">
+          <swiper>
+            <swiper-item>
+              <view class="company-banner__item">
+                <c-image src="/images/banner.jpg" mode="aspectFill"></c-image>
+              </view>
+            </swiper-item>
+          </swiper>
+        </view>
       </view>
-      <view class="mt10 company-intro">香奈儿品牌,秉承创始人嘉柏丽尔•香奈儿女士划时代的创新理念与前瞻创意,成为现代女性美学的风向标。</view>
-      <view></view>
+      <view class="company-product ">
+        <view class="pd30 flex flex-item-end company-product__hd">
+          <view class="mr10 iconfont icon-hotfill company-product__hd--icon"></view>
+          <view class="company-product__title">限时抢购</view>
+          <view class="ml20 company-product__small">每日十点准时开抢</view>
+        </view>
+        <view class="pd30 ">
+          <view 
+            class="company-product__item   " 
+            wx:for="{{10}}" 
+            wx:key="{{index}}" 
+            catchtap="bindJumpPage" 
+            data-page="/pages/product/detail/detail">
+            <view class="company-product__item--thumbnail">
+              <c-image src="/images/cl.png" mode="aspectFill"></c-image>
+              <view class="company-product__item--hots" wx:if="{{index == 0}}">今日爆卖</view>
+            </view>
+            <view class="mt20 company-product__item--title text-wrap">流韵100%全遮光窗帘北欧2019新款隔音客厅遮阳布卧室防晒现代简约</view>
+            <view class="mt10 company-product__item--intro">流韵100%全遮光窗帘北欧2019新款隔音客厅遮阳布卧室防晒现代简约</view>
+            <view class="mt10 flex flex-item-center">
+              <view class="flex-item">
+                <view class=" company-product__item--price">26888.00</view>
+                <view class="mt10 flex flex-item-center">
+                  <view class="company-product__item--number">已抢<text>751</text></view>
+                  <view class="company-product__item--number">分享<text>1177</text></view>
+                </view>
+              </view>
+              <button class="ml30 clearButton company-product__item--btn round">立即抢购</button>
+            </view>
+          </view>
+        </view>
+      </view>
     </view>
-    <view class="mt20 ml30 company-logo box-shadow">
-      <view class="goods-thumbnail">
-        <c-image src="/images/chanel.jpg"></c-image>
-      </view>
-    </view>
-    <view class="pt40 flex-col__12 flex flex-justify-center">
-      <view class="pr20">
-        <button class="clearButton company-btn company-btn--share">分享商家</button>
-      </view>
-      <view class="pl20">
-        <button class="clearButton company-btn">联系商家</button>
-      </view>
-    </view>
-  </view>
-  <view class="company-product pd30">
-    <view class="company-product__item pd20 bg-white box-shadow" wx:for="{{10}}" wx:key="{{index}}" catchtap="bindJumpPage" data-page="/pages/product/detail/detail">
-      <view class="company-product__item--thumbnail">
-        <c-image src="/images/cl.png" mode="aspectFill"></c-image>
-      </view>
-      <view class="mt20 company-product__item--title">流韵100%全遮光窗帘北欧2019新款隔音客厅遮阳布卧室防晒现代简约</view>
-      <view class="mt10 flex flex-item-center">
-        <view class="flex-item company-product__item--price">26888.00</view>
-        <button class="ml30 clearButton company-product__item--btn">查看详情</button>
-      </view>
-    </view>
-  </view>
+  </scroll-view>
 </view>

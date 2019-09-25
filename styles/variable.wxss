@@ -1,5 +1,6 @@
 page:root{
-  --mainColor: #963c48;
+  --mainColor: #f33537;
+  --mainColor2: #fa632f;
   --secondColor: #f43530;
   --bgColor:#f7eae3;
   --bgMask: rgba(0,0,0, 0.6);

@@ -1,72 +1,62 @@
-<view class="user">
-  <view class="pd30 user-hd ">
-    <view class="flex flex-item-center user-box">
-      <view class="user-box__avatar mr20">
-        <c-avatar url="{{userInfo.headFile.src}}"></c-avatar>
+<scroll-view scroll-y>
+  <view class="bg"></view>
+  <view class="user pd30">
+    <view class="flex flex-item-center user-hd">
+      <view class="user-avatar mr20">
+        <c-avatar></c-avatar>
       </view>
-      <view class="flex-item user-info ">
-        <view class=" user-name text-wrap">超级麦炫酷</view>
-        <view class="mt10 user-level ">钻石会员</view>
+      <view class="flex-item user-hd__box">
+        <view class="user-name">铁敢敢</view>
+        <view class="mt10 user-recommend">邀请ID：MFAPYHAD</view>
       </view>
-      <view class="user-edit iconfont icon-write" catchtap="bindJumpPage" data-page="/pages/user/edit/edit"></view>
     </view>
-    <view class="flex flex-item-center user-statistics text-center">
-      <view class="flex-item user-statistics__item">
-        <view class="user-statistics__item--number">165</view>
-        <view class="user-statistics__item--name">我的收藏</view>
+    <view class="mt30 pd20 bg-white flex flex-item-center user-order text-center box-shadow sm-round">
+      <view class="flex-item user-order__item" catchtap="bindJumpPage" data-page="/pages/order/list/list">
+        <view class="user-order__item--icon iconfont icon-calendar" ></view>
+        <view class="user-order__item--name">全部订单</view>
       </view>
-      <view class="flex-item user-statistics__item">
-        <view class="user-statistics__item--number">58</view>
-        <view class="user-statistics__item--name">我买过的</view>
+      <view class="flex-item user-order__item" catchtap="bindJumpPage" data-page="/pages/order/list/list">
+        <view class="user-order__item--icon iconfont icon-pay"></view>
+        <view class="user-order__item--name">待付款</view>
       </view>
-      <view class="flex-item user-statistics__item">
-        <view class="user-statistics__item--number">723</view>
-        <view class="user-statistics__item--name">我的积分</view>
+      <view class="flex-item user-order__item" catchtap="bindJumpPage" data-page="/pages/order/list/list">
+        <view class="user-order__item--icon iconfont icon-goods"></view>
+        <view class="user-order__item--name">待发货</view>
       </view>
+      <view class="flex-item user-order__item" catchtap="bindJumpPage" data-page="/pages/order/list/list">
+        <view class="user-order__item--icon iconfont icon-deliver"></view>
+        <view class="user-order__item--name">待收货</view>
+      </view>
+      <view class="flex-item user-order__item" >
+        <view class="user-order__item--icon iconfont icon-service"></view>
+        <view class="user-order__item--name">售后</view>
+      </view>
+    </view>
+    <view class="bg-white pd30 mt30 sm-round box-shadow flex flex-item-center user-mall">
+      <view class="iconfont icon-moneybagfill user-mall__icon mr20"></view>
+      <view class="flex-item user-mall__name">我要开店</view>
+      <view class="iconfont icon-right user-mall__right"></view>
+    </view>
+    <view class="mt30 pd20 bg-white user-menu box-shadow sm-round ">
+      <view class="flex flex-item-center flex-pd-lr text-center">
+        <view class="flex-col__3 user-menu__item user-menu__item--address" catchtap='bindJumpPage' data-page="/pages/user/address/list/list">
+          <view class="mr20 user-menu__item--icon iconfont icon-location"></view>
+          <view class="flex-item user-menu__item--name">我的地址</view>
+        </view>
+        <view class="flex-col__3 user-menu__item user-menu__item--problem">
+          <view class="mr20 user-menu__item--icon iconfont icon-info"></view>
+          <view class="flex-item user-menu__item--name">常见问题</view>
+        </view>
+        <view class="flex-col__3 user-menu__item user-menu__item--about">
+          <view class="mr20 user-menu__item--icon iconfont icon-creative"></view>
+          <view class="flex-item user-menu__item--name">关于我们</view>
+        </view>
+        <view class="flex-col__3 user-menu__item user-menu__item--service">
+          <view class="mr20 user-menu__item--icon iconfont icon-service "></view>
+          <view class="flex-item user-menu__item--name">在线客服</view>
+        </view>
+      </view>
+      
     </view>
   </view>
-  <view class="mt30 pd20 bg-white flex flex-item-center user-order text-center">
-    <view class="flex-item user-order__item" catchtap="bindJumpPage" data-page="/pages/order/list/list">
-      <view class="user-order__item--icon iconfont icon-calendar" ></view>
-      <view class="user-order__item--name">全部订单</view>
-    </view>
-    <view class="flex-item user-order__item" catchtap="bindJumpPage" data-page="/pages/order/list/list">
-      <view class="user-order__item--icon iconfont icon-pay"></view>
-      <view class="user-order__item--name">待付款</view>
-    </view>
-    <view class="flex-item user-order__item" catchtap="bindJumpPage" data-page="/pages/order/list/list">
-      <view class="user-order__item--icon iconfont icon-goods"></view>
-      <view class="user-order__item--name">待发货</view>
-    </view>
-    <view class="flex-item user-order__item" catchtap="bindJumpPage" data-page="/pages/order/list/list">
-      <view class="user-order__item--icon iconfont icon-deliver"></view>
-      <view class="user-order__item--name">待收货</view>
-    </view>
-    <view class="flex-item user-order__item" >
-      <view class="user-order__item--icon iconfont icon-service"></view>
-      <view class="user-order__item--name">售后</view>
-    </view>
-  </view>
-  <view class="mt30 bg-white user-menu">
-    <view class="flex flex-item-center user-menu__item" catchtap='bindJumpPage' data-page="/pages/user/address/list/list">
-      <view class="mr20 user-menu__item--icon iconfont icon-location"></view>
-      <view class="flex-item user-menu__item--name">地址管理</view>
-      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
-    </view>
-    <view class="flex flex-item-center user-menu__item">
-      <view class="mr20 user-menu__item--icon iconfont icon-refund"></view>
-      <view class="flex-item user-menu__item--name">退货信息</view>
-      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
-    </view>
-    <view class="flex flex-item-center user-menu__item">
-      <view class="mr20 user-menu__item--icon iconfont icon-service"></view>
-      <view class="flex-item user-menu__item--name">联系客服</view>
-      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
-    </view>
-    <view class="flex flex-item-center user-menu__item">
-      <view class="mr20 user-menu__item--icon iconfont icon-info"></view>
-      <view class="flex-item user-menu__item--name">系统信息</view>
-      <view class="ml20 user-menu__item--arrow iconfont icon-right"></view>
-    </view>
-  </view>
-</view>
+</scroll-view>
