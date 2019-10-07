@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/product/list/list",
+    "pages/product/category/category",
     "pages/user/index/index",
     "pages/carts/carts",
     "pages/order/list/list",
@@ -11,7 +12,8 @@
     "pages/user/edit/edit",
     "pages/upload/upload",
     "pages/product/detail/detail",
-    "pages/order/detail/detail"
+    "pages/order/detail/detail",
+    "pages/product/filter/filter"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -37,7 +39,7 @@
       },
       {
         "text": "分类",
-        "pagePath": "pages/product/list/list",
+        "pagePath": "pages/product/category/category",
         "iconPath": "/images/list.png",
         "selectedIconPath": "/images/list-active.png"
       },

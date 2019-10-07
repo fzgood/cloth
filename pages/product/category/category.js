@@ -6,26 +6,21 @@ Page({
    */
   data: {
     categorys: ['棉布', '麻布', '丝绸', '呢绒', '化纤', '混纺'],
-    scrollHeight: 0,
-    statusBarHeight: 20,
+    searchShow: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getInfo();
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.createSelectorQuery().select('#list-box').boundingClientRect(rect=> {
-      this.setData({
-        scrollHeight: rect.height  // 节点的高度
-      })
-    }).exec()
+
   },
 
   /**
@@ -69,20 +64,12 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getInfo(){
-    wx.getSystemInfo({
-      success: (res) => {
-        this.setData({
-          statusBarHeight: res.statusBarHeight
-        })
-      }
+  bindOpenSearch(){
+    this.setData({
+      searchShow: true
     })
-    // const obj = wx.getMenuButtonBoundingClientRect();
   },
-  bindGoBack(){
-    wx.navigateBack();
-  },
-  bindJumpPage(e) {
+  bindJumpPage(e){
     app.jumpPage(e.currentTarget.dataset.page);
   }
 })

@@ -23,6 +23,7 @@ const pages = {
   '/pages/product/list2/list2': [0, 1],
   '/pages/product/detail/detail': [0, 1],
   '/pages/product/search/search': [0, 1],
-  '/pages/custom/custom': [0, 1]
+  '/pages/custom/custom': [0, 1],
+  '/pages/product/filter/filter': [0, 1]
 }
 export default pages;

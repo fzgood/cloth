@@ -1,0 +1,40 @@
+ <view class="flex flex-column filter">
+  <view class="flex-item filter-bd" id="filter-box">
+    <scroll-view scroll-y style="height:{{scrollHeight}}px">
+      <view class="filter-section bg-white">
+        <view class="pd20 filter-section__title">颜色</view>
+        <view class="pd10 flex flex-item-center flex-wrap filter-section__box text-center">
+          <view class="flex-col__4 " wx:for="{{9}}">
+            <view class="flex-section__item">
+              黑色  
+            </view>
+          </view>
+        </view>
+      </view> 
+      <view class="filter-section bg-white">
+        <view class="pd20 filter-section__title">款式</view>
+        <view class="pd10 flex flex-item-center flex-wrap filter-section__box text-center">
+          <view class="flex-col__4 " wx:for="{{9}}">
+            <view class="flex-section__item">
+              丝绸  
+            </view>
+          </view>
+        </view>
+      </view> 
+      <view class="filter-section bg-white">
+        <view class="pd20 filter-section__title">上市时间</view>
+        <view class="pd10 flex flex-item-center flex-wrap filter-section__box text-center">
+          <view class="flex-col__4 " wx:for="{{9}}">
+            <view class="flex-section__item">
+              2019年春季  
+            </view>
+          </view>
+        </view>
+      </view> 
+    </scroll-view>
+  </view>
+  <view class="flex flex-item-center filter-ft">
+    <view class="flex-item filter-ft__item">重置</view>
+    <view class="flex-item filter-ft__item filter-ft__item--confirm">确认</view>
+  </view>
+ </view>

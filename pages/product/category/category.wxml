@@ -1,0 +1,42 @@
+<view class="flex flex-column menu">
+  <view class="pd30 menu-hd ">
+    <view class="flex flex-item-center flex-justify-center menu-search" catchtap="bindOpenSearch">
+      <view class="mr20 iconfont icon-search menu-search__icon"></view>
+      <view class=" menu-search__text" wx:if="{{!searchShow}}">全遮光窗帘布</view>
+      <input class="flex-item menu-search__input" wx:else ></input>
+    </view>
+  </view>
+  <view class="flex-item flex">
+    <view class="menu-left">
+      <scroll-view scroll-y>
+        <view class="menu-level1">
+          <view 
+            class="menu-level1__item {{0 == index ?'menu-level1__item--active':''}}" 
+            wx:for="{{categorys}}" 
+            wx:key="{{index}}">{{item}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="flex-item menu-right">
+      <scroll-view scroll-y>
+        <view class="pd20 ">
+          <view class="menu-section mb30" wx:for="{{4}}" wx:key="{{index}}">
+            <view class="menu-section__title">热门窗帘</view>
+            <view class="mt30 flex flex-wrap flex-pd-lr">
+              <view class="flex-col__4 menu-level2__item" wx:for="{{9}}" wx:key="{{index}}" catchtap="bindJumpPage" data-page="/pages/product/list/list">
+                <view class="mb30 ">
+                  <view class="menu-level2__item--img">
+                    <view class="goods-thumbnail">
+                      <c-image src="/images/category.png"></c-image>
+                    </view>
+                  </view>
+                  <view class="mt5 menu-level2__item--name text-center">衬衫</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

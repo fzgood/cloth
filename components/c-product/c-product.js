@@ -7,7 +7,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    index: {
+      type: Number,
+      value: 0
+    }
   },
 
   /**

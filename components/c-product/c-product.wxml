@@ -1,9 +1,21 @@
-<view class="c-product" hover-class="c-product--hover" catchtap="bindJumpPage" data-page="/pages/product/detail/detail">
-  <view class="goods-thumbnail c-product__thumbnail">
-    <c-image src="/images/product.jpg"></c-image>
+<view 
+  class="company-product__item " 
+  catchtap="bindJumpPage" 
+  data-page="/pages/product/detail/detail">
+  <view class="company-product__item--thumbnail">
+    <c-image src="/images/cl.png" mode="aspectFill"></c-image>
+    <view class="company-product__item--hots" wx:if="{{index == 0}}">今日爆卖</view>
   </view>
-  <view class="c-product__box mt10">
-    <view class="c-product__name text-wrap">GABRIELLE小号流浪包</view>
-    <view class="mt10 c-product__price">26000</view>
+  <view class="mt20 company-product__item--title text-wrap">流韵100%全遮光窗帘北欧2019新款隔音客厅遮阳布卧室防晒现代简约</view>
+  <view class="mt10 company-product__item--intro">流韵100%全遮光窗帘北欧2019新款隔音客厅遮阳布卧室防晒现代简约</view>
+  <view class="mt10 flex flex-item-center">
+    <view class="flex-item">
+      <view class=" company-product__item--price">26888.00</view>
+      <view class="mt10 flex flex-item-center">
+        <view class="company-product__item--number">已抢<text>751</text></view>
+        <view class="company-product__item--number">分享<text>1177</text></view>
+      </view>
+    </view>
+    <button class="ml30 clearButton company-product__item--btn round">立即抢购</button>
   </view>
 </view>

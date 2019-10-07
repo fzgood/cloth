@@ -1,29 +1,27 @@
-<view class="flex list">
-  <view class="list-left mr40">
-    <scroll-view scroll-y>
-      <view class="list-menu">
-        <view class="list-menu__item ">
-          <view class="iconfont icon-search list-menu__item__icon"></view>
-          <!-- <view class="mt10">搜索</view> -->
-        </view>
-        <view class="list-menu__item {{0 == index ?'list-menu__item--active':''}}" wx:for="{{categorys}}" wx:key="{{index}}">{{item}}</view>
-      </view>
-    </scroll-view>
+<view class="flex flex-column list">
+  <view class="list-status bg-mainColor" style="height:{{statusBarHeight}}px"></view>
+  <view class=" bg-white list-hd flex flex-item-center">
+    <view class="mr20 list-goback iconfont icon-back" catchtap="bindGoBack"></view>
+    <view class="flex-item flex flex-item-center list-search">
+      <view class="mr20 list-search__icon iconfont icon-search"></view>
+      <input class="flex-item list-search__input"></input>
+    </view>
+    <view style="width:97px"></view>
   </view>
-  <view class="list-right flex-item">
-    <scroll-view scroll-y>
-      <view class="list-wrap pd20 bg-white">
-        <view class="flex flex-wrap flex-pd-lr">
-          <view class="flex-col__4 category-item" wx:for="{{20}}" wx:key="{{index}}">
-            <view class="mb30 ">
-              <view class="category-item__img">
-                <view class="goods-thumbnail">
-                  <c-image src="/images/category.png"></c-image>
-                </view>
-              </view>
-              <view class="mt5 category-item__name text-center">衬衫</view>
-            </view>
-          </view>
+  <view class="bg-white flex flex-item-center list-sort text-center">
+    <view class="flex-item list-sort__item list-sort__item--active">默认</view>
+    <view class="flex-item list-sort__item ">价格</view>
+    <view class="flex-item list-sort__item ">销量</view>
+    <view class="flex-item flex flex-item-center list-filter flex-justify-center" catchtap="bindJumpPage" data-page="/pages/product/filter/filter">
+      <view class="list-filter__text">筛选</view>
+      <view class="list-filter__icon iconfont icon-filter"></view>
+    </view>
+  </view>
+  <view class="flex-item list-bd bg-white" id="list-box">
+    <scroll-view scroll-y style="height:{{scrollHeight}}px">
+      <view class="pd30">
+        <view class="mb30 " wx:for="{{10}}" wx:key="{{index}}">
+          <c-product index="{{index}}"></c-product>
         </view>
       </view>
     </scroll-view>
