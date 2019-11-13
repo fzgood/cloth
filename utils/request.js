@@ -1,15 +1,12 @@
-// const apiUrl = 'https://cmqplus.goho.co/';
-const apiUrl = 'http://192.168.31.230:8888/';
-const version = 'V201907225';
+const apiUrl = 'https://jionghui.weplus.tech/';
+const version = 'api';
 const Request = function () {
   this.apiUrl = apiUrl + version;
-  this.data = {
-    'client': 'wechat_applet',
-    'companyId': '1',
-    'latitude': 0,
-    'longitude': 0,
-    'token': ''
+  this.header = {
+    storeId: '',
+    token: ''
   }
+  this.data = {}
 }
 
 Request.prototype.use = function(fn){
@@ -17,23 +14,21 @@ Request.prototype.use = function(fn){
   return this;
 }
 
-Request.prototype.getToken = function(){
-  this.data.token = wx.getStorageSync('token');
+Request.prototype.before = function(){
+  this.header.token = wx.getStorageSync('token');
+  this.header.storeId = wx.getStorageSync('storeId');
+  this.header['content-type'] = 'application/x-www-form-urlencoded';
 }
 
 Request.prototype.get = function (url, data) {
-  this.getToken();
-  var header = {
-    'content-type': 'application/json'
-  };
+  this.before();
   const params = Object.assign({}, this.data, data);
-  console.log(params);
   return new Promise((resolve, reject) => {
     wx.request({
       url: this.apiUrl + url, //仅为示例，并非真实的接口地址
       data: params,
       method: 'get',
-      header: header,
+      header: this.header,
       success(res) {
         if (res.statusCode === 200) {
           var data = res.data;
@@ -52,17 +47,14 @@ Request.prototype.get = function (url, data) {
 
 
 Request.prototype.post = function (url, data) {
-  this.getToken();
-  var header = {
-    'content-type': 'application/json'
-  };
+  this.before();
   const params = Object.assign({}, this.data, data);
   return new Promise((resolve, reject)=> {
     wx.request({
       url: this.apiUrl + url, //仅为示例，并非真实的接口地址
       data: params,
       method: 'post',
-      header: header,
+      header: this.header,
       success(res) {
         if (res.statusCode === 200) {
           var data = res.data;

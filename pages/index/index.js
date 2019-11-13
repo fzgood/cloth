@@ -3,15 +3,27 @@ const app = getApp()
 Page({
   data: {
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    /**
+     * 分享出去的必须带上商铺ID 分享进来 打开获取得到
+     */
+    app.setStoreId(options.storeId || '1184024953542000640')
+    app.checkLogin(()=>{
 
+    })
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    /**
+     * 分享出去的时候一定要带上商铺ID 不然用户打开 无法通过商铺ID 找到对应的商家
+     */
+    const storeId = wx.getStorageSync('storeId');
+    return {
+      path: `/pages/index/index${storeId}`
+    }
   },
   bindJumpPage(e){
     const page = e.currentTarget.dataset.page;
