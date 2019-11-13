@@ -33,13 +33,11 @@ App({
       wx.login({
         success: res=> {
           if (res.code) {
-            console.log(res.code);
             this.$request.post('/member/wxOauth2Login', {
               wxOauthCode: res.code
             }).then(res=>{
-              console.log(res);
               if (res.code === this.globalData.RESPONSE_CODE.SUCCESS){
-            
+                resolve()
               }
             })
           } else {
@@ -51,7 +49,9 @@ App({
   },
   checkLogin(fn){
     if(!wx.getStorageSync('token')){
-      this.login()
+      this.login().then(res => {
+        fn && fn()
+      });
     }else{
       wx.checkSession({
         success() {
@@ -70,6 +70,6 @@ App({
    * 存储商铺id到缓存中
    */
   setStoreId(id){
-    wx.setStorageSync('storeId', id)
+    wx.setStorageSync('storeId', id || '1184024953542000640')
   }
 })

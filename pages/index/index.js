@@ -2,14 +2,17 @@ const app = getApp()
 
 Page({
   data: {
+    store:{},
+    items: []
   },
   onLoad: function (options) {
     /**
      * 分享出去的必须带上商铺ID 分享进来 打开获取得到
      */
-    app.setStoreId(options.storeId || '1184024953542000640')
+    app.setStoreId(options.storeId)
     app.checkLogin(()=>{
-
+      this.getStoreInfo();
+      this.getItems()
     })
   },
 
@@ -29,4 +32,22 @@ Page({
     const page = e.currentTarget.dataset.page;
     app.jumpPage(page);
   },
+  getStoreInfo(){
+    app.$request.get('/store').then(res=>{
+      if (res.code === app.globalData.RESPONSE_CODE.SUCCESS){
+        this.setData({
+          store: res.data
+        })
+      }
+    });
+  },
+  getItems(){
+    app.$request.get('/goods/indexList').then(res=>{
+      if (res.code === app.globalData.RESPONSE_CODE.SUCCESS) {
+        this.setData({
+          items: res.data
+        })
+      }
+    })
+  }
 })

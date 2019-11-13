@@ -6,20 +6,20 @@
         <view class="pd30 bg-white flex flex-item-top flex-wrap company-hd box-shadow">
           <view class="mt20 mr30 company-logo box-shadow">
             <view class="goods-thumbnail">
-              <c-image src="/images/chanel.jpg"></c-image>
+              <c-image src="{{store.logo}}"></c-image>
             </view>
           </view>
           <view class="flex-item company-info">
-            <view class="company-name">香奈儿</view>
+            <view class="company-name">{{store.linkname}}</view>
             <view class="mt10 flex flex-item-center company-address">
               <view class="mr10 iconfont icon-locationfill company-address__icon"></view>
-              <view>广东省深圳市福田区莲花山公园</view>
+              <view>{{store.addres}}</view>
             </view>
-            <view class="mt10 company-intro">香奈儿品牌,秉承创始人嘉柏丽尔•香奈儿女士划时代的创新理念与前瞻创意,成为现代女性美学的风向标。</view>
+            <view class="mt10 company-intro">{{store.remarks}}</view>
           </view>
           <view class="pt40 flex-col__12 flex flex-justify-center">
             <view class="pr20">
-              <button class="clearButton company-btn company-btn--share">分享商家</button>
+              <button class="clearButton company-btn company-btn--share" open-type="share">分享商家</button>
             </view>
             <view class="pl20">
               <button class="clearButton company-btn">联系商家</button>
@@ -43,8 +43,8 @@
           <view class="ml20 company-product__small">每日十点准时开抢</view>
         </view>
         <view class="pd30 ">
-          <view class="mb30 " wx:for="{{10}}" wx:key="{{index}}">
-            <c-product  index="{{index}}"></c-product>
+          <view class="mb30 " wx:for="{{items}}" wx:key="{{item}}">
+            <c-product  index="{{index}}" item="{{item}}"></c-product>
           </view>
         </view>
       </view>

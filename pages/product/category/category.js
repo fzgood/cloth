@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    categorys: ['棉布', '麻布', '丝绸', '呢绒', '化纤', '混纺'],
+    categorys: [],
     searchShow: false
   },
 
@@ -13,7 +13,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.checkLogin(()=>{
+      this.getCategory()
+    })
   },
 
   /**
@@ -58,12 +60,6 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   bindOpenSearch(){
     this.setData({
       searchShow: true
@@ -71,5 +67,14 @@ Page({
   },
   bindJumpPage(e){
     app.jumpPage(e.currentTarget.dataset.page);
+  },
+  getCategory(){
+    app.$request.get('/goods/categoryList').then(res=>{
+      if(res.code === app.globalData.RESPONSE_CODE.SUCCESS){
+        this.setData({
+          categorys: res.data
+        })
+      }
+    })
   }
 })

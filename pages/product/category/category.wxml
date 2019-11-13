@@ -13,7 +13,7 @@
           <view 
             class="menu-level1__item {{0 == index ?'menu-level1__item--active':''}}" 
             wx:for="{{categorys}}" 
-            wx:key="{{index}}">{{item}}</view>
+            wx:key="{{item.id}}">{{item.name}}</view>
         </view>
       </scroll-view>
     </view>
